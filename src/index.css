@@ -1,0 +1,40 @@
+:root {
+  --color-bg: #faf6f0;
+  --color-white: #ffffff;
+  --color-heading: #35302f;
+  --color-body: #7a7370;
+  --color-border: #ece4dc;
+  --color-border-strong: #c6c6c6;
+  --color-sage: #8fa89b;
+  --color-sage-bg: #edf2ee;
+  --color-rose: #d29797;
+  --color-rose-bg: #f8ecec;
+
+  --font-heading: 'Young Serif', Georgia, serif;
+  --font-body: 'Manrope', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--color-body);
+  background: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

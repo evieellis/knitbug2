@@ -1,0 +1,28 @@
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  outline-offset: 2px;
+}
+
+.arrow-link--sage {
+  color: var(--color-sage);
+}
+
+.arrow-link--rose {
+  color: var(--color-rose);
+}
+
+.arrow-link:hover {
+  text-decoration: underline;
+}
+
+.arrow-link__icon {
+  width: 20px;
+  height: 20px;
+}

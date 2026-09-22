@@ -1,0 +1,27 @@
+.needle-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px 0;
+}
+
+.needle-divider__dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.needle-divider__line {
+  width: 100%;
+  max-width: 600px;
+  height: 2px;
+  flex-shrink: 1;
+}
+
+.needle-divider__tip {
+  width: 10px;
+  height: 9px;
+  flex-shrink: 0;
+  transform: rotate(90deg);
+}
