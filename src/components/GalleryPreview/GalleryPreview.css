@@ -10,6 +10,10 @@
 }
 
 .gallery-preview__search {
+  /* Sits above the card's whole-card stretched link (see Button.css .btn--stretched)
+     so typing in the search field never triggers card navigation. */
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -19,6 +23,7 @@
   border: 1px solid var(--color-border);
   border-radius: 99px;
   box-sizing: border-box;
+  cursor: text;
 }
 
 .gallery-preview__search-icon {

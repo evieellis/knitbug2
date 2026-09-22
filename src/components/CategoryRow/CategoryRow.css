@@ -1,0 +1,175 @@
+.category-row {
+  width: 100%;
+  padding: 20px;
+  background: var(--color-white);
+  border-radius: 2px;
+}
+
+.category-row__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.category-row__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-row__label {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--color-heading);
+}
+
+.category-row__description {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-body);
+}
+
+.category-row__see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-rose);
+  text-decoration: none;
+  outline-offset: 2px;
+}
+
+.category-row__see-more:hover {
+  text-decoration: underline;
+}
+
+.category-row__see-more-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.category-row__gallery {
+  position: relative;
+}
+
+.category-row__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Fade width tuned to sit roughly behind the overlaid arrow button. */
+.category-row__viewport--fade-right {
+  mask-image: linear-gradient(to right, black 0, black calc(100% - 72px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 72px), transparent 100%);
+}
+
+.category-row__viewport--fade-left {
+  mask-image: linear-gradient(to right, transparent 0, black 72px, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 72px, black 100%);
+}
+
+.category-row__viewport--fade-both {
+  mask-image: linear-gradient(to right, transparent 0, black 72px, black calc(100% - 72px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 72px, black calc(100% - 72px), transparent 100%);
+}
+
+/* Overlaid directly on the first/last picture, vertically centered on the
+   160px image height (not the taller card, which includes the caption). */
+.category-row__pager-btn {
+  position: absolute;
+  top: 80px;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  padding: 0;
+  background: rgba(53, 48, 47, 0.55);
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.category-row__pager-btn--prev {
+  left: 12px;
+}
+
+.category-row__pager-btn--next {
+  right: 12px;
+}
+
+.category-row__pager-btn:hover:not(:disabled) {
+  background: rgba(53, 48, 47, 0.75);
+}
+
+.category-row__pager-btn:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+.category-row__pager-icon {
+  width: 16px;
+  height: 16px;
+  /* The source icon is rose-colored, so a plain invert() gave a muddy tint
+     instead of white; force it fully white regardless of source color. */
+  filter: brightness(0) invert(1);
+}
+
+.category-row__pager-icon--prev {
+  transform: scaleX(-1);
+}
+
+.category-row__swatches {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+@keyframes category-row-slide-next {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes category-row-slide-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.category-row__swatches--next {
+  animation: category-row-slide-next 0.25s ease;
+}
+
+.category-row__swatches--prev {
+  animation: category-row-slide-prev 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-row__swatches--next,
+  .category-row__swatches--prev {
+    animation: none;
+  }
+}

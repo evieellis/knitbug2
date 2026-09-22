@@ -1,4 +1,5 @@
 .option-card {
+  position: relative;
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
@@ -12,6 +13,17 @@
   border-radius: 24px;
   box-sizing: border-box;
   text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.option-card:has(.btn--stretched:hover) {
+  box-shadow: 0 8px 16px rgba(58, 53, 52, 0.08);
+}
+
+.option-card:has(.btn--stretched:focus-visible) {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
 }
 
 .option-card__heading-group {

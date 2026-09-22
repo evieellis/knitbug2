@@ -9,6 +9,8 @@ import chevronLeft from '../assets/icons/chevron-left.svg'
 import arrowRightWhite from '../assets/icons/arrow-right-white.svg'
 import arrowRightDark from '../assets/icons/arrow-right-dark.svg'
 import magnifyingGlass from '../assets/icons/magnifying-glass.png'
+import arrowRightRoseSm from '../assets/icons/arrow-right-rose-sm.svg'
+import xClose from '../assets/icons/x-close.svg'
 
 export const icons = {
   bug,
@@ -21,4 +23,6 @@ export const icons = {
   arrowRightWhite,
   arrowRightDark,
   magnifyingGlass,
+  arrowRightRoseSm,
+  xClose,
 }

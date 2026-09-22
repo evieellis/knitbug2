@@ -7,9 +7,9 @@ const arrowByTone = {
   rose: icons.arrowRightRose,
 }
 
-function ArrowLink({ href, tone = 'sage', children }) {
+function ArrowLink({ href, tone = 'sage', stretch, children }) {
   return (
-    <Link to={href} className={`arrow-link arrow-link--${tone}`}>
+    <Link to={href} className={`arrow-link arrow-link--${tone}${stretch ? ' arrow-link--stretched' : ''}`}>
       {children}
       <img src={arrowByTone[tone]} className="arrow-link__icon" alt="" />
     </Link>

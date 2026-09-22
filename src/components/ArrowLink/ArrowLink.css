@@ -26,3 +26,12 @@
   width: 20px;
   height: 20px;
 }
+
+/* Extends this link's clickable area to fill the nearest positioned ancestor
+   (a card), so the whole card is clickable while staying a single real link. */
+.arrow-link--stretched::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}

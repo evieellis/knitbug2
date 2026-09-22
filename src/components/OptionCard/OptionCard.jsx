@@ -32,6 +32,7 @@ function OptionCard(option) {
         href={href}
         variant={isQuestionnaire ? 'solid' : 'outline'}
         icon={isQuestionnaire ? icons.arrowRightWhite : icons.arrowRightDark}
+        stretch
       >
         {ctaLabel}
       </Button>

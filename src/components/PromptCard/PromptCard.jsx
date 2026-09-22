@@ -7,7 +7,7 @@ function PromptCard({ tone, badgeLabel, title, description, ctaLabel, href, emph
       <span className={`prompt-card__badge prompt-card__badge--${tone}`}>{badgeLabel}</span>
       <p className="prompt-card__title">{title}</p>
       <p className="prompt-card__description">{description}</p>
-      <ArrowLink href={href} tone={tone}>
+      <ArrowLink href={href} tone={tone} stretch>
         {ctaLabel}
       </ArrowLink>
     </div>
