@@ -1,0 +1,157 @@
+/* Fixed size (matching Figma, which uses the same 872x698 frame for both the
+   unshaken and shaken states) rather than auto-sizing to content — otherwise
+   the card itself resizes/jumps on reveal, on top of the internal glide,
+   which reads as a stutter instead of one smooth motion. */
+.eightball-popup {
+  position: relative;
+  width: 872px;
+  max-width: calc(100vw - 48px);
+  height: 698px;
+  max-height: calc(100svh - 48px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.eightball-popup__close {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 52px;
+  padding: 0;
+  background: var(--color-rose);
+  border: 2px solid var(--color-heading);
+  border-radius: 16px;
+  box-shadow: 0 4px 0 rgba(53, 48, 47, 0.15);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.eightball-popup__close:focus-visible {
+  outline: 2px solid var(--color-heading);
+  outline-offset: 2px;
+}
+
+.eightball-popup__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.eightball-popup__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 28px;
+  color: var(--color-heading);
+}
+
+.eightball-popup__subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-body);
+}
+
+.eightball-popup__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.eightball-popup__ball-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+}
+
+.eightball-popup__shake-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 277px;
+  max-width: 100%;
+  height: 79px;
+  padding: 16px 32px;
+  background: var(--color-rose);
+  border: 2px solid var(--color-heading);
+  border-radius: 16px;
+  box-shadow: 0 4px 0 rgba(53, 48, 47, 0.15);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.eightball-popup__shake-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.eightball-popup__shake-btn:disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+.eightball-popup__shake-btn:focus-visible {
+  outline: 2px solid var(--color-heading);
+  outline-offset: 2px;
+}
+
+/* Collapsed to zero width until revealed — since the row is centered, growing
+   this slot pushes the ball column left, producing the "glide left" effect
+   purely from the width transition, no explicit position animation needed. */
+.eightball-popup__result-slot {
+  flex: 0 0 0;
+  width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: flex-basis 0.6s cubic-bezier(0.22, 1, 0.36, 1), width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    margin-left 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease 0.2s;
+}
+
+.eightball-popup__result-slot--visible {
+  flex: 0 0 384px;
+  width: 384px;
+  margin-left: 32px;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eightball-popup__result-slot {
+    transition-duration: 0.01s;
+  }
+}
+
+@media (max-width: 640px) {
+  .eightball-popup__row {
+    flex-wrap: wrap;
+  }
+
+  .eightball-popup__result-slot--visible {
+    flex-basis: 100%;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
+}

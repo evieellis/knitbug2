@@ -13,18 +13,24 @@ export const searchPlaceholder = 'Search for a mistake...'
 // the next/prev paging — swap these for real additional photos when you have them.
 // An uneven last page is fine: it just leaves a little empty space instead of
 // clipping a photo, which is intentional (see CategoryRow's fade-viewport CSS).
-const placeholderSwatches = (categoryId) => [
-  { id: 1, image: gallerySwatches.swatch1, caption: 'Dropped Stitches Var 1', href: `/mistakes/${categoryId}/1` },
-  { id: 2, image: gallerySwatches.swatch2, caption: 'Dropped Stitches Var 2', href: `/mistakes/${categoryId}/2` },
-  { id: 3, image: gallerySwatches.swatch3, caption: 'Dropped Stitches Var 3', href: `/mistakes/${categoryId}/3` },
-  { id: 4, image: gallerySwatches.swatch4, caption: 'Dropped Stitches Var 4', href: `/mistakes/${categoryId}/4` },
-  { id: 5, image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 5', href: `/mistakes/${categoryId}/5` },
-  // Var 5 repeats as page 2's first item, since page 1's copy sits under the fade.
-  { id: '5-repeat', image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 5', href: `/mistakes/${categoryId}/5` },
-  { id: 6, image: gallerySwatches.swatch3, caption: 'Dropped Stitches Var 6', href: `/mistakes/${categoryId}/6` },
-  { id: 7, image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 7', href: `/mistakes/${categoryId}/7` },
-  { id: 8, image: gallerySwatches.swatch1, caption: 'Dropped Stitches Var 8', href: `/mistakes/${categoryId}/8` },
-]
+//
+// Every swatch links to the same one mistake-overview page for its category (there's
+// no per-photo detail page in the design) — same target as the row's own "Learn More".
+const placeholderSwatches = (categoryId) => {
+  const href = `/mistakes/${categoryId}`
+  return [
+    { id: 1, image: gallerySwatches.swatch1, caption: 'Dropped Stitches Var 1', href },
+    { id: 2, image: gallerySwatches.swatch2, caption: 'Dropped Stitches Var 2', href },
+    { id: 3, image: gallerySwatches.swatch3, caption: 'Dropped Stitches Var 3', href },
+    { id: 4, image: gallerySwatches.swatch4, caption: 'Dropped Stitches Var 4', href },
+    { id: 5, image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 5', href },
+    // Var 5 repeats as page 2's first item, since page 1's copy sits under the fade.
+    { id: '5-repeat', image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 5', href },
+    { id: 6, image: gallerySwatches.swatch3, caption: 'Dropped Stitches Var 6', href },
+    { id: 7, image: gallerySwatches.swatch5, caption: 'Dropped Stitches Var 7', href },
+    { id: 8, image: gallerySwatches.swatch1, caption: 'Dropped Stitches Var 8', href },
+  ]
+}
 
 export const categories = [
   {

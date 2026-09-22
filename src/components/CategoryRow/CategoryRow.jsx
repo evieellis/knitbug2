@@ -14,7 +14,7 @@ function chunk(items, size) {
   return pages
 }
 
-function CategoryRow({ label, description, seeMoreHref, swatches }) {
+function CategoryRow({ label, description, seeMoreHref, swatches, showSeeMore = true }) {
   const pages = useMemo(() => chunk(swatches, PAGE_SIZE), [swatches])
   const [pageIndex, setPageIndex] = useState(0)
   const [direction, setDirection] = useState('next')
@@ -49,12 +49,14 @@ function CategoryRow({ label, description, seeMoreHref, swatches }) {
       <div className="category-row__header">
         <div className="category-row__heading-group">
           <p className="category-row__label">{label}</p>
-          <p className="category-row__description">{description}</p>
+          {description && <p className="category-row__description">{description}</p>}
         </div>
-        <Link to={seeMoreHref} className="category-row__see-more">
-          Learn More
-          <img src={icons.arrowRightRoseSm} className="category-row__see-more-icon" alt="" />
-        </Link>
+        {showSeeMore && (
+          <Link to={seeMoreHref} className="category-row__see-more">
+            Learn More
+            <img src={icons.arrowRightRoseSm} className="category-row__see-more-icon" alt="" />
+          </Link>
+        )}
       </div>
 
       <div className="category-row__gallery">

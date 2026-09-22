@@ -1,0 +1,120 @@
+.repair-options {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-bg);
+}
+
+.repair-options__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 40px 24px 96px;
+}
+
+.repair-options__top-bar {
+  width: 100%;
+}
+
+.repair-options__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.repair-options__header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.repair-options__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.repair-options__subtitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--color-body);
+}
+
+.repair-options__quick-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.repair-options__eightball-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: var(--color-purple);
+  border: none;
+  border-radius: 99px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.repair-options__eightball-btn:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+.repair-options__eightball-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--color-purple);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.repair-options__cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+.repair-options__empty {
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-body);
+}
+
+@media (max-width: 640px) {
+  .repair-options__title {
+    font-size: 30px;
+  }
+}

@@ -1,0 +1,136 @@
+.tutorial-step {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-bg);
+}
+
+.tutorial-step__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 40px 24px 96px;
+}
+
+.tutorial-step__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.tutorial-step__split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+  width: 100%;
+}
+
+.tutorial-step__left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 400px;
+  max-width: 520px;
+}
+
+.tutorial-step__media {
+  width: 100%;
+  height: 380px;
+}
+
+.tutorial-step__right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 2 1 400px;
+  min-width: 0;
+}
+
+.tutorial-step__heading-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.tutorial-step__badge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 12px;
+  background: var(--color-rose-bg);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--color-rose);
+}
+
+.tutorial-step__heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.3;
+  color: var(--color-heading);
+}
+
+.tutorial-step__checklist-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.tutorial-step__checklist-heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--color-body);
+}
+
+.tutorial-step__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.tutorial-step__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 24px;
+}
+
+.tutorial-step__next-btn.btn--gold {
+  width: auto;
+}
+
+@media (max-width: 640px) {
+  .tutorial-step__title {
+    font-size: 30px;
+  }
+
+  .tutorial-step__nav {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .tutorial-step__next-btn.btn--gold {
+    width: 100%;
+  }
+}

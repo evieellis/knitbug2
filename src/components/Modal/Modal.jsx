@@ -3,13 +3,15 @@ import { createPortal } from 'react-dom'
 import { icons } from '../../content/icons'
 import './Modal.css'
 
-function Modal({ open, onClose, labelledBy, children }) {
+function Modal({ open, onClose, labelledBy, children, bare = false, cardClassName = '' }) {
   const closeButtonRef = useRef(null)
+  const cardRef = useRef(null)
 
   useEffect(() => {
     if (!open) return undefined
 
-    closeButtonRef.current?.focus()
+    if (bare) cardRef.current?.focus()
+    else closeButtonRef.current?.focus()
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') onClose()
@@ -23,7 +25,7 @@ function Modal({ open, onClose, labelledBy, children }) {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = overflow
     }
-  }, [open, onClose])
+  }, [open, onClose, bare])
 
   if (!open) return null
 
@@ -33,23 +35,27 @@ function Modal({ open, onClose, labelledBy, children }) {
   return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
       <div
-        className="modal-card"
+        ref={cardRef}
+        className={`modal-card${cardClassName ? ` ${cardClassName}` : ''}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby={labelledBy}
+        tabIndex={bare ? -1 : undefined}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="modal-card__header">
-          <button
-            type="button"
-            ref={closeButtonRef}
-            className="modal-card__close"
-            onClick={onClose}
-            aria-label="Close"
-          >
-            <img src={icons.xClose} className="modal-card__close-icon" alt="" />
-          </button>
-        </div>
+        {!bare && (
+          <div className="modal-card__header">
+            <button
+              type="button"
+              ref={closeButtonRef}
+              className="modal-card__close"
+              onClick={onClose}
+              aria-label="Close"
+            >
+              <img src={icons.xClose} className="modal-card__close-icon" alt="" />
+            </button>
+          </div>
+        )}
         {children}
       </div>
     </div>,

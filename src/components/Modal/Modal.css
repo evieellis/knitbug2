@@ -26,6 +26,10 @@
   box-sizing: border-box;
 }
 
+.modal-card:focus {
+  outline: none;
+}
+
 .modal-card__header {
   display: flex;
   justify-content: flex-start;

@@ -1,0 +1,44 @@
+.tutorial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 48px;
+  background: var(--color-white);
+  box-sizing: border-box;
+}
+
+.tutorial-header__exit.btn--chip {
+  border-color: #000;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.tutorial-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tutorial-header__logo-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--color-rose);
+  border-radius: 12px 6px 12px 6px;
+}
+
+.tutorial-header__logo-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.tutorial-header__logo-text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--color-heading);
+  white-space: nowrap;
+}

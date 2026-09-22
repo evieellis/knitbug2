@@ -9,6 +9,15 @@
   --color-sage-bg: #edf2ee;
   --color-rose: #d29797;
   --color-rose-bg: #f8ecec;
+  --color-gold: #e3a857;
+  --color-tan: #f7d39c;
+  --color-purple: #4c0082;
+  --color-purple-bg: #eae3f6;
+  --color-green: #2f7d32;
+  --color-green-bg: #edf8ec;
+  --color-warning: #d92d06;
+  --color-warning-bg: #fde2e4;
+  --color-warning-text: #9b4949;
 
   --font-heading: 'Young Serif', Georgia, serif;
   --font-body: 'Manrope', system-ui, 'Segoe UI', Roboto, sans-serif;

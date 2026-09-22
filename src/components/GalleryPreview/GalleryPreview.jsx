@@ -13,10 +13,10 @@ function GalleryPreview({ searchPlaceholder, categories }) {
           aria-label={searchPlaceholder}
         />
       </div>
-      <div className="gallery-preview__categories">
+      <div className="gallery-preview__sections">
         {categories.map((category) => (
-          <div key={category.id} className="gallery-preview__category">
-            <p className="gallery-preview__category-label">{category.label}</p>
+          <div key={category.id} className="gallery-preview__row">
+            <p className="gallery-preview__row-label">{category.label}</p>
             <div className="gallery-preview__thumbnails">
               {category.thumbnails.map((thumbnail, index) => (
                 <img

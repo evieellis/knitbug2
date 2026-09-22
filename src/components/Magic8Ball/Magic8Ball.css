@@ -1,0 +1,137 @@
+.magic-8ball {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #544b49 0%, #403937 40%, #2c2625 80%, #17130f 100%);
+  box-shadow: 0 16px 16px rgba(53, 48, 47, 0.15), inset 4px 4px 8px rgba(255, 255, 255, 0.12);
+}
+
+.magic-8ball__glare {
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  width: 100px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 50%;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.magic-8ball__window {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 249px;
+  height: 249px;
+  border: 3px solid var(--color-rose);
+  border-radius: 50%;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 45%, #ffffff 0%, #e3d8f2 37.5%, #c6b1e6 75%, #9e92c3 87.5%, #7674a1 100%);
+}
+
+.magic-8ball__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.magic-8ball__face--visible {
+  opacity: 1;
+}
+
+.magic-8ball__face--message {
+  background: radial-gradient(circle at 50% 45%, #1d1b1b 0%, #2f253b 37.5%, #41305b 75%, #5c527e 87.5%, #7674a1 100%);
+}
+
+.magic-8ball__digit {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 72px;
+  color: #000;
+}
+
+.magic-8ball__message {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #fff;
+  text-align: center;
+}
+
+.magic-8ball__glass-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/* A playful, bouncy wiggle rather than a rigid mechanical shake. */
+@keyframes magic-8ball-shake {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  8% {
+    transform: translate(-10px, -5px) rotate(-11deg) scale(1.04);
+  }
+  16% {
+    transform: translate(9px, -8px) rotate(10deg) scale(1.06);
+  }
+  24% {
+    transform: translate(-9px, -3px) rotate(-9deg) scale(1.04);
+  }
+  32% {
+    transform: translate(8px, -6px) rotate(8deg) scale(1.05);
+  }
+  40% {
+    transform: translate(-7px, 0) rotate(-6deg) scale(1.02);
+  }
+  48% {
+    transform: translate(6px, -4px) rotate(5deg) scale(1.03);
+  }
+  56% {
+    transform: translate(-4px, 0) rotate(-4deg) scale(1.01);
+  }
+  64% {
+    transform: translate(3px, -3px) rotate(3deg) scale(1.02);
+  }
+  72% {
+    transform: translate(-2px, 0) rotate(-2deg) scale(1);
+  }
+  80% {
+    transform: translate(2px, -1px) rotate(1deg) scale(1.01);
+  }
+  90% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.magic-8ball--shaking {
+  animation: magic-8ball-shake 0.7s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Shortened rather than removed: the reveal is triggered by this
+     animation's end event, so it must still run (briefly) to fire. */
+  .magic-8ball--shaking {
+    animation-duration: 0.01s;
+  }
+}

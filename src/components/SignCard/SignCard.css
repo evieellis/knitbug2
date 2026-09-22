@@ -1,0 +1,67 @@
+.sign-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.sign-card__label {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-heading);
+}
+
+.sign-card__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: var(--color-rose-bg);
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--color-rose);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sign-card__badge:hover {
+  background: var(--color-rose);
+  color: #fff;
+}
+
+.sign-card__badge:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+.sign-card__modal-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: var(--color-heading);
+}
+
+.sign-card__modal-detail {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-body);
+}

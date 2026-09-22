@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import './Button.css'
 
-function Button({ href, variant = 'solid', icon, iconPosition = 'trailing', stretch, children }) {
+function Button({ href, variant = 'solid', icon, iconPosition = 'trailing', stretch, className = '', children }) {
   return (
-    <Link to={href} className={`btn btn--${variant}${stretch ? ' btn--stretched' : ''}`}>
+    <Link
+      to={href}
+      className={`btn btn--${variant}${stretch ? ' btn--stretched' : ''}${className ? ` ${className}` : ''}`}
+    >
       {icon && iconPosition === 'leading' && (
         <img src={icon} className="btn__icon" alt="" />
       )}
