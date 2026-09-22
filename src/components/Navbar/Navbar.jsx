@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom'
 import { icons } from '../../content/icons'
 import { siteName, navLinks, navCta } from '../../content/navigation'
-import NavLink from '../NavLink/NavLink'
+import Button from '../Button/Button'
 import './Navbar.css'
 
 function Navbar() {
@@ -14,13 +15,20 @@ function Navbar() {
       </div>
       <nav className="navbar__controls" aria-label="Primary">
         {navLinks.map((link) => (
-          <NavLink key={link.id} href={link.href} current={link.current}>
+          <NavLink
+            key={link.id}
+            to={link.href}
+            end={link.href === '/'}
+            className={({ isActive }) =>
+              `navbar__link${isActive ? ' navbar__link--active' : ''}`
+            }
+          >
             {link.label}
           </NavLink>
         ))}
-        <NavLink href={navCta.href} variant="pill">
+        <Button href={navCta.href} variant="pill">
           {navCta.label}
-        </NavLink>
+        </Button>
       </nav>
     </header>
   )

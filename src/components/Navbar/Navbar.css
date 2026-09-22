@@ -47,3 +47,20 @@
   gap: 24px;
   flex-wrap: wrap;
 }
+
+.navbar__link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-body);
+  text-decoration: none;
+  outline-offset: 2px;
+}
+
+.navbar__link:hover {
+  color: var(--color-heading);
+}
+
+.navbar__link--active {
+  color: var(--color-heading);
+}

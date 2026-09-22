@@ -1,0 +1,24 @@
+.not-built {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  background: var(--color-bg);
+}
+
+.not-built__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex: 1;
+  padding: 24px;
+  text-align: center;
+}
+
+.not-built__message {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 28px;
+  color: var(--color-heading);
+}

@@ -1,0 +1,78 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  outline-offset: 2px;
+}
+
+.btn__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn--solid,
+.btn--outline {
+  width: 100%;
+  padding: 14px 24px;
+}
+
+.btn--solid {
+  background: var(--color-rose);
+  color: #fff;
+  border: 2px solid var(--color-rose);
+  transition: opacity 0.2s;
+}
+
+.btn--solid:hover {
+  opacity: 0.92;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-heading);
+  border: 2px solid var(--color-heading);
+  transition: background 0.2s;
+}
+
+.btn--outline:hover {
+  background: rgba(53, 48, 47, 0.05);
+}
+
+.btn--pill {
+  padding: 10px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-rose);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.btn--pill:hover {
+  opacity: 0.9;
+}
+
+.btn--chip {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-heading);
+  transition: background 0.2s;
+}
+
+.btn--chip:hover {
+  background: rgba(53, 48, 47, 0.04);
+}

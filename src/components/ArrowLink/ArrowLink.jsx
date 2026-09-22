@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { icons } from '../../content/icons'
 import './ArrowLink.css'
 
@@ -8,10 +9,10 @@ const arrowByTone = {
 
 function ArrowLink({ href, tone = 'sage', children }) {
   return (
-    <a href={href} className={`arrow-link arrow-link--${tone}`}>
+    <Link to={href} className={`arrow-link arrow-link--${tone}`}>
       {children}
       <img src={arrowByTone[tone]} className="arrow-link__icon" alt="" />
-    </a>
+    </Link>
   )
 }
 
