@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
-import Button from '../../components/Button/Button'
 import FilterDropdown from '../../components/FilterDropdown/FilterDropdown'
 import RepairMethodCard from '../../components/RepairMethodCard/RepairMethodCard'
 import Pagination from '../../components/Pagination/Pagination'
@@ -42,20 +41,32 @@ function matchesFilters(method, filters) {
 
 function RepairOptions() {
   const { categoryId } = useParams()
+  const navigate = useNavigate()
   const overview = mistakeOverviews[categoryId]
-  const methods = repairMethods[categoryId]
+
+  // A method can list more than one mistake category (see its `categories`
+  // field) and show up under all of them — the tutorial link is built here,
+  // per page, rather than stored on the method itself, since the same method
+  // needs a different link depending on which category page it's showing on.
+  const methods = useMemo(
+    () =>
+      repairMethods
+        .filter((method) => method.categories.includes(categoryId))
+        .map((method) => ({ ...method, href: `/tutorials/${categoryId}/${method.id}` })),
+    [categoryId]
+  )
 
   const [filters, setFilters] = useState(defaultFilters)
   const [pageIndex, setPageIndex] = useState(0)
   const [eightBallOpen, setEightBallOpen] = useState(false)
 
   const filteredMethods = useMemo(
-    () => (methods ? methods.filter((method) => matchesFilters(method, filters)) : []),
+    () => methods.filter((method) => matchesFilters(method, filters)),
     [methods, filters]
   )
   const pageCount = Math.max(1, Math.ceil(filteredMethods.length / PAGE_SIZE))
 
-  if (!overview || !methods) return <NotBuilt />
+  if (!overview || methods.length === 0) return <NotBuilt />
 
   // Clamps in case the filtered list shrank; resetFilters() below also jumps
   // straight to page 0 on every filter change, which is the expected UX.
@@ -84,9 +95,10 @@ function RepairOptions() {
       <Navbar />
       <main className="repair-options__content">
         <div className="repair-options__top-bar">
-          <Button href={`/mistakes/${categoryId}`} variant="chip" icon={icons.chevronLeft} iconPosition="leading">
-            Back
-          </Button>
+          <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+            <img src={icons.chevronLeft} className="btn__icon" alt="" />
+            <span>Back</span>
+          </button>
         </div>
 
         <div className="repair-options__header">

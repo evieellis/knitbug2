@@ -1,8 +1,11 @@
 .radio-question {
   /* Sits above the card's whole-card stretched link (see Button.css .btn--stretched)
-     so selecting a radio option never triggers card navigation. */
+     so selecting a radio option never triggers card navigation. flex: 1 grows this
+     to fill the option-card's available height, so it matches GalleryPreview's box
+     next to it instead of the two staying at their own different natural sizes. */
   position: relative;
   z-index: 2;
+  flex: 1;
   width: 100%;
   border: none;
   margin: 0;

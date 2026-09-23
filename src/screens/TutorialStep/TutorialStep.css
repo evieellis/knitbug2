@@ -5,11 +5,13 @@
   background: var(--color-bg);
 }
 
+/* Matches .tutorial-overview__content exactly (gap, padding, max-width) so a
+   step page is formatted identically to the Overview page, not a variant. */
 .tutorial-step__content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -17,18 +19,66 @@
   padding: 40px 24px 96px;
 }
 
+.tutorial-step__exit-btn.btn--chip {
+  border-color: #000;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Pushes the button into its own offset shadow on press, so it reads as
+   physically pressed in rather than just a hover-style background change. */
+.tutorial-step__exit-btn.btn--chip:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Matches .tutorial-overview__header/__title/__metadata/__meta-row/__meta-icon
+   exactly, so the block above the video is the same height on every tutorial
+   page — otherwise the video/controls land at a different vertical position
+   on step pages than on the Overview page. */
+.tutorial-step__header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
 .tutorial-step__title {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: 40px;
-  line-height: 1.1;
+  font-size: 36px;
+  line-height: 1.15;
   color: var(--color-heading);
+}
+
+.tutorial-step__metadata {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.tutorial-step__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-rose);
+}
+
+.tutorial-step__meta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .tutorial-step__split {
   display: flex;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: 64px;
   width: 100%;
 }
@@ -46,12 +96,17 @@
   height: 380px;
 }
 
+/* Stretched to match .tutorial-step__left-col's height (see align-items: stretch
+   above), so prev/next always land in the same place regardless of checklist
+   length — the checklist area below absorbs the difference and scrolls
+   internally if it doesn't fit, rather than pushing the nav row around. */
 .tutorial-step__right-col {
   display: flex;
   flex-direction: column;
   gap: 32px;
   flex: 2 1 400px;
   min-width: 0;
+  min-height: 0;
 }
 
 .tutorial-step__heading-group {
@@ -88,6 +143,8 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  flex: 1;
+  min-height: 0;
 }
 
 .tutorial-step__checklist-heading {
@@ -104,6 +161,8 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .tutorial-step__nav {
@@ -116,13 +175,21 @@
   padding-top: 24px;
 }
 
-.tutorial-step__next-btn.btn--gold {
+/* Figma's bottom-nav button is smaller/tighter than the generic full-width
+   gold CTA elsewhere (e.g. Mistake Overview's "Go to Repair Options") — sized
+   to content, smaller radius, sharp offset shadow instead of a soft blur. */
+.tutorial-step__next-btn.btn--gold,
+.tutorial-step__next-btn.btn--green {
   width: auto;
+  padding: 14px 32px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+  font-size: 16px;
 }
 
 @media (max-width: 640px) {
   .tutorial-step__title {
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .tutorial-step__nav {
@@ -130,7 +197,8 @@
     align-items: stretch;
   }
 
-  .tutorial-step__next-btn.btn--gold {
+  .tutorial-step__next-btn.btn--gold,
+  .tutorial-step__next-btn.btn--green {
     width: 100%;
   }
 }

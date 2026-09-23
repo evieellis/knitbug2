@@ -1,0 +1,131 @@
+.exit-tutorial-modal {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border: 2px solid var(--color-rose);
+  border-radius: 24px;
+  box-shadow: 0 16px 16px rgba(200, 130, 130, 0.13);
+}
+
+.exit-tutorial-modal__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.exit-tutorial-modal__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: var(--color-rose-bg);
+}
+
+.exit-tutorial-modal__badge img {
+  width: 18px;
+  height: 18px;
+}
+
+.exit-tutorial-modal__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--color-heading);
+}
+
+.exit-tutorial-modal__body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  text-align: center;
+  color: var(--color-heading);
+}
+
+.exit-tutorial-modal__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.exit-tutorial-modal__go-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--color-rose);
+  border: none;
+  border-radius: 99px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.exit-tutorial-modal__go-back:hover {
+  opacity: 0.92;
+}
+
+.exit-tutorial-modal__go-back:focus-visible {
+  outline: 2px solid var(--color-heading);
+  outline-offset: 2px;
+}
+
+.exit-tutorial-modal__go-back-icon {
+  width: 18px;
+  height: 18px;
+  /* Source icon is dark-stroked; force white to sit on the rose button. */
+  filter: brightness(0) invert(1);
+}
+
+.exit-tutorial-modal__confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 43px;
+  width: 140px;
+  padding: 8px 16px;
+  background: var(--color-white);
+  border: 1px solid #000;
+  border-radius: 99px;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-heading);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+
+.exit-tutorial-modal__confirm:hover {
+  background: rgba(53, 48, 47, 0.04);
+}
+
+/* Same pressed-in treatment as the "Exit Tutorial" button that opens this
+   popup — pushes into its own offset shadow on press. */
+.exit-tutorial-modal__confirm:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.25);
+}
+
+.exit-tutorial-modal__confirm:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+.exit-tutorial-modal__confirm img {
+  width: 14px;
+  height: 14px;
+}

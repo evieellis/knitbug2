@@ -1,18 +1,21 @@
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
-import Button from '../../components/Button/Button'
 import OptionCard from '../../components/OptionCard/OptionCard'
 import { icons } from '../../content/icons'
 import { backLink, pageHeading, pageSubheading, options } from '../../content/findOutWhatsWrong'
 import './FindOutWhatsWrong.css'
 
 function FindOutWhatsWrong() {
+  const navigate = useNavigate()
+
   return (
     <div className="find-out">
       <Navbar />
       <main className="find-out__content">
-        <Button href={backLink.href} variant="chip" icon={icons.chevronLeft} iconPosition="leading">
-          {backLink.label}
-        </Button>
+        <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+          <img src={icons.chevronLeft} className="btn__icon" alt="" />
+          <span>{backLink.label}</span>
+        </button>
 
         <div className="find-out__titles">
           <h1 className="find-out__title">{pageHeading}</h1>

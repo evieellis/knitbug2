@@ -1,0 +1,157 @@
+{
+  "backLink": {
+    "label": "Back",
+    "href": "/browse-mistakes"
+  },
+  "examplesLabel": "Examples",
+  "mistakeOverviews": {
+    "dropped-stitches": {
+      "title": "Dropped Stitch",
+      "image": "/content-images/mistakeoverview/nn-droppedstitch.jpg",
+      "whatIsIt": {
+        "heading": "What Is It?",
+        "body": "A dropped stitch is a loop that has escaped off your knitting needle. If left unattended, it can actively unravel vertically down your work, forming a \"run\" or ladder of straight bars."
+      },
+      "signs": {
+        "heading": "Signs You Have a Dropped Stitch",
+        "items": [
+          {
+            "id": "sign-1",
+            "label": "Loose stitch loops",
+            "detail": ""
+          },
+          {
+            "id": "sign-2",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-3",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-4",
+            "label": "",
+            "detail": ""
+          }
+        ]
+      },
+      "cta": {
+        "label": "Go to Repair Options",
+        "href": "/repair/dropped-stitches"
+      }
+    },
+    "twisted-stitches": {
+      "title": "a Twisted Stitch",
+      "image": "",
+      "whatIsIt": {
+        "heading": "What Is It?",
+        "body": ""
+      },
+      "signs": {
+        "heading": "Signs You Have a Twisted Stitch",
+        "items": [
+          {
+            "id": "sign-1",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-2",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-3",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-4",
+            "label": "",
+            "detail": ""
+          }
+        ]
+      },
+      "cta": {
+        "label": "Go to Repair Options",
+        "href": "/repair/twisted-stitches"
+      }
+    },
+    "split-stitches": {
+      "title": "a Split Stitch",
+      "image": "",
+      "whatIsIt": {
+        "heading": "What Is It?",
+        "body": ""
+      },
+      "signs": {
+        "heading": "Signs You Have a Split Stitch",
+        "items": [
+          {
+            "id": "sign-1",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-2",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-3",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-4",
+            "label": "",
+            "detail": ""
+          }
+        ]
+      },
+      "cta": {
+        "label": "Go to Repair Options",
+        "href": "/repair/split-stitches"
+      }
+    },
+    "accidental-yarn-over": {
+      "title": "an Accidental Yarn Over",
+      "image": "",
+      "whatIsIt": {
+        "heading": "What Is It?",
+        "body": ""
+      },
+      "signs": {
+        "heading": "Signs You Have an Accidental Yarn Over",
+        "items": [
+          {
+            "id": "sign-1",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-2",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-3",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-4",
+            "label": "",
+            "detail": ""
+          }
+        ]
+      },
+      "cta": {
+        "label": "Go to Repair Options",
+        "href": "/repair/accidental-yarn-over"
+      }
+    }
+  }
+}

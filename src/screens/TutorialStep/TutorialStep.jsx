@@ -1,43 +1,75 @@
-import { useRef } from 'react'
-import { useParams } from 'react-router-dom'
-import TutorialHeader from '../../components/TutorialHeader/TutorialHeader'
+import { useRef, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import MediaViewer from '../../components/MediaViewer/MediaViewer'
 import PlaybackControls from '../../components/PlaybackControls/PlaybackControls'
 import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
+import ExitTutorialModal from '../../components/ExitTutorialModal/ExitTutorialModal'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
-import { tutorials } from '../../content/tutorials'
+import { repairMethods } from '../../content/repairOptions'
 import useYouTubePlayer from '../../hooks/useYouTubePlayer'
 import './TutorialStep.css'
 
 function TutorialStep() {
-  const { categoryId, methodNumber, stepNumber } = useParams()
-  const methodId = `${categoryId}-method-${methodNumber}`
-  const tutorial = tutorials[methodId]
+  const { categoryId, methodId, stepNumber } = useParams()
+  const navigate = useNavigate()
+  const [exitModalOpen, setExitModalOpen] = useState(false)
+  const method = repairMethods.find((item) => item.id === methodId && item.categories.includes(categoryId))
+  const tutorial = method?.tutorial
 
   const stepIndex = Number(stepNumber) - 1
   const step = Number.isInteger(stepIndex) ? tutorial?.steps[stepIndex] : undefined
 
-  const media = tutorial && step ? { ...tutorial.media, startSeconds: step.startSeconds } : undefined
+  const media =
+    tutorial && step
+      ? { ...tutorial.media, startSeconds: step.startSeconds, endSeconds: step.endSeconds }
+      : undefined
   const containerRef = useRef(null)
   const player = useYouTubePlayer(containerRef, media)
 
-  if (!tutorial || !step) return <NotBuilt />
+  if (!tutorial || !method || !step) return <NotBuilt />
 
   const hasVideo = media.type === 'youtube' && Boolean(media.youtubeId)
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === tutorial.steps.length - 1
   const exitHref = `/repair/${categoryId}`
-  const overviewHref = `/tutorials/${categoryId}/${methodNumber}`
-  const prevHref = isFirstStep ? overviewHref : `${overviewHref}/${stepIndex}`
+  const overviewHref = `/tutorials/${categoryId}/${methodId}`
   const nextHref = isLastStep ? '/repair-complete' : `${overviewHref}/${stepIndex + 2}`
 
   return (
     <div className="tutorial-step">
-      <TutorialHeader exitHref={exitHref} />
+      <Navbar />
       <main className="tutorial-step__content">
-        <h1 className="tutorial-step__title">{tutorial.title}</h1>
+        <button
+          type="button"
+          className="btn btn--chip tutorial-step__exit-btn"
+          onClick={() => setExitModalOpen(true)}
+        >
+          <img src={icons.xClose} className="btn__icon" alt="" />
+          <span>Exit Tutorial</span>
+        </button>
+
+        <ExitTutorialModal
+          open={exitModalOpen}
+          onCancel={() => setExitModalOpen(false)}
+          exitHref={exitHref}
+        />
+
+        <div className="tutorial-step__header">
+          <h1 className="tutorial-step__title">{method.title}</h1>
+          <div className="tutorial-step__metadata">
+            <span className="tutorial-step__meta-row">
+              <img src={icons.clock} className="tutorial-step__meta-icon" alt="" />
+              {method.timeLabel}
+            </span>
+            <span className="tutorial-step__meta-row">
+              <img src={icons.shoppingBag} className="tutorial-step__meta-icon" alt="" />
+              {method.neededLabel}
+            </span>
+          </div>
+        </div>
 
         <div className="tutorial-step__split">
           <div className="tutorial-step__left-col">
@@ -76,12 +108,13 @@ function TutorialStep() {
             </div>
 
             <div className="tutorial-step__nav">
-              <Button href={prevHref} variant="ghost" icon={icons.chevronLeft} iconPosition="leading">
-                {isFirstStep ? 'Back to Overview' : 'Previous Step'}
-              </Button>
+              <button type="button" className="btn btn--ghost" onClick={() => navigate(-1)}>
+                <img src={icons.chevronLeft} className="btn__icon" alt="" />
+                <span>{isFirstStep ? 'Back to Overview' : 'Previous Step'}</span>
+              </button>
               <Button
                 href={nextHref}
-                variant="gold"
+                variant={isLastStep ? 'green' : 'gold'}
                 icon={icons.chevronRight}
                 className="tutorial-step__next-btn"
               >

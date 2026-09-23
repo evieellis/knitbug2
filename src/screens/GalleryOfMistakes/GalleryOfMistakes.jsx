@@ -1,12 +1,13 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
-import Button from '../../components/Button/Button'
 import CategoryRow from '../../components/CategoryRow/CategoryRow'
 import { icons } from '../../content/icons'
 import { backLink, pageHeading, pageSubheading, searchPlaceholder, categories } from '../../content/galleryOfMistakes'
 import './GalleryOfMistakes.css'
 
 function GalleryOfMistakes() {
+  const navigate = useNavigate()
   const [query, setQuery] = useState('')
 
   const filteredCategories = useMemo(() => {
@@ -23,9 +24,10 @@ function GalleryOfMistakes() {
     <div className="gallery">
       <Navbar />
       <main className="gallery__content">
-        <Button href={backLink.href} variant="chip" icon={icons.chevronLeft} iconPosition="leading">
-          {backLink.label}
-        </Button>
+        <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+          <img src={icons.chevronLeft} className="btn__icon" alt="" />
+          <span>{backLink.label}</span>
+        </button>
 
         <div className="gallery__titles">
           <h1 className="gallery__title">{pageHeading}</h1>

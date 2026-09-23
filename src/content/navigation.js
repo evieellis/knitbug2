@@ -1,4 +1,6 @@
 // Editable navbar text and links.
+import { startQuestionId } from './questionnaire'
+
 export const siteName = 'Knit Bug'
 
 export const navLinks = [
@@ -8,5 +10,5 @@ export const navLinks = [
 
 export const navCta = {
   label: 'repair now',
-  href: '/repair',
+  href: `/questionnaire/${startQuestionId}`,
 }

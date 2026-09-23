@@ -6,8 +6,10 @@ import { eightBallPopup } from '../../content/repairOptions'
 import './EightBallPopup.css'
 
 function pickRandomMethod(methods) {
-  // The ball only ever recommends an actual fix, never "just leave it".
-  const pool = methods.filter((method) => method.badge !== 'not-recommended')
+  // Each method has its own "Include In Eight Ball" toggle in the admin
+  // tool — defaults to true, so a method with no opinion set either way is
+  // still eligible rather than silently excluded.
+  const pool = methods.filter((method) => method.includeInEightBall !== false)
   return pool[Math.floor(Math.random() * pool.length)]
 }
 

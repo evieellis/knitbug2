@@ -1,0 +1,321 @@
+{
+  "backLink": {
+    "label": "Back",
+    "href": "/diagnose"
+  },
+  "pageHeading": "Gallery of Mistakes",
+  "pageSubheading": "Find which one looks most like your knitting. Once you do, we'll help you fix it!",
+  "searchPlaceholder": "Search for a mistake...",
+  "categories": [
+    {
+      "id": "dropped-stitches",
+      "label": "Dropped Stitches",
+      "description": "Loops that have slipped off the needle and are unraveling.",
+      "seeMoreHref": "/mistakes/dropped-stitches",
+      "swatches": [
+        {
+          "id": 1,
+          "image": "/content-images/gallery-swatches/nn-droppedstitch-1.jpg",
+          "caption": "1 Dropped Stitch",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 2,
+          "image": "/content-images/gallery-swatches/img-20260923-0001.png",
+          "caption": "2 Dropped Stitches on the Wrong Side",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 3,
+          "image": "/content-images/gallery-swatches/img-20260923-0004-1.png",
+          "caption": "Dropped Stitch, Kept Knitting",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 4,
+          "image": "/content-images/gallery-swatches/img-20260923-0007.png",
+          "caption": "Dropped Stitch Going Really Far Down!",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 5,
+          "image": "/content-images/gallery-swatches/frame-5.png",
+          "caption": "2 Dropped Stitches on the Right Side",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/img-20260923-0002-2.png",
+          "caption": "2 Dropped Stitches on the Right Side",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 6,
+          "image": "/content-images/gallery-swatches/img-20260923-0005.png",
+          "caption": "Stitch has just been dropped!",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 7,
+          "image": "/content-images/gallery-swatches/img-20260923-0006.png",
+          "caption": "End of Row Stitch Dropped",
+          "href": "/mistakes/dropped-stitches"
+        },
+        {
+          "id": 8,
+          "image": "/content-images/gallery-swatches/img-20260923-0011.png",
+          "caption": "Harder to See, but yes, a stitch was dropped here too",
+          "href": "/mistakes/dropped-stitches"
+        }
+      ]
+    },
+    {
+      "id": "twisted-stitches",
+      "label": "Twisted Stitches",
+      "description": "Your stitches look more like Y's than V's. Instead of knitting through the front part of the stitch, you've knitted through the back.",
+      "seeMoreHref": "/mistakes/twisted-stitches",
+      "swatches": [
+        {
+          "id": 1,
+          "image": "/content-images/gallery-swatches/img-20260923-0012.png",
+          "caption": "Two of the stitches in the middle have JUST been twisted.",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 2,
+          "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "caption": "Dropped Stitches Var 2",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 3,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 3",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 4,
+          "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "caption": "Dropped Stitches Var 4",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 5,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 6,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 6",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 7,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 7",
+          "href": "/mistakes/twisted-stitches"
+        },
+        {
+          "id": 8,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 8",
+          "href": "/mistakes/twisted-stitches"
+        }
+      ]
+    },
+    {
+      "id": "split-stitches",
+      "label": "Split Stitches",
+      "description": "Loops that have slipped off the needle and are unraveling.",
+      "seeMoreHref": "/mistakes/split-stitches",
+      "swatches": [
+        {
+          "id": 1,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 1",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 2,
+          "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "caption": "Dropped Stitches Var 2",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 3,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 3",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 4,
+          "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "caption": "Dropped Stitches Var 4",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 5,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 6,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 6",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 7,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 7",
+          "href": "/mistakes/split-stitches"
+        },
+        {
+          "id": 8,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 8",
+          "href": "/mistakes/split-stitches"
+        }
+      ]
+    },
+    {
+      "id": "accidental-yarn-over",
+      "label": "Accidental Yarn Over",
+      "description": "Loops that have slipped off the needle and are unraveling.",
+      "seeMoreHref": "/mistakes/accidental-yarn-over",
+      "swatches": [
+        {
+          "id": 1,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 1",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 2,
+          "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "caption": "Dropped Stitches Var 2",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 3,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 3",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 4,
+          "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "caption": "Dropped Stitches Var 4",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 5,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 6,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 6",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 7,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 7",
+          "href": "/mistakes/accidental-yarn-over"
+        },
+        {
+          "id": 8,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 8",
+          "href": "/mistakes/accidental-yarn-over"
+        }
+      ]
+    },
+    {
+      "id": "accidental-decrease",
+      "label": "Accidental Decrease",
+      "description": "Loops that have slipped off the needle and are unraveling.",
+      "seeMoreHref": "/mistakes/accidental-decrease",
+      "swatches": [
+        {
+          "id": 1,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 1",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 2,
+          "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "caption": "Dropped Stitches Var 2",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 3,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 3",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 4,
+          "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "caption": "Dropped Stitches Var 4",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 5,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 5",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 6,
+          "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "caption": "Dropped Stitches Var 6",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 7,
+          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "caption": "Dropped Stitches Var 7",
+          "href": "/mistakes/accidental-decrease"
+        },
+        {
+          "id": 8,
+          "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "caption": "Dropped Stitches Var 8",
+          "href": "/mistakes/accidental-decrease"
+        }
+      ]
+    }
+  ]
+}

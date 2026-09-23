@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KnitBug Content Admin</title>
+<link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <h1 class="sidebar__title">KnitBug<br />Content Admin</h1>
+    <p class="sidebar__hint">Edits write straight to the JSON files on disk. Refresh the live site (npm run dev) to see changes.</p>
+    <nav id="section-list" class="section-list"></nav>
+  </aside>
+  <main class="main">
+    <header class="main__header">
+      <h2 id="section-title" class="main__title">Select a section</h2>
+      <div class="main__actions">
+        <span id="status" class="status"></span>
+        <button id="reload-btn" class="btn btn--ghost" type="button" hidden>Discard changes</button>
+        <button id="save-btn" class="btn btn--primary" type="button" hidden>Save</button>
+      </div>
+    </header>
+    <div id="form-root" class="form-root">
+      <p class="empty-state">Pick a content section from the left to start editing.</p>
+    </div>
+  </main>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

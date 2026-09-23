@@ -1,0 +1,724 @@
+{
+  "startQuestionId": "q1",
+  "questions": {
+    "q1": {
+      "title": "Diagnosing Your Problem",
+      "subtitle": "Where does it look different?",
+      "options": [
+        {
+          "id": "needles",
+          "label": "On the needles",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "work",
+          "label": "In the work",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "unsure",
+          "label": "Unsure",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "needles",
+            "work"
+          ],
+          "next": "q5"
+        },
+        {
+          "ids": [
+            "needles"
+          ],
+          "next": "q2"
+        },
+        {
+          "ids": [
+            "work"
+          ],
+          "next": "q3"
+        },
+        {
+          "ids": [
+            "unsure"
+          ],
+          "next": "q4"
+        }
+      ]
+    },
+    "q2": {
+      "title": "On Your Needles — What do you see?",
+      "subtitle": "Examine your working row carefully and match what is active on your needle.",
+      "options": [
+        {
+          "id": "crossing",
+          "label": "Stitches crossing over one another",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "extra-missing",
+          "label": "Extra or missing stitches",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "gaps",
+          "label": "Gaps between stitches",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "one-different",
+          "label": "One stitch looks different than the rest",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "crossing"
+          ],
+          "next": "q9"
+        },
+        {
+          "ids": [
+            "extra-missing"
+          ],
+          "next": "q7"
+        },
+        {
+          "ids": [
+            "gaps"
+          ],
+          "next": "q10"
+        },
+        {
+          "ids": [
+            "one-different"
+          ],
+          "next": "q11"
+        }
+      ]
+    },
+    "q3": {
+      "title": "In the Fabric — What does it look like?",
+      "subtitle": "Closely examine your completed work below the needles to locate the issue.",
+      "options": [
+        {
+          "id": "holes",
+          "label": "1 or more holes",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "ladder",
+          "label": "A loose ladder",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "y-shape",
+          "label": "Stitches look like Y's instead of V's",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "changed-size",
+          "label": "Work has changed size",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "holes",
+            "changed-size"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "holes"
+          ],
+          "next": "q5"
+        },
+        {
+          "ids": [
+            "ladder"
+          ],
+          "next": {
+            "result": "dropped-stitches"
+          }
+        },
+        {
+          "ids": [
+            "y-shape"
+          ],
+          "next": {
+            "result": "twisted-stitches"
+          }
+        },
+        {
+          "ids": [
+            "changed-size"
+          ],
+          "next": "q6"
+        }
+      ]
+    },
+    "q4": {
+      "title": "No problem. We'll figure it out!",
+      "subtitle": "Can you see any of these?",
+      "options": [
+        {
+          "id": "extra-missing",
+          "label": "Extra or missing stitches",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "holes",
+          "label": "1 or more holes",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "ladder",
+          "label": "A loose ladder",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "changed-size",
+          "label": "Work has changed size",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "holes",
+            "changed-size"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "extra-missing"
+          ],
+          "next": "q7"
+        },
+        {
+          "ids": [
+            "holes"
+          ],
+          "next": "q5"
+        },
+        {
+          "ids": [
+            "ladder"
+          ],
+          "next": {
+            "result": "dropped-stitches"
+          }
+        },
+        {
+          "ids": [
+            "changed-size"
+          ],
+          "next": "q6"
+        }
+      ]
+    },
+    "q5": {
+      "title": "Do the holes look like either of these?",
+      "subtitle": "",
+      "options": [
+        {
+          "id": "picture-1",
+          "label": "Picture 1",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "picture-2",
+          "label": "Picture 2",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "neither",
+          "label": "Neither",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "picture-1"
+          ],
+          "next": {
+            "result": "dropped-stitches"
+          }
+        },
+        {
+          "ids": [
+            "picture-2"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "neither"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    },
+    "q6": {
+      "title": "Look closely at the work",
+      "subtitle": "Can you see one stitch become two anywhere?",
+      "options": [
+        {
+          "id": "yes",
+          "label": "Yes",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "no",
+          "label": "No",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "yes"
+          ],
+          "next": {
+            "result": "split-stitches"
+          }
+        },
+        {
+          "ids": [
+            "no"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    },
+    "q7": {
+      "title": "Has your work gotten wider or narrower?",
+      "subtitle": "",
+      "options": [
+        {
+          "id": "wider",
+          "label": "Wider",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "narrower",
+          "label": "Narrower",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "cant-tell",
+          "label": "Can't tell",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "wider"
+          ],
+          "next": "q8"
+        },
+        {
+          "ids": [
+            "narrower"
+          ],
+          "next": {
+            "result": "accidental-decrease"
+          }
+        },
+        {
+          "ids": [
+            "cant-tell"
+          ],
+          "next": "sidequest-1"
+        }
+      ]
+    },
+    "q8": {
+      "title": "Do you also see a hole in your work?",
+      "subtitle": "",
+      "options": [
+        {
+          "id": "yes",
+          "label": "Yes",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "no",
+          "label": "No",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "yes"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "no"
+          ],
+          "next": {
+            "result": "split-stitches"
+          }
+        }
+      ]
+    },
+    "q9": {
+      "title": "Where do the strands cross?",
+      "subtitle": "Look closely at the individual stitch, just below the needle. Compare it with these pictures.",
+      "options": [
+        {
+          "id": "cross-base",
+          "label": "The two legs of one stitch cross at its base instead of forming an open V.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "partial-strand",
+          "label": "The needle passes through only part of the yarn strand, leaving some fibres outside the loop.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "overlap-no-match",
+          "label": "Two neighbouring stitches overlap, but neither picture matches.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "not-sure",
+          "label": "I'm not sure.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "cross-base"
+          ],
+          "next": {
+            "result": "twisted-stitches"
+          }
+        },
+        {
+          "ids": [
+            "partial-strand"
+          ],
+          "next": {
+            "result": "split-stitches"
+          }
+        },
+        {
+          "ids": [
+            "overlap-no-match"
+          ],
+          "next": "uncertain"
+        },
+        {
+          "ids": [
+            "not-sure"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    },
+    "q10": {
+      "title": "What can you see beneath the gap?",
+      "subtitle": "Keep the stitches on your needles while you look. Match the gap to one of these pictures.",
+      "options": [
+        {
+          "id": "loose-loop-ladder",
+          "label": "A loose loop below the needle, with a horizontal strand or ladder of strands above it.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "extra-loop-opening",
+          "label": "An extra loop over the needle, with an opening beneath it instead of a stitch directly below.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "connected-loose",
+          "label": "The stitches are still connected, but the yarn between them looks loose.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "none-not-sure",
+          "label": "None of these / I'm not sure.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "loose-loop-ladder"
+          ],
+          "next": {
+            "result": "dropped-stitches"
+          }
+        },
+        {
+          "ids": [
+            "extra-loop-opening"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "connected-loose"
+          ],
+          "next": "uncertain"
+        },
+        {
+          "ids": [
+            "none-not-sure"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    },
+    "q11": {
+      "title": "How does this stitch look different?",
+      "subtitle": "Compare the unusual stitch with the stitches beside it.",
+      "options": [
+        {
+          "id": "fibres-caught",
+          "label": "Some fibres of the yarn have been caught separately, leaving the rest outside the stitch.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "legs-cross",
+          "label": "Its two legs cross at the base instead of forming an open V.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "extra-loop",
+          "label": "It looks like an extra loop over the needle, with no stitch directly beneath it.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "two-join-one",
+          "label": "Two stitches from the row below join into one stitch above.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "none-not-sure",
+          "label": "None of these / I'm not sure.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "fibres-caught"
+          ],
+          "next": {
+            "result": "split-stitches"
+          }
+        },
+        {
+          "ids": [
+            "legs-cross"
+          ],
+          "next": {
+            "result": "twisted-stitches"
+          }
+        },
+        {
+          "ids": [
+            "extra-loop"
+          ],
+          "next": {
+            "result": "accidental-yarn-over"
+          }
+        },
+        {
+          "ids": [
+            "two-join-one"
+          ],
+          "next": "q12"
+        },
+        {
+          "ids": [
+            "none-not-sure"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    },
+    "q12": {
+      "title": "Can you see where a stitch went missing?",
+      "subtitle": "Look below the needles and compare your work with these pictures.",
+      "options": [
+        {
+          "id": "loose-loop-ladder",
+          "label": "There is a loose loop, possibly with a ladder of horizontal strands above it.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "worked-together",
+          "label": "Two stitches from the row below have been worked together into one.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        },
+        {
+          "id": "neither-not-sure",
+          "label": "Neither / I'm not sure.",
+          "description": "",
+          "image": null,
+          "howToTell": []
+        }
+      ],
+      "rules": [
+        {
+          "ids": [
+            "loose-loop-ladder"
+          ],
+          "next": {
+            "result": "dropped-stitches"
+          }
+        },
+        {
+          "ids": [
+            "worked-together"
+          ],
+          "next": {
+            "result": "accidental-decrease"
+          }
+        },
+        {
+          "ids": [
+            "neither-not-sure"
+          ],
+          "next": "uncertain"
+        }
+      ]
+    }
+  },
+  "sidequestSteps": {
+    "sidequest-1": {
+      "title": "How many stitches did you cast on in the beginning?",
+      "subtitle": "",
+      "inputLabel": "Stitches cast on"
+    },
+    "sidequest-2": {
+      "title": "Now, let's count your stitches.",
+      "subtitle": "Count each loop of yarn that is on the needle. How many do you see now?",
+      "inputLabel": "Stitches now"
+    }
+  },
+  "resultCategoryById": {
+    "1": "split-stitches",
+    "2": "accidental-yarn-over",
+    "3": "dropped-stitches",
+    "4": "twisted-stitches",
+    "5": "accidental-decrease"
+  },
+  "uncertainResult": {
+    "title": "Let's take another look",
+    "subtitle": "We haven't found a clear match yet. You can compare your work with more pictures or change an earlier answer."
+  },
+  "resultsPage": {
+    "badgeLabel": "Match Found",
+    "headingTemplate": "It looks like you have {{mistakeTitle}}",
+    "learnMoreLabel": "Learn More",
+    "repairOptionsLabel": "See Repair Options"
+  }
+}

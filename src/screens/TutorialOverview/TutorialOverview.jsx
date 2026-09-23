@@ -1,21 +1,20 @@
 import { useRef } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import MediaViewer from '../../components/MediaViewer/MediaViewer'
 import PlaybackControls from '../../components/PlaybackControls/PlaybackControls'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
-import { tutorials } from '../../content/tutorials'
 import { repairMethods } from '../../content/repairOptions'
 import useYouTubePlayer from '../../hooks/useYouTubePlayer'
 import './TutorialOverview.css'
 
 function TutorialOverview() {
-  const { categoryId, methodNumber } = useParams()
-  const methodId = `${categoryId}-method-${methodNumber}`
-  const tutorial = tutorials[methodId]
-  const method = repairMethods[categoryId]?.find((item) => item.id === methodId)
+  const { categoryId, methodId } = useParams()
+  const navigate = useNavigate()
+  const method = repairMethods.find((item) => item.id === methodId && item.categories.includes(categoryId))
+  const tutorial = method?.tutorial
 
   const containerRef = useRef(null)
   const player = useYouTubePlayer(containerRef, tutorial?.media)
@@ -28,9 +27,10 @@ function TutorialOverview() {
     <div className="tutorial-overview">
       <Navbar />
       <main className="tutorial-overview__content">
-        <Button href={`/repair/${categoryId}`} variant="chip" icon={icons.chevronLeft} iconPosition="leading">
-          Back
-        </Button>
+        <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+          <img src={icons.chevronLeft} className="btn__icon" alt="" />
+          <span>Back</span>
+        </button>
 
         <div className="tutorial-overview__header">
           <h1 className="tutorial-overview__title">{tutorial.overviewTitle}</h1>
@@ -78,7 +78,7 @@ function TutorialOverview() {
               </ol>
             </section>
 
-            <Button href={`/tutorials/${categoryId}/${methodNumber}/1`} variant="gold" icon={icons.arrowRightBlack}>
+            <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="gold" icon={icons.arrowRightBlack}>
               Start Tutorial
             </Button>
           </div>

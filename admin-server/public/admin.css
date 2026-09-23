@@ -1,0 +1,494 @@
+:root {
+  color-scheme: light;
+  --bg: #faf7f2;
+  --panel: #ffffff;
+  --border: #e4ddd2;
+  --heading: #35302f;
+  --body: #6b625d;
+  --rose: #c47a7a;
+  --rose-bg: #f6e8e8;
+  --sage: #7c9473;
+  --sage-bg: #eef2ec;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--heading);
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 24px 20px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar__title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.sidebar__hint {
+  margin: 0 0 20px;
+  font-size: 12px;
+  color: var(--body);
+  line-height: 1.5;
+}
+
+.section-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.section-list__item {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--body);
+  cursor: pointer;
+}
+
+.section-list__item:hover {
+  background: var(--bg);
+}
+
+.section-list__item.active {
+  background: var(--rose-bg);
+  color: var(--rose);
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 32px 80px;
+}
+
+.main__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 8px 0;
+  z-index: 5;
+}
+
+.main__title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.main__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--body);
+  min-width: 90px;
+}
+
+.status.status--dirty { color: var(--rose); }
+.status.status--saved { color: var(--sage); }
+.status.status--error { color: #b3403f; }
+
+.btn {
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--panel);
+  color: var(--heading);
+}
+
+.btn--primary {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+.btn--primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn--small {
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.btn--danger {
+  color: #b3403f;
+  border-color: #f0d3d3;
+}
+
+.btn--link {
+  background: none;
+  border: none;
+  color: var(--rose);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.empty-state {
+  color: var(--body);
+  font-size: 14px;
+}
+
+.form-root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.node {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.node__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.node__label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--body);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.node__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.node--array > .node__body,
+.node--object > .node__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.array-item {
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field__label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.field__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--body);
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--heading);
+  background: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.field__hint {
+  font-size: 11px;
+  color: var(--body);
+}
+
+.image-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.image-field__dropzone {
+  position: relative;
+  display: inline-flex;
+  width: 160px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px dashed var(--border);
+}
+
+.image-field__dropzone--active {
+  border-color: var(--rose);
+  background: var(--rose-bg);
+}
+
+.image-field__preview {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: repeating-conic-gradient(#eee 0% 25%, #fafafa 0% 50%) 0 0 / 16px 16px;
+}
+
+.image-field__drop-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(53, 48, 47, 0);
+  opacity: 0;
+  transition: opacity 0.15s, background 0.15s;
+  pointer-events: none;
+}
+
+.image-field__dropzone:hover .image-field__drop-hint,
+.image-field__dropzone--active .image-field__drop-hint {
+  opacity: 1;
+  background: rgba(53, 48, 47, 0.55);
+}
+
+.image-field__file-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-field__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.image-field__row input[type='text'] {
+  flex: 1;
+  min-width: 140px;
+}
+
+.image-field__source {
+  font-style: italic;
+  color: var(--body);
+  border-style: dashed;
+}
+
+.image-field__source:disabled {
+  background: var(--bg);
+  cursor: not-allowed;
+}
+
+.crop-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(20, 18, 17, 0.6);
+  z-index: 100;
+}
+
+/* `.crop-modal`'s own `display: flex` above otherwise overrides the browser's
+   default `[hidden] { display: none }` rule (author styles beat UA styles),
+   so setting the `hidden` property from JS silently did nothing and the
+   modal stayed on screen forever, blocking the whole page. */
+.crop-modal[hidden] {
+  display: none;
+}
+
+.crop-modal__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 90vw;
+  padding: 20px;
+  background: var(--panel);
+  border-radius: 16px;
+}
+
+.crop-modal__stage {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.crop-modal__image {
+  display: block;
+  max-width: 70vw;
+  max-height: 65vh;
+  user-select: none;
+}
+
+.crop-modal__box {
+  position: absolute;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 9999px rgba(20, 18, 17, 0.55);
+  cursor: move;
+}
+
+.crop-modal__handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 1px solid var(--heading);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.crop-modal__handle--nw { top: 0; left: 0; cursor: nwse-resize; }
+.crop-modal__handle--ne { top: 0; left: 100%; cursor: nesw-resize; }
+.crop-modal__handle--sw { top: 100%; left: 0; cursor: nesw-resize; }
+.crop-modal__handle--se { top: 100%; left: 100%; cursor: nwse-resize; }
+
+.crop-modal__hint {
+  margin: 0;
+  font-size: 12px;
+  color: var(--body);
+}
+
+.crop-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.categories-field {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+
+.tutorial-field {
+  padding: 14px 16px 16px;
+  border: 2px solid var(--sage);
+  border-radius: 12px;
+  background: var(--sage-bg);
+}
+
+.tutorial-field__badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--sage);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.tutorial-field__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 18px;
+  border: 2px dashed var(--sage);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.tutorial-field__empty-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--body);
+}
+
+.tutorial-field__add-btn.btn--primary {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+.tutorial-field__add-btn.btn--primary:hover {
+  opacity: 0.9;
+}
+
+/* Fields inside a filled-in tutorial sit on the panel color, not the sage
+   tint, so the callout border/badge stay the only "this is the tutorial"
+   signal instead of every nested field also looking tinted. */
+.tutorial-field > .node__body {
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.add-row {
+  padding-top: 4px;
+}

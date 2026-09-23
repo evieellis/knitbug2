@@ -1,17 +1,20 @@
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
-import Button from '../../components/Button/Button'
 import { icons } from '../../content/icons'
 import './NotBuilt.css'
 
 function NotBuilt() {
+  const navigate = useNavigate()
+
   return (
     <div className="not-built">
       <Navbar />
       <main className="not-built__content">
         <p className="not-built__message">This screen hasn't been built yet.</p>
-        <Button href="/" variant="chip" icon={icons.chevronLeft} iconPosition="leading">
-          Back to Home
-        </Button>
+        <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+          <img src={icons.chevronLeft} className="btn__icon" alt="" />
+          <span>Back</span>
+        </button>
       </main>
     </div>
   )

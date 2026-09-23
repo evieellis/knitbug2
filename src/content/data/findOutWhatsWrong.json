@@ -1,0 +1,66 @@
+{
+  "backLink": {
+    "label": "Back",
+    "href": "/"
+  },
+  "pageHeading": "Let's Figure Out What's Wrong.",
+  "pageSubheading": "How would you like to start?",
+  "options": [
+    {
+      "id": "questionnaire",
+      "type": "questionnaire",
+      "heading": "Guide Me with Questions",
+      "subheading": "Answer questions about what you can see.",
+      "question": "Where does it look different?",
+      "choices": [
+        {
+          "id": "on-needles",
+          "label": "On my needles"
+        },
+        {
+          "id": "in-fabric",
+          "label": "In the fabric"
+        },
+        {
+          "id": "unsure",
+          "label": "Unsure"
+        }
+      ],
+      "defaultChoiceId": "on-needles",
+      "ctaLabel": "Start Questionnaire"
+    },
+    {
+      "id": "gallery",
+      "type": "gallery",
+      "heading": "Compare to Similar Examples",
+      "subheading": "Browse from the gallery of mistakes, or search manually for a mistake.",
+      "searchPlaceholder": "Search for a mistake...",
+      "categories": [
+        {
+          "id": "dropped-stitches",
+          "label": "Dropped Stitches",
+          "thumbnails": [
+            "/content-images/find-out-thumbnails/swatch-a.jpg",
+            "/content-images/find-out-thumbnails/swatch-b.jpg",
+            "/content-images/find-out-thumbnails/swatch-b.jpg",
+            "/content-images/find-out-thumbnails/swatch-c.jpg",
+            "/content-images/find-out-thumbnails/swatch-d.jpg"
+          ]
+        },
+        {
+          "id": "split-stitches",
+          "label": "Split Stitches",
+          "thumbnails": [
+            "/content-images/find-out-thumbnails/swatch-e.jpg",
+            "/content-images/find-out-thumbnails/swatch-b.jpg",
+            "/content-images/find-out-thumbnails/swatch-b.jpg",
+            "/content-images/find-out-thumbnails/swatch-b.jpg",
+            "/content-images/find-out-thumbnails/swatch-f.jpg"
+          ]
+        }
+      ],
+      "ctaLabel": "Explore Gallery of Mistakes",
+      "href": "/browse-mistakes"
+    }
+  ]
+}

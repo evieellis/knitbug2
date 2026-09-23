@@ -88,6 +88,23 @@
   transform: translateY(-1px);
 }
 
+.btn--green {
+  width: 100%;
+  padding: 18px 32px;
+  border-radius: 16px;
+  border: 2px solid var(--color-heading);
+  background: var(--color-bright-green);
+  box-shadow: 0 8px 12px rgba(148, 227, 87, 0.25);
+  font-size: 18px;
+  font-weight: 800;
+  color: #000;
+  transition: transform 0.15s;
+}
+
+.btn--green:hover {
+  transform: translateY(-1px);
+}
+
 .btn--chip {
   padding: 8px 16px;
   border-radius: 99px;
