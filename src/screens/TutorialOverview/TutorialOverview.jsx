@@ -2,8 +2,10 @@ import { useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
+import RepairBadge from '../../components/RepairBadge/RepairBadge'
 import MediaViewer from '../../components/MediaViewer/MediaViewer'
 import PlaybackControls from '../../components/PlaybackControls/PlaybackControls'
+import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { repairMethods } from '../../content/repairOptions'
@@ -22,6 +24,9 @@ function TutorialOverview() {
   if (!tutorial || !method) return <NotBuilt />
 
   const hasVideo = tutorial.media.type === 'youtube' && Boolean(tutorial.media.youtubeId)
+  // Same field the repair-options card already shows — reused as-is rather
+  // than asking for a second copy of the same text.
+  const bodyText = method.warningText || method.description
 
   return (
     <div className="tutorial-overview">
@@ -33,7 +38,11 @@ function TutorialOverview() {
         </button>
 
         <div className="tutorial-overview__header">
-          <h1 className="tutorial-overview__title">{tutorial.overviewTitle}</h1>
+          <div className="tutorial-overview__title-row">
+            <RepairBadge badge={method.badge} />
+            <h1 className="tutorial-overview__title">{tutorial.overviewTitle}</h1>
+          </div>
+          {bodyText && <p className="tutorial-overview__description">{bodyText}</p>}
           <div className="tutorial-overview__metadata">
             <span className="tutorial-overview__meta-row">
               <img src={icons.clock} className="tutorial-overview__meta-icon" alt="" />
@@ -76,6 +85,36 @@ function TutorialOverview() {
                   </li>
                 ))}
               </ol>
+            </section>
+
+            <section className="tutorial-overview__reasons">
+              <div className="tutorial-overview__reasons-col">
+                <p className="tutorial-overview__section-heading tutorial-overview__section-heading--small">
+                  Good When
+                </p>
+                {method.goodWhen.length > 0 ? (
+                  <div className="tutorial-overview__reasons-list">
+                    {method.goodWhen.map((reason, index) => (
+                      <ChecklistItem key={index} status="good" text={reason} />
+                    ))}
+                  </div>
+                ) : (
+                  <p className="tutorial-overview__reasons-empty">Reasons coming soon.</p>
+                )}
+              </div>
+
+              {method.badFor.length > 0 && (
+                <div className="tutorial-overview__reasons-col">
+                  <p className="tutorial-overview__section-heading tutorial-overview__section-heading--small">
+                    Bad For
+                  </p>
+                  <div className="tutorial-overview__reasons-list">
+                    {method.badFor.map((reason, index) => (
+                      <ChecklistItem key={index} status="warning" text={reason} />
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
 
             <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="gold" icon={icons.arrowRightBlack}>

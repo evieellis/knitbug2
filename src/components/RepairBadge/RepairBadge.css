@@ -1,0 +1,39 @@
+.repair-badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.repair-badge--recommended {
+  background: var(--color-green-bg);
+  color: var(--color-green);
+}
+
+.repair-badge--good-choice {
+  background: var(--color-sage-bg);
+  color: var(--color-sage);
+}
+
+.repair-badge--temporary-fix {
+  background: var(--color-tan);
+  color: var(--color-heading);
+}
+
+.repair-badge--time-consuming {
+  background: var(--color-rose-bg);
+  color: var(--color-rose);
+}
+
+.repair-badge--not-recommended {
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
+}
+
+.repair-badge--8ball {
+  background: var(--color-purple-bg);
+  color: var(--color-heading);
+}

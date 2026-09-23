@@ -22,6 +22,18 @@ const MISTAKE_CATEGORIES = [
   { id: 'accidental-decrease', label: 'Accidental Decrease' },
 ]
 
+// Matches the `badges` map in RepairMethodCard.jsx — the only ids that map
+// to a real, styled badge on the live site. Free-typing anything else here
+// would just silently render no badge at all.
+const BADGE_OPTIONS = [
+  { id: '', label: 'No badge' },
+  { id: 'recommended', label: 'Our Recommendation' },
+  { id: 'good-choice', label: 'Good Choice' },
+  { id: 'temporary-fix', label: 'Temporary Fix' },
+  { id: 'time-consuming', label: 'Time Consuming' },
+  { id: 'not-recommended', label: 'Not Recommended' },
+]
+
 let sections = []
 let currentSectionId = null
 let currentState = null
@@ -226,7 +238,7 @@ function buildContainer(container) {
 // editing, instead of relying on a bare, easy-to-miscount "Item 6".
 function describeArrayItem(value) {
   if (!isPlainObject(value)) return null
-  const key = ['caption', 'title', 'label', 'heading', 'name', 'id'].find(
+  const key = ['caption', 'title', 'label', 'heading', 'text', 'name', 'id'].find(
     (k) => typeof value[k] === 'string' && value[k]
   )
   return key ? value[key] : null
@@ -344,7 +356,13 @@ function buildAddFieldButton(obj) {
 function buildValueEditor(container, key) {
   const value = container[key]
 
-  if (key === 'categories' && Array.isArray(value)) {
+  // Only a repair method's `categories: ["dropped-stitches", ...]` (a list of
+  // category ids) gets the checkbox picker — Gallery of Mistakes and Find Out
+  // What's Wrong also have their own unrelated `categories` field, but as a
+  // list of full category objects (id/label/swatches/thumbnails), which must
+  // fall through to the normal array editor instead or its swatches/images
+  // become impossible to reach.
+  if (key === 'categories' && Array.isArray(value) && value.every((item) => typeof item === 'string')) {
     return buildReferenceChecklistEditor(container, key, MISTAKE_CATEGORIES)
   }
 
@@ -365,6 +383,20 @@ function buildValueEditor(container, key) {
     return buildTutorialEditor(container, key)
   }
 
+  // Bespoke editors for a tutorial's steps and each step's checklist —
+  // purpose-built cards (obvious "+ Add Step" / "+ Add Checklist Item"
+  // buttons, start/stop grouped together, no bare "Item 6" labels) instead
+  // of the fully generic array-of-objects rendering everything else gets.
+  if (key === 'steps' && Array.isArray(value)) {
+    return buildStepsEditor(container, key)
+  }
+  if (key === 'checklist' && Array.isArray(value)) {
+    return buildChecklistEditor(container, key)
+  }
+  if (key === 'status') {
+    return buildStatusEditor(container, key)
+  }
+
   if (Array.isArray(value) || isPlainObject(value)) {
     const nested = document.createElement('div')
     nested.className = `node node--${Array.isArray(value) ? 'array' : 'object'}`
@@ -378,6 +410,10 @@ function buildValueEditor(container, key) {
 
   if (key === 'youtubeId') {
     return buildYouTubeEditor(container, key)
+  }
+
+  if (key === 'badge') {
+    return buildBadgeEditor(container, key)
   }
 
   if (key === 'maxMinutes') {
@@ -524,6 +560,259 @@ function buildTutorialEditor(container, key) {
   return wrap
 }
 
+// A step-by-step tutorial's `steps` array — one obviously-numbered card per
+// step (heading preview right in its header, not buried), with clip timing
+// grouped into its own labeled box and a single, unmistakable "+ Add Step"
+// button at the bottom instead of a generic "+ Add item" link easy to
+// confuse with every other "+" in the form.
+// A step written before this editor existed (or edited by hand) might not
+// match the expected {heading, startSeconds, endSeconds, checklist} shape —
+// e.g. the old generic "+ Add item" button on an empty array pushed a bare
+// string. Coerce it into a real step object (keeping any text as the
+// heading) rather than crashing the whole form on `.checklist` of a string.
+function normalizeStep(steps, index) {
+  const step = steps[index]
+  if (step === null || typeof step !== 'object' || Array.isArray(step)) {
+    steps[index] = {
+      heading: typeof step === 'string' ? step : '',
+      startSeconds: 0,
+      endSeconds: null,
+      checklist: [],
+    }
+    setDirty(true)
+  } else if (!Array.isArray(step.checklist)) {
+    step.checklist = []
+    setDirty(true)
+  }
+}
+
+function buildStepsEditor(container, key) {
+  const steps = container[key]
+  const wrap = document.createElement('div')
+  wrap.className = 'steps-field'
+
+  steps.forEach((_, index) => {
+    normalizeStep(steps, index)
+    wrap.appendChild(buildStepCard(steps, index))
+  })
+
+  const addBtn = document.createElement('button')
+  addBtn.type = 'button'
+  addBtn.className = 'btn btn--primary steps-field__add-btn'
+  addBtn.textContent = '+ Add Step'
+  addBtn.addEventListener('click', () => {
+    steps.push(
+      steps.length > 0
+        ? { ...deepClone(steps[steps.length - 1]), heading: '', checklist: [] }
+        : { heading: '', startSeconds: 0, endSeconds: null, checklist: [] }
+    )
+    setDirty(true)
+    rerenderForm()
+  })
+  wrap.appendChild(addBtn)
+
+  return wrap
+}
+
+function buildStepCard(steps, index) {
+  const step = steps[index]
+  const card = document.createElement('div')
+  card.className = 'step-card'
+
+  const header = document.createElement('div')
+  header.className = 'step-card__header'
+  const title = document.createElement('span')
+  title.className = 'step-card__title'
+  title.textContent = step.heading ? `Step ${index + 1} — "${step.heading}"` : `Step ${index + 1}`
+  header.appendChild(title)
+
+  const removeBtn = document.createElement('button')
+  removeBtn.type = 'button'
+  removeBtn.className = 'btn btn--small btn--danger'
+  removeBtn.textContent = 'Remove Step'
+  removeBtn.addEventListener('click', () => {
+    if (!confirm(`Remove Step ${index + 1}? This can't be undone until you reload without saving.`)) return
+    steps.splice(index, 1)
+    setDirty(true)
+    rerenderForm()
+  })
+  header.appendChild(removeBtn)
+  card.appendChild(header)
+
+  const headingField = document.createElement('div')
+  headingField.className = 'step-card__field'
+  const headingLabel = document.createElement('span')
+  headingLabel.className = 'field__label'
+  headingLabel.textContent = 'What to do in this step'
+  headingField.appendChild(headingLabel)
+  const headingInput = buildTextEditor(step, 'heading')
+  // The card's own title above needs to reflect edits without a full
+  // re-render (which would drop focus mid-typing) — so wire this one up by
+  // hand instead of trusting the generic input's own change handling alone.
+  headingInput.addEventListener('input', () => {
+    title.textContent = step.heading ? `Step ${index + 1} — "${step.heading}"` : `Step ${index + 1}`
+  })
+  headingField.appendChild(headingInput)
+  card.appendChild(headingField)
+
+  const timing = document.createElement('div')
+  timing.className = 'step-card__timing'
+  const timingLabel = document.createElement('p')
+  timingLabel.className = 'step-card__timing-label'
+  timingLabel.textContent = '⏱ Video Clip Timing'
+  timing.appendChild(timingLabel)
+
+  const timingRow = document.createElement('div')
+  timingRow.className = 'step-card__timing-row'
+
+  const startCol = document.createElement('div')
+  startCol.className = 'step-card__timing-col'
+  const startLabel = document.createElement('span')
+  startLabel.className = 'field__label'
+  startLabel.textContent = 'Starts at (seconds)'
+  startCol.appendChild(startLabel)
+  startCol.appendChild(buildSecondsEditor(step, 'startSeconds', 'When this clip begins.'))
+  timingRow.appendChild(startCol)
+
+  const endCol = document.createElement('div')
+  endCol.className = 'step-card__timing-col'
+  const endLabel = document.createElement('span')
+  endLabel.className = 'field__label'
+  endLabel.textContent = 'Stops at (seconds)'
+  endCol.appendChild(endLabel)
+  endCol.appendChild(
+    buildSecondsEditor(step, 'endSeconds', 'Leave blank to play to the end of the video.', { nullable: true })
+  )
+  timingRow.appendChild(endCol)
+
+  timing.appendChild(timingRow)
+  card.appendChild(timing)
+
+  const checklistWrap = document.createElement('div')
+  checklistWrap.className = 'step-card__checklist'
+  const checklistLabel = document.createElement('p')
+  checklistLabel.className = 'step-card__checklist-label'
+  checklistLabel.textContent = '✓ "Make Sure…" Checklist'
+  checklistWrap.appendChild(checklistLabel)
+  checklistWrap.appendChild(buildChecklistEditor(step, 'checklist'))
+  card.appendChild(checklistWrap)
+
+  return card
+}
+
+// Same defensive coercion as normalizeStep, for a checklist item that isn't
+// a real {id, status, text, detail} object.
+function normalizeChecklistItem(items, index) {
+  const item = items[index]
+  if (item === null || typeof item !== 'object' || Array.isArray(item)) {
+    items[index] = {
+      id: `c${index + 1}`,
+      status: 'good',
+      text: typeof item === 'string' ? item : '',
+      detail: '',
+    }
+    setDirty(true)
+  }
+}
+
+// A step's "Make Sure…" checklist — each item is one row (a good/warning
+// picker, the reason itself, remove) instead of a generic nested object per
+// item, plus its own clearly-labeled "+ Add Checklist Item" button.
+function buildChecklistEditor(container, key) {
+  const items = container[key]
+  const wrap = document.createElement('div')
+  wrap.className = 'checklist-field'
+
+  items.forEach((_, index) => {
+    normalizeChecklistItem(items, index)
+    wrap.appendChild(buildChecklistItemCard(items, index))
+  })
+
+  const addBtn = document.createElement('button')
+  addBtn.type = 'button'
+  addBtn.className = 'btn btn--small checklist-field__add-btn'
+  addBtn.textContent = '+ Add Checklist Item'
+  addBtn.addEventListener('click', () => {
+    items.push({ id: `c${items.length + 1}`, status: 'good', text: '', detail: '' })
+    setDirty(true)
+    rerenderForm()
+  })
+  wrap.appendChild(addBtn)
+
+  return wrap
+}
+
+function buildChecklistItemCard(items, index) {
+  const item = items[index]
+  const card = document.createElement('div')
+  card.className = 'checklist-item-card'
+
+  const row = document.createElement('div')
+  row.className = 'checklist-item-card__row'
+
+  row.appendChild(buildStatusEditor(item, 'status'))
+
+  const textInput = document.createElement('input')
+  textInput.type = 'text'
+  textInput.className = 'checklist-item-card__text'
+  textInput.placeholder = 'What to check for…'
+  textInput.value = item.text ?? ''
+  textInput.addEventListener('input', () => {
+    item.text = textInput.value
+    setDirty(true)
+  })
+  row.appendChild(textInput)
+
+  const removeBtn = document.createElement('button')
+  removeBtn.type = 'button'
+  removeBtn.className = 'btn btn--small btn--danger'
+  removeBtn.textContent = 'Remove'
+  removeBtn.addEventListener('click', () => {
+    if (!confirm('Remove this checklist item?')) return
+    items.splice(index, 1)
+    setDirty(true)
+    rerenderForm()
+  })
+  row.appendChild(removeBtn)
+  card.appendChild(row)
+
+  const detailHint = document.createElement('p')
+  detailHint.className = 'field__hint'
+  detailHint.textContent = 'Optional: extra detail shown when someone taps the "?" next to this item.'
+  card.appendChild(detailHint)
+
+  const detailInput = document.createElement('textarea')
+  detailInput.placeholder = '(optional)'
+  detailInput.value = item.detail ?? ''
+  detailInput.addEventListener('input', () => {
+    item.detail = detailInput.value
+    setDirty(true)
+  })
+  card.appendChild(detailInput)
+
+  return card
+}
+
+function buildStatusEditor(container, key) {
+  const select = document.createElement('select')
+  select.className = 'status-select'
+  ;[
+    { id: 'good', label: '✓ Good sign' },
+    { id: 'warning', label: '⚠ Watch out for' },
+  ].forEach(({ id, label }) => {
+    const option = document.createElement('option')
+    option.value = id
+    option.textContent = label
+    select.appendChild(option)
+  })
+  select.value = container[key] === 'warning' ? 'warning' : 'good'
+  select.addEventListener('change', () => {
+    container[key] = select.value
+    setDirty(true)
+  })
+  return select
+}
+
 function buildSecondsEditor(container, key, hintText, { nullable = false } = {}) {
   const wrap = document.createElement('div')
   const el = document.createElement('input')
@@ -566,6 +855,23 @@ function buildMaxMinutesEditor(container, key) {
   wrap.appendChild(el)
   wrap.appendChild(hint)
   return wrap
+}
+
+function buildBadgeEditor(container, key) {
+  const select = document.createElement('select')
+  select.className = 'badge-select'
+  BADGE_OPTIONS.forEach(({ id, label }) => {
+    const option = document.createElement('option')
+    option.value = id
+    option.textContent = label
+    select.appendChild(option)
+  })
+  select.value = BADGE_OPTIONS.some((opt) => opt.id === container[key]) ? container[key] ?? '' : ''
+  select.addEventListener('change', () => {
+    container[key] = select.value
+    setDirty(true)
+  })
+  return select
 }
 
 function buildYouTubeEditor(container, key) {

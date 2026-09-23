@@ -38,13 +38,13 @@
           "href": "/mistakes/dropped-stitches"
         },
         {
-          "id": 5,
-          "image": "/content-images/gallery-swatches/frame-5.png",
+          "id": "5-repeat",
+          "image": "/content-images/gallery-swatches/img-20260923-0002-2.png",
           "caption": "2 Dropped Stitches on the Right Side",
           "href": "/mistakes/dropped-stitches"
         },
         {
-          "id": "5-repeat",
+          "id": "5-repeat-page2",
           "image": "/content-images/gallery-swatches/img-20260923-0002-2.png",
           "caption": "2 Dropped Stitches on the Right Side",
           "href": "/mistakes/dropped-stitches"

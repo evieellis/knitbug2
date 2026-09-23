@@ -22,9 +22,12 @@ function TutorialStep() {
   const stepIndex = Number(stepNumber) - 1
   const step = Number.isInteger(stepIndex) ? tutorial?.steps[stepIndex] : undefined
 
+  // Autoplay here (not on the Tutorial Overview trailer) — landing on a step,
+  // whether via "Start Tutorial" or "Next Step", is itself the user's cue to
+  // play, so the clip should already be rolling rather than sitting paused.
   const media =
     tutorial && step
-      ? { ...tutorial.media, startSeconds: step.startSeconds, endSeconds: step.endSeconds }
+      ? { ...tutorial.media, startSeconds: step.startSeconds, endSeconds: step.endSeconds, autoplay: true }
       : undefined
   const containerRef = useRef(null)
   const player = useYouTubePlayer(containerRef, media)
@@ -36,7 +39,7 @@ function TutorialStep() {
   const isLastStep = stepIndex === tutorial.steps.length - 1
   const exitHref = `/repair/${categoryId}`
   const overviewHref = `/tutorials/${categoryId}/${methodId}`
-  const nextHref = isLastStep ? '/repair-complete' : `${overviewHref}/${stepIndex + 2}`
+  const nextHref = isLastStep ? `/repair-complete/${categoryId}` : `${overviewHref}/${stepIndex + 2}`
 
   return (
     <div className="tutorial-step">

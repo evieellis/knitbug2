@@ -32,6 +32,7 @@ const SECTIONS = [
   // repair-card content and its tutorial are always edited in one place.
   { id: 'repairOptions', label: 'Repair Options' },
   { id: 'questionnaire', label: 'Questionnaire' },
+  { id: 'repairComplete', label: 'Repair Complete' },
 ]
 const SECTION_IDS = new Set(SECTIONS.map((s) => s.id))
 

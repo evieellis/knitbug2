@@ -8,11 +8,13 @@ import { categories } from '../../content/galleryOfMistakes'
 import { resultsPage } from '../../content/questionnaire'
 import './QuestionnaireResults.css'
 
-// Most mistake titles already read naturally as a sentence fragment ("a Twisted
-// Stitch"); "Dropped Stitch" is the one exception (it's used bare as a page <h1>
-// elsewhere), so this only adds the article where one isn't already there.
+// Titles are stored bare ("Dropped Stitch", "Accidental Decrease") since
+// they're also used as-is elsewhere (page <h1>s, "{title} Repair Options") —
+// this is the one spot that needs "a"/"an" in front, picked by whether the
+// title starts with a vowel sound rather than hard-coding it into the data.
 function withArticle(title) {
-  return /^(a|an)\s/i.test(title) ? title : `a ${title}`
+  if (/^(a|an)\s/i.test(title)) return title
+  return /^[aeiou]/i.test(title) ? `an ${title}` : `a ${title}`
 }
 
 function QuestionnaireResults() {

@@ -39,7 +39,7 @@ function loadYouTubeApi() {
 // exposes (currentTime, duration, seekTo(...)) is relative to that clip, not the
 // underlying video, so PlaybackControls needs no awareness of clips at all: 0 is
 // always "the start of this clip" and `duration` is always "this clip's length".
-function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSeconds } = {}) {
+function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSeconds, autoplay = false } = {}) {
   const playerRef = useRef(null)
   const intervalRef = useRef(null)
   const rawDurationRef = useRef(0)
@@ -79,6 +79,7 @@ function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSecond
           rel: 0,
           playsinline: 1,
           start: Math.floor(startSeconds),
+          autoplay: autoplay ? 1 : 0,
         },
         events: {
           onReady: (event) => {
@@ -87,6 +88,10 @@ function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSecond
             const rawDuration = event.target.getDuration()
             rawDurationRef.current = rawDuration
             setDuration(Math.max(0, clipEndFor(rawDuration) - startSeconds))
+            // Belt-and-suspenders alongside playerVars.autoplay above — more
+            // reliable across browsers than the playerVar alone, and safe to
+            // call even where autoplay is blocked (it just quietly no-ops).
+            if (autoplay) event.target.playVideo()
           },
           onStateChange: (event) => {
             if (cancelled) return
@@ -106,7 +111,7 @@ function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSecond
     // player: routing between tutorial steps normally keeps this component
     // mounted, so without this the video would just keep playing past the
     // step it was cued for instead of cueing up the new step's clip.
-  }, [youtubeId, startSeconds, endSeconds, containerRef, clipEndFor])
+  }, [youtubeId, startSeconds, endSeconds, autoplay, containerRef, clipEndFor])
 
   // The IFrame API has no timeupdate event — poll while playing to drive the
   // scrubber, and to notice when playback has reached this clip's own end.

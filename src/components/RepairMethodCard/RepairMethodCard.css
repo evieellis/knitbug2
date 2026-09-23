@@ -1,3 +1,7 @@
+/* Fixed height so cards never change size with more or less text — content
+   that would otherwise stretch it (title, description/warning) gets clamped
+   instead (see below); the footer button always sits flush at the bottom
+   thanks to justify-content: space-between on a now-constant-height box. */
 .repair-card {
   position: relative;
   display: flex;
@@ -6,12 +10,14 @@
   justify-content: space-between;
   min-width: 0;
   max-width: 420px;
-  padding: 24px;
+  height: 550px;
+  padding: 20px;
   background: var(--color-white);
   border: 2px solid #000;
   border-radius: 24px;
   box-shadow: 0 6px 8px rgba(58, 53, 52, 0.03);
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .repair-card--recommended {
@@ -29,7 +35,7 @@
 .repair-card__body {
   display: flex;
   flex-direction: column;
-  gap: 19px;
+  gap: 14px;
   width: 100%;
 }
 
@@ -37,51 +43,44 @@
   min-height: 23px;
 }
 
-.repair-card__badge {
-  display: inline-flex;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 11px;
-  text-transform: uppercase;
-}
-
-.repair-card__badge--recommended {
-  background: var(--color-green-bg);
-  color: var(--color-green);
-}
-
-.repair-card__badge--not-recommended {
-  background: var(--color-warning-bg);
-  color: var(--color-warning);
-}
-
-.repair-card__badge--8ball {
-  background: var(--color-purple-bg);
-  color: var(--color-heading);
-}
-
 .repair-card__title {
+  display: -webkit-box;
   margin: 0;
   font-family: var(--font-heading);
   font-size: 22px;
+  line-height: 1.25;
   color: var(--color-heading);
+  min-height: calc(22px * 1.25 * 2);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .repair-card__image {
   width: 100%;
-  height: 202px;
+  height: 200px;
   object-fit: cover;
   border-radius: 16px;
 }
 
 .repair-card__description {
+  display: -webkit-box;
   margin: 0;
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.5;
   color: var(--color-body);
+  min-height: calc(14px * 1.5 * 3);
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.repair-card__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
 }
 
 .repair-card__metadata {
@@ -116,6 +115,20 @@
   font-size: 16px;
   line-height: 1.4;
   color: var(--color-warning-text);
+  min-height: calc(16px * 1.4 * 3);
+}
+
+.repair-card__warning-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* A reassuring "this one's actually fine to leave" message, not an actual
+   warning — same layout, sage instead of red. */
+.repair-card__warning--positive {
+  color: var(--color-sage);
 }
 
 .repair-card__warning-icon {
@@ -129,5 +142,4 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  padding-top: 20px;
 }

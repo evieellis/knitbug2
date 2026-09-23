@@ -13,6 +13,18 @@ import './RepairOptions.css'
 
 const PAGE_SIZE = 3
 
+// Front-to-back card order. "Temporary Fix" and no-badge aren't named
+// explicitly, so they're slotted in the middle as a reasonable default —
+// easy to move if that's wrong, just by editing this ladder.
+const BADGE_ORDER = {
+  recommended: 0,
+  'good-choice': 1,
+  'temporary-fix': 2,
+  'time-consuming': 3,
+  'not-recommended': 4,
+}
+const DEFAULT_BADGE_RANK = 2
+
 const defaultFilters = {
   circumstances: [],
   tools: filterGroups.tools.items.map((item) => item.id),
@@ -48,11 +60,18 @@ function RepairOptions() {
   // field) and show up under all of them — the tutorial link is built here,
   // per page, rather than stored on the method itself, since the same method
   // needs a different link depending on which category page it's showing on.
+  // Ordered by badge: Our Recommendation, Good Choice, Temporary Fix, Time
+  // Consuming, Not Recommended last — ties keep their existing relative
+  // order (Array.sort is stable), including after filtering.
   const methods = useMemo(
     () =>
       repairMethods
         .filter((method) => method.categories.includes(categoryId))
-        .map((method) => ({ ...method, href: `/tutorials/${categoryId}/${method.id}` })),
+        .map((method) => ({ ...method, href: `/tutorials/${categoryId}/${method.id}` }))
+        .sort(
+          (a, b) =>
+            (BADGE_ORDER[a.badge] ?? DEFAULT_BADGE_RANK) - (BADGE_ORDER[b.badge] ?? DEFAULT_BADGE_RANK)
+        ),
     [categoryId]
   )
 

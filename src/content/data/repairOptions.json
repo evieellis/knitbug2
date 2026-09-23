@@ -85,6 +85,8 @@
       ],
       "title": "Pick Up Dropped Stitches with a Crochet Hook",
       "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
+      "goodWhen": [],
+      "badFor": [],
       "image": "/content-images/repair/step-1-insert-crochet-hook-into-stitch-from-front.jpg",
       "timeLabel": "Time: 5 - 10 minutes",
       "timeMinutes": 7.5,
@@ -92,9 +94,7 @@
       "tools": [
         "crochet-hook"
       ],
-      "circumstances": [
-        "casted-off"
-      ],
+      "circumstances": [],
       "badge": "recommended",
       "includeInEightBall": true,
       "tutorial": {
@@ -115,7 +115,7 @@
           {
             "heading": "Insert your crochet hook into the dropped stitch.",
             "startSeconds": 0,
-            "endSeconds": null,
+            "endSeconds": 4,
             "checklist": [
               {
                 "id": "c1",
@@ -201,31 +201,70 @@
     {
       "id": "dropped-stitches-method-2",
       "categories": [
-        "dropped-stitches"
+        "dropped-stitches",
+        "twisted-stitches",
+        "split-stitches",
+        "accidental-yarn-over",
+        "accidental-decrease"
       ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
+      "title": "Tink Back to Where the Mistake Happened",
+      "description": "XXX",
+      "goodWhen": [
+        "You aren't exactly sure what the mistake is",
+        "Mistake is only a few stitches back"
+      ],
+      "badFor": [
+        "Mistakes several rows down"
+      ],
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-00-39-pm.png",
       "timeLabel": "Time: 5 - 10 minutes",
       "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
+      "tools": [],
       "circumstances": [
-        "casted-off"
+        "end-of-row",
+        "multiple"
       ],
-      "badge": "recommended",
+      "badge": "good-choice",
       "includeInEightBall": true,
-      "tutorial": null
+      "tutorial": {
+        "overviewTitle": "Tink Back",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "8754VfoAsrw",
+          "startSeconds": 0
+        },
+        "overviewSteps": [
+          "Knit Backwards",
+          "Get Money"
+        ],
+        "steps": [
+          {
+            "heading": "Knit Backwads",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          },
+          {
+            "heading": "Knit Backwads",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
     },
     {
       "id": "dropped-stitches-method-3",
       "categories": [
-        "dropped-stitches"
+        "dropped-stitches",
+        "twisted-stitches",
+        "split-stitches",
+        "accidental-yarn-over"
       ],
       "title": "Just leave it?",
       "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
+      "goodWhen": [],
+      "badFor": [],
       "image": "/content-images/repair/darning-needle-catch.jpg",
       "tools": [],
       "circumstances": [],
@@ -233,37 +272,22 @@
       "badge": "not-recommended",
       "includeInEightBall": false,
       "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "dropped-stitches-method-4",
-      "categories": [
-        "dropped-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
       "tutorial": null
     },
     {
       "id": "dropped-stitches-method-5",
       "categories": [
-        "dropped-stitches"
+        "accidental-yarn-over"
       ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
+      "title": "Twist the Yarn Over",
+      "description": "Twist the yarn over and knit the two together",
+      "goodWhen": [
+        "You do not want loose fabric"
+      ],
+      "badFor": [
+        "Yarn overs several rows down"
+      ],
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-09-24-pm.png",
       "timeLabel": "Time: 5 - 10 minutes",
       "timeMinutes": 7.5,
       "neededLabel": "Needed: Crochet Hook",
@@ -275,603 +299,225 @@
       ],
       "badge": "recommended",
       "includeInEightBall": true,
-      "tutorial": null
+      "tutorial": {
+        "overviewTitle": "Twist the Yarn Over",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "d2GWkJKoljY",
+          "startSeconds": 0
+        },
+        "overviewSteps": [
+          "bro",
+          "bro"
+        ],
+        "steps": [
+          {
+            "heading": "bro",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          },
+          {
+            "heading": "bro",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
     },
     {
-      "id": "dropped-stitches-method-6",
+      "id": "accidental-decrease-leave-it",
       "categories": [
-        "dropped-stitches"
+        "accidental-decrease"
       ],
       "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
+      "warningText": "Good news: an accidental decrease won't get worse over time or unravel. If a slightly narrower spot doesn't bother you, it's totally fine to leave as-is.",
+      "goodWhen": [],
+      "badFor": [],
       "image": "/content-images/repair/darning-needle-catch.jpg",
       "tools": [],
       "circumstances": [],
       "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "dropped-stitches-method-7",
-      "categories": [
-        "dropped-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
+      "badge": "good-choice",
       "includeInEightBall": true,
+      "ctaLabel": "Skip this repair",
       "tutorial": null
     },
     {
-      "id": "dropped-stitches-method-8",
-      "categories": [
-        "dropped-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "dropped-stitches-method-9",
-      "categories": [
-        "dropped-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-1",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-2",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-3",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-4",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-5",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-6",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-7",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-8",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "twisted-stitches-method-9",
-      "categories": [
-        "twisted-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-1",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-2",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-3",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-4",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-5",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-6",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-7",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-8",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "split-stitches-method-9",
-      "categories": [
-        "split-stitches"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-1",
+      "id": "accidental-decrease-leave-it-new",
       "categories": [
         "accidental-yarn-over"
       ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-2",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-3",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
+      "title": "Drop the Yarn Over",
+      "warningText": "An easy fix!",
+      "goodWhen": [],
+      "badFor": [],
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-26-39-pm.png",
       "tools": [],
       "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-4",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
+      "timeMinutes": 0.5,
+      "badge": "good-choice",
       "includeInEightBall": true,
-      "tutorial": null
+      "ctaLabel": "Skip this repair",
+      "tutorial": {
+        "overviewTitle": "Drop the Yarn Over",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "h72URlF6RLg",
+          "startSeconds": 0
+        },
+        "overviewSteps": [],
+        "steps": [
+          {
+            "heading": "drop it",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          },
+          {
+            "heading": "ur done",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
     },
     {
-      "id": "accidental-yarn-over-method-5",
+      "id": "accidental-decrease-leave-it-new-new",
       "categories": [
-        "accidental-yarn-over"
+        "dropped-stitches",
+        "twisted-stitches",
+        "split-stitches",
+        "accidental-yarn-over",
+        "accidental-decrease"
       ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
+      "title": "Frog your knitting",
+      "warningText": "An easy fix!",
+      "goodWhen": [
+        "You want to start fresh"
       ],
-      "circumstances": [
-        "casted-off"
+      "badFor": [
+        "Time crunches"
       ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-6",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-30-23-pm.png",
       "tools": [],
       "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-7",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
+      "timeMinutes": 0.5,
+      "badge": "time-consuming",
       "includeInEightBall": true,
-      "tutorial": null
+      "ctaLabel": "Skip this repair",
+      "tutorial": {
+        "overviewTitle": "Frogging",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "h72URlF6RLg",
+          "startSeconds": 0
+        },
+        "overviewSteps": [],
+        "steps": [
+          {
+            "heading": "Frog Back",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          },
+          {
+            "heading": "ur done",
+            "startSeconds": 0,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
     },
     {
-      "id": "accidental-yarn-over-method-8",
+      "id": "accidental-decrease-leave-it-new-new-new",
       "categories": [
         "accidental-yarn-over"
       ],
-      "title": "Darning Needle Catch",
-      "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
+      "title": "Darn the hole with a sewing needle",
+      "warningText": "",
+      "goodWhen": [
+        "You've already casted off",
+        "You've kept going for several rows"
+      ],
+      "badFor": [
+        "An immediate mistake"
+      ],
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-47-08-pm.png",
       "tools": [
-        "crochet-hook"
+        "sewing-needle"
       ],
-      "circumstances": [
-        "casted-off"
-      ],
-      "badge": "recommended",
-      "includeInEightBall": true,
-      "tutorial": null
-    },
-    {
-      "id": "accidental-yarn-over-method-9",
-      "categories": [
-        "accidental-yarn-over"
-      ],
-      "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
       "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "not-recommended",
-      "includeInEightBall": false,
-      "ctaLabel": "See a temporary fix instead",
-      "tutorial": null
+      "timeMinutes": 0.5,
+      "badge": "good-choice",
+      "includeInEightBall": true,
+      "ctaLabel": "Skip this repair",
+      "tutorial": {
+        "overviewTitle": "Darning the Hole",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "rZl_YjTpLJQ",
+          "startSeconds": 207
+        },
+        "overviewSteps": [
+          "Darn hole"
+        ],
+        "steps": [
+          {
+            "heading": "Darn hole",
+            "startSeconds": 207,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "accidental-decrease-leave-it-new-new-new-new",
+      "categories": [
+        "accidental-yarn-over"
+      ],
+      "title": "Drop Down and Ladder Back Up",
+      "warningText": "",
+      "goodWhen": [
+        "You've kept going for several rows"
+      ],
+      "badFor": [
+        "An immediate mistake"
+      ],
+      "image": "/content-images/repair/screenshot-2026-09-23-at-2-56-16-pm.png",
+      "tools": [
+        "crochet-hook"
+      ],
+      "circumstances": [],
+      "timeMinutes": 0.5,
+      "badge": "good-choice",
+      "includeInEightBall": true,
+      "ctaLabel": "Skip this repair",
+      "tutorial": {
+        "overviewTitle": "Drop Down and Ladder Back Up",
+        "media": {
+          "type": "youtube",
+          "youtubeId": "rZl_YjTpLJQ",
+          "startSeconds": 152
+        },
+        "overviewSteps": [
+          "Drop Down",
+          "Twist stitch",
+          "Ladder up"
+        ],
+        "steps": [
+          {
+            "heading": "Darn hole",
+            "startSeconds": 152,
+            "endSeconds": null,
+            "checklist": []
+          }
+        ]
+      }
     }
   ]
 }

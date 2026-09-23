@@ -68,11 +68,30 @@
   margin: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
-  font-size: 28px;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
   color: #fff;
   text-align: center;
+}
+
+/* Size step chosen by messageSizeClass() based on the title's length, so a
+   short one still reads big while a long one shrinks enough to stay inside
+   the round window instead of overflowing it. */
+.magic-8ball__message--lg {
+  font-size: 28px;
+  letter-spacing: -0.5px;
+}
+
+.magic-8ball__message--md {
+  font-size: 22px;
+}
+
+.magic-8ball__message--sm {
+  font-size: 18px;
+}
+
+.magic-8ball__message--xs {
+  font-size: 14px;
 }
 
 .magic-8ball__glass-shine {

@@ -1,0 +1,59 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="celebration-graphic">
+<circle id="yarn-core" cx="110" cy="110" r="76" fill="#FCE7E8"/>
+<circle id="yarn-wrap-1" opacity="0.92" cx="110" cy="110" r="72" fill="white"/>
+<circle id="yarn-wrap-2" opacity="0.88" cx="110" cy="110" r="66" fill="white"/>
+<circle id="yarn-wrap-3" opacity="0.84" cx="110" cy="110" r="58" fill="white"/>
+<circle id="yarn-wrap-4" opacity="0.78" cx="110" cy="110" r="48" fill="white"/>
+<circle id="yarn-wrap-5" opacity="0.72" cx="110" cy="110" r="36" fill="white"/>
+<circle id="yarn-wrap-6" opacity="0.66" cx="110" cy="110" r="22" fill="white"/>
+<circle id="yarn-wrap-7" opacity="0.82" cx="110" cy="110" r="70" fill="#FDE2E4"/>
+<circle id="yarn-wrap-8" opacity="0.78" cx="110" cy="110" r="64" fill="#FDE2E4"/>
+<circle id="yarn-wrap-9" opacity="0.74" cx="110" cy="110" r="56" fill="#FDE2E4"/>
+<circle id="yarn-wrap-10" opacity="0.7" cx="110" cy="110" r="46" fill="#FDE2E4"/>
+<circle id="yarn-wrap-11" opacity="0.66" cx="110" cy="110" r="34" fill="#FDE2E4"/>
+<circle id="yarn-wrap-12" opacity="0.62" cx="110" cy="110" r="20" fill="#FDE2E4"/>
+<circle id="yarn-wrap-13" opacity="0.78" cx="110" cy="110" r="68" fill="#F8D7DA"/>
+<circle id="yarn-wrap-14" opacity="0.74" cx="110" cy="110" r="62" fill="#F8D7DA"/>
+<circle id="yarn-wrap-15" opacity="0.7" cx="110" cy="110" r="54" fill="#F8D7DA"/>
+<circle id="yarn-wrap-16" opacity="0.66" cx="110" cy="110" r="44" fill="#F8D7DA"/>
+<circle id="yarn-wrap-17" opacity="0.62" cx="110" cy="110" r="32" fill="#F8D7DA"/>
+<circle id="yarn-wrap-18" opacity="0.58" cx="110" cy="110" r="18" fill="#F8D7DA"/>
+<circle id="yarn-wrap-19" opacity="0.28" cx="110" cy="110" r="66" fill="#C88282"/>
+<circle id="yarn-wrap-20" opacity="0.24" cx="110" cy="110" r="60" fill="#C88282"/>
+<circle id="yarn-wrap-21" opacity="0.2" cx="110" cy="110" r="52" fill="#C88282"/>
+<circle id="yarn-wrap-22" opacity="0.18" cx="110" cy="110" r="42" fill="#C88282"/>
+<circle id="yarn-wrap-23" opacity="0.14" cx="110" cy="110" r="30" fill="#C88282"/>
+<circle id="yarn-wrap-24" opacity="0.1" cx="110" cy="110" r="16" fill="#C88282"/>
+<g id="needle-left" filter="url(#filter0_d_0_4)">
+<rect x="18" y="18" width="8" height="84" rx="4" transform="rotate(-18 18 18)" fill="#C88282"/>
+</g>
+<g id="needle-right" filter="url(#filter1_d_0_4)">
+<rect x="194" y="18" width="8" height="84" rx="4" transform="rotate(18 194 18)" fill="#C88282"/>
+</g>
+<circle id="needle-tip-left" cx="21" cy="19" r="7" fill="#C88282"/>
+<circle id="needle-tip-right" cx="199" cy="19" r="7" fill="#C88282"/>
+</g>
+<defs>
+<filter id="filter0_d_0_4" x="9.03921" y="10.5671" width="51.4875" height="100.282" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.784314 0 0 0 0 0.509804 0 0 0 0 0.509804 0 0 0 0.14902 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_4" result="shape"/>
+</filter>
+<filter id="filter1_d_0_4" x="159.082" y="13.0392" width="51.4875" height="100.282" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="5"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.784314 0 0 0 0 0.509804 0 0 0 0 0.509804 0 0 0 0.14902 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_4" result="shape"/>
+</filter>
+</defs>
+</svg>

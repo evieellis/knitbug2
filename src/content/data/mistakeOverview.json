@@ -43,7 +43,7 @@
       }
     },
     "twisted-stitches": {
-      "title": "a Twisted Stitch",
+      "title": "Twisted Stitch",
       "image": "",
       "whatIsIt": {
         "heading": "What Is It?",
@@ -80,7 +80,7 @@
       }
     },
     "split-stitches": {
-      "title": "a Split Stitch",
+      "title": "Split Stitch",
       "image": "",
       "whatIsIt": {
         "heading": "What Is It?",
@@ -117,7 +117,7 @@
       }
     },
     "accidental-yarn-over": {
-      "title": "an Accidental Yarn Over",
+      "title": "Accidental Yarn Over",
       "image": "",
       "whatIsIt": {
         "heading": "What Is It?",
@@ -151,6 +151,43 @@
       "cta": {
         "label": "Go to Repair Options",
         "href": "/repair/accidental-yarn-over"
+      }
+    },
+    "accidental-decrease": {
+      "title": "Accidental Decrease",
+      "image": "",
+      "whatIsIt": {
+        "heading": "What Is It?",
+        "body": ""
+      },
+      "signs": {
+        "heading": "Signs You Have an Accidental Decrease",
+        "items": [
+          {
+            "id": "sign-1",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-2",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-3",
+            "label": "",
+            "detail": ""
+          },
+          {
+            "id": "sign-4",
+            "label": "",
+            "detail": ""
+          }
+        ]
+      },
+      "cta": {
+        "label": "Go to Repair Options",
+        "href": "/repair/accidental-decrease"
       }
     }
   }

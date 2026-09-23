@@ -24,6 +24,14 @@
   width: 100%;
 }
 
+.tutorial-overview__title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
 .tutorial-overview__title {
   margin: 0;
   font-family: var(--font-heading);
@@ -31,6 +39,14 @@
   font-size: 36px;
   line-height: 1.15;
   color: var(--color-heading);
+}
+
+.tutorial-overview__description {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-body);
 }
 
 .tutorial-overview__metadata {
@@ -54,6 +70,40 @@
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+}
+
+/* Stacked (not side-by-side) — this now sits in the narrower right column
+   alongside Overview, rather than spanning the full page width. */
+.tutorial-overview__reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.tutorial-overview__reasons-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.tutorial-overview__reasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.tutorial-overview__reasons-empty {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-body);
+}
+
+.tutorial-overview__section-heading--small {
+  font-size: 20px;
 }
 
 .tutorial-overview__split {

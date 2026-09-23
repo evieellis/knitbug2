@@ -237,7 +237,8 @@ body {
 
 input[type='text'],
 input[type='number'],
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid var(--border);
@@ -246,6 +247,11 @@ textarea {
   font-family: inherit;
   color: var(--heading);
   background: #fff;
+}
+
+.badge-select {
+  width: auto;
+  min-width: 200px;
 }
 
 textarea {
@@ -487,6 +493,141 @@ textarea {
   padding: 12px;
   border-radius: 8px;
   background: var(--panel);
+}
+
+/* ---- Steps ---- */
+
+.steps-field {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.step-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.step-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.step-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-card__timing {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--rose);
+  border-radius: 8px;
+  background: var(--rose-bg);
+}
+
+.step-card__timing-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--rose);
+}
+
+.step-card__timing-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.step-card__timing-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 140px;
+}
+
+.step-card__checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-card__checklist-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--body);
+}
+
+/* Bigger and its own color, on purpose — this is the one button people
+   asked they couldn't reliably find among all the other "+" links. */
+.steps-field__add-btn.btn--primary {
+  align-self: flex-start;
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+/* ---- Checklist ---- */
+
+.checklist-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checklist-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.checklist-item-card__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-select {
+  width: auto;
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.checklist-item-card__text {
+  flex: 1;
+  min-width: 120px;
+}
+
+.checklist-item-card textarea {
+  min-height: 44px;
+}
+
+.checklist-field__add-btn {
+  align-self: flex-start;
 }
 
 .add-row {
