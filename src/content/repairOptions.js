@@ -21,4 +21,12 @@ export const filterGroups = {
   },
 }
 
-export const repairMethods = data.repairMethods
+// The tutorial overview's numbered list used to be its own separately-typed
+// field — in practice it always just restated each step's own heading, and
+// the two silently drifted apart whenever only one got edited. Deriving it
+// from the real steps means there's only one place to write it.
+export const repairMethods = data.repairMethods.map((method) =>
+  method.tutorial
+    ? { ...method, tutorial: { ...method.tutorial, overviewSteps: method.tutorial.steps.map((step) => step.heading) } }
+    : method
+)

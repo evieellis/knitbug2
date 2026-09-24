@@ -12,6 +12,34 @@ function PauseIcon() {
   )
 }
 
+function ExpandIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M9 4H4V9M20 9V4H15M15 20H20V15M4 15V20H9"
+        stroke="#35302F"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+function CollapseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path
+        d="M4 9H9V4M20 9H15V4M15 20V15H20M9 20V15H4"
+        stroke="#35302F"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 function seekFromPointer(event, track, duration) {
   const rect = track.getBoundingClientRect()
   const ratio = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width))
@@ -29,6 +57,8 @@ function PlaybackControls({
   onSeek,
   onSpeedChange,
   disabled = false,
+  isFullscreen = false,
+  onToggleFullscreen,
 }) {
   const trackRef = useRef(null)
   const menuRef = useRef(null)
@@ -152,6 +182,18 @@ function PlaybackControls({
             </ul>
           )}
         </div>
+
+        {onToggleFullscreen && (
+          <button
+            type="button"
+            className="playback-controls__icon-btn playback-controls__fullscreen-btn"
+            onClick={onToggleFullscreen}
+            disabled={disabled}
+            aria-label={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <CollapseIcon /> : <ExpandIcon />}
+          </button>
+        )}
       </div>
     </div>
   )

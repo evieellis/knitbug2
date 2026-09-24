@@ -65,20 +65,24 @@
   width: 100%;
 }
 
-/* Fade width tuned to sit roughly behind the overlaid arrow button. */
+/* Fade width sized to the overlaid arrow button itself (32px) plus a little
+   blend room — was 72px, nearly a third of a 220px-wide swatch, which faded
+   out most of whichever photo happened to land on the page edge (including
+   the "repeat" swatch that's deliberately duplicated onto the next page
+   specifically so it can be seen in full). */
 .category-row__viewport--fade-right {
-  mask-image: linear-gradient(to right, black 0, black calc(100% - 72px), transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 72px), transparent 100%);
+  mask-image: linear-gradient(to right, black 0, black calc(100% - 40px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 40px), transparent 100%);
 }
 
 .category-row__viewport--fade-left {
-  mask-image: linear-gradient(to right, transparent 0, black 72px, black 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 72px, black 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 40px, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black 100%);
 }
 
 .category-row__viewport--fade-both {
-  mask-image: linear-gradient(to right, transparent 0, black 72px, black calc(100% - 72px), transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0, black 72px, black calc(100% - 72px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 40px, black calc(100% - 40px), transparent 100%);
 }
 
 /* Overlaid directly on the first/last picture, vertically centered on the

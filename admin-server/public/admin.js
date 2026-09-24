@@ -6,7 +6,6 @@
 
 const IMAGE_FOLDER_BY_SECTION = {
   galleryOfMistakes: 'gallery-swatches',
-  findOutWhatsWrong: 'find-out-thumbnails',
   repairOptions: 'repair',
   mistakeOverview: 'mistake-overview',
 }
@@ -247,6 +246,12 @@ function describeArrayItem(value) {
 function buildArrayItem(arr, index) {
   const item = document.createElement('div')
   item.className = 'array-item'
+  // A "reviewed" checkbox (e.g. on a repair method) tints this item's own
+  // box green so a reviewed/incomplete split is visible while scrolling the
+  // list, not just when you're inside one item's fields.
+  if (isPlainObject(arr[index]) && arr[index].reviewed) {
+    item.classList.add('array-item--reviewed')
+  }
 
   const header = document.createElement('div')
   header.className = 'field__label-row'
@@ -397,6 +402,13 @@ function buildValueEditor(container, key) {
     return buildStatusEditor(container, key)
   }
 
+  // Checked before the generic isImageKey handling below — "annotatedImage"
+  // would otherwise just become a second plain upload dropzone. Instead it
+  // gets its own "+ Add Annotation" control that opens the draw-on-photo tool.
+  if (key === 'annotatedImage') {
+    return buildAnnotationEditor(container, key)
+  }
+
   if (Array.isArray(value) || isPlainObject(value)) {
     const nested = document.createElement('div')
     nested.className = `node node--${Array.isArray(value) ? 'array' : 'object'}`
@@ -481,6 +493,13 @@ function buildBooleanEditor(container, key) {
   el.addEventListener('change', () => {
     container[key] = el.checked
     setDirty(true)
+    // Recolor this item immediately rather than waiting for a rerenderForm()
+    // (which leaf-value edits like this deliberately skip, to avoid losing
+    // your place/focus while filling in other fields on the same item).
+    if (key === 'reviewed') {
+      const item = el.closest('.array-item')
+      if (item) item.classList.toggle('array-item--reviewed', el.checked)
+    }
   })
   row.appendChild(el)
   row.appendChild(document.createTextNode('Enabled'))
@@ -544,7 +563,9 @@ function buildTutorialEditor(container, key) {
       container[key] = {
         overviewTitle: '',
         media: { type: 'youtube', youtubeId: '', startSeconds: 0 },
-        overviewSteps: [],
+        // No overviewSteps field — the Tutorial Overview screen's numbered
+        // list is derived from each step's own heading, so there's nothing
+        // separate to fill in here.
         steps: [],
       }
       setDirty(true)
@@ -710,6 +731,7 @@ function normalizeChecklistItem(items, index) {
       status: 'good',
       text: typeof item === 'string' ? item : '',
       detail: '',
+      image: '',
     }
     setDirty(true)
   }
@@ -733,7 +755,7 @@ function buildChecklistEditor(container, key) {
   addBtn.className = 'btn btn--small checklist-field__add-btn'
   addBtn.textContent = '+ Add Checklist Item'
   addBtn.addEventListener('click', () => {
-    items.push({ id: `c${items.length + 1}`, status: 'good', text: '', detail: '' })
+    items.push({ id: `c${items.length + 1}`, status: 'good', text: '', detail: '', image: '' })
     setDirty(true)
     rerenderForm()
   })
@@ -789,6 +811,13 @@ function buildChecklistItemCard(items, index) {
     setDirty(true)
   })
   card.appendChild(detailInput)
+
+  const imageHint = document.createElement('p')
+  imageHint.className = 'field__hint'
+  imageHint.textContent = 'Optional: a picture shown in that same "?" popup, alongside the detail above.'
+  card.appendChild(imageHint)
+  if (item.image === undefined) item.image = ''
+  card.appendChild(buildImageEditor(item, 'image'))
 
   return card
 }
@@ -1217,6 +1246,387 @@ function openCropper(src, mimeType) {
     els.box.addEventListener('mousedown', onBoxMouseDown)
     document.addEventListener('mousemove', onMouseMove)
     document.addEventListener('mouseup', onMouseUp)
+    els.overlay.addEventListener('click', onOverlayClick)
+    els.img.addEventListener('load', onImageLoad)
+
+    els.img.src = cacheBust(src)
+    if (els.img.complete && els.img.naturalWidth) onImageLoad()
+  })
+}
+
+// ---- annotate-a-photo ----
+// A "+ Add Annotation" control next to a swatch's Image field. It opens the
+// same photo in a draw-on-top tool (rectangle or freehand, lines only — no
+// text, matching the "just lines" ask) and, on save, flattens the marks onto
+// a full-resolution copy of the photo and uploads that as a second image
+// (`annotatedImage`), leaving the original untouched. The site then lets a
+// viewer toggle between the two — it's genuinely two separate photos, not a
+// redrawable overlay, which is why redrawing always restarts from the clean
+// original rather than editing existing marks.
+
+function buildAnnotationEditor(container, key) {
+  const wrap = document.createElement('div')
+  wrap.className = 'annotation-field'
+
+  function render() {
+    wrap.innerHTML = ''
+
+    if (!container[key]) {
+      const btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'btn btn--small annotation-field__add-btn'
+      btn.textContent = '+ Add Annotation'
+      btn.addEventListener('click', async () => {
+        if (!container.image) {
+          setStatus('Upload the photo first, then add an annotation.', 'error')
+          return
+        }
+        const blob = await openAnnotator(container.image)
+        if (!blob) return
+        await saveAnnotation(blob)
+      })
+      wrap.appendChild(btn)
+      return
+    }
+
+    const preview = document.createElement('img')
+    preview.className = 'annotation-field__preview'
+    preview.src = cacheBust(container[key])
+    wrap.appendChild(preview)
+
+    const row = document.createElement('div')
+    row.className = 'annotation-field__row'
+
+    const redrawBtn = document.createElement('button')
+    redrawBtn.type = 'button'
+    redrawBtn.className = 'btn btn--small'
+    redrawBtn.textContent = 'Redraw'
+    redrawBtn.addEventListener('click', async () => {
+      // Always redraw on the clean original, never on the already-annotated
+      // copy — this is a flatten-and-replace tool, not a layered editor.
+      const blob = await openAnnotator(container.image)
+      if (!blob) return
+      await saveAnnotation(blob)
+    })
+    row.appendChild(redrawBtn)
+
+    const removeBtn = document.createElement('button')
+    removeBtn.type = 'button'
+    removeBtn.className = 'btn btn--small btn--danger'
+    removeBtn.textContent = 'Remove Annotation'
+    removeBtn.addEventListener('click', () => {
+      if (!confirm('Remove this annotation?')) return
+      container[key] = ''
+      setDirty(true)
+      render()
+    })
+    row.appendChild(removeBtn)
+
+    wrap.appendChild(row)
+  }
+
+  async function saveAnnotation(blob) {
+    const baseName = String(container.image).split('/').pop().replace(/\.[^./]+$/, '')
+    const folder = IMAGE_FOLDER_BY_SECTION[currentSectionId] || currentSectionId || 'misc'
+    const formData = new FormData()
+    formData.append('file', blob, `${baseName}-annotated.png`)
+    formData.append('folder', folder)
+    setStatus('Uploading annotation…')
+    try {
+      const res = await fetch('/api/upload', { method: 'POST', body: formData })
+      if (!res.ok) throw new Error((await res.json()).error || 'Upload failed')
+      const { path: uploadedPath } = await res.json()
+      container[key] = uploadedPath
+      setDirty(true)
+      setStatus('Unsaved changes', 'dirty')
+      render()
+    } catch (err) {
+      setStatus(err.message, 'error')
+    }
+  }
+
+  render()
+  return wrap
+}
+
+let annotateModalEls = null
+
+function ensureAnnotateModal() {
+  if (annotateModalEls) return annotateModalEls
+
+  const overlay = document.createElement('div')
+  overlay.className = 'crop-modal'
+  overlay.hidden = true
+
+  const panel = document.createElement('div')
+  panel.className = 'crop-modal__panel'
+
+  const stage = document.createElement('div')
+  stage.className = 'crop-modal__stage'
+
+  const img = document.createElement('img')
+  img.className = 'crop-modal__image annotate-modal__image'
+  img.draggable = false
+  stage.appendChild(img)
+
+  const canvas = document.createElement('canvas')
+  canvas.className = 'annotate-modal__canvas'
+  stage.appendChild(canvas)
+
+  const toolbar = document.createElement('div')
+  toolbar.className = 'annotate-modal__toolbar'
+
+  const rectToolBtn = document.createElement('button')
+  rectToolBtn.type = 'button'
+  rectToolBtn.className = 'btn btn--small'
+  rectToolBtn.textContent = '▭ Rectangle'
+
+  const freehandToolBtn = document.createElement('button')
+  freehandToolBtn.type = 'button'
+  freehandToolBtn.className = 'btn btn--small'
+  freehandToolBtn.textContent = '✎ Freehand'
+
+  const colorInput = document.createElement('input')
+  colorInput.type = 'color'
+  colorInput.className = 'annotate-modal__color-input'
+  colorInput.value = '#c47a7a'
+  colorInput.title = 'Line color'
+
+  const weightSelect = document.createElement('select')
+  weightSelect.className = 'annotate-modal__weight-select'
+  weightSelect.title = 'Line weight'
+  ;[
+    { value: '2', label: 'Thin' },
+    { value: '4', label: 'Medium' },
+    { value: '7', label: 'Thick' },
+  ].forEach(({ value, label }) => {
+    const option = document.createElement('option')
+    option.value = value
+    option.textContent = label
+    weightSelect.appendChild(option)
+  })
+  weightSelect.value = '4'
+
+  const undoBtn = document.createElement('button')
+  undoBtn.type = 'button'
+  undoBtn.className = 'btn btn--small'
+  undoBtn.textContent = '↩ Undo'
+
+  const clearBtn = document.createElement('button')
+  clearBtn.type = 'button'
+  clearBtn.className = 'btn btn--small btn--danger'
+  clearBtn.textContent = 'Clear'
+
+  toolbar.append(rectToolBtn, freehandToolBtn, colorInput, weightSelect, undoBtn, clearBtn)
+
+  const hint = document.createElement('p')
+  hint.className = 'crop-modal__hint'
+  hint.textContent = 'Drag on the photo to draw — lines only, no text. ⌘Z / Ctrl+Z undoes the last shape.'
+
+  const actions = document.createElement('div')
+  actions.className = 'crop-modal__actions'
+  const cancelBtn = document.createElement('button')
+  cancelBtn.type = 'button'
+  cancelBtn.className = 'btn btn--ghost'
+  cancelBtn.textContent = 'Cancel'
+  const applyBtn = document.createElement('button')
+  applyBtn.type = 'button'
+  applyBtn.className = 'btn btn--primary'
+  applyBtn.textContent = 'Save Annotation'
+  actions.append(cancelBtn, applyBtn)
+
+  panel.append(stage, toolbar, hint, actions)
+  overlay.appendChild(panel)
+  document.body.appendChild(overlay)
+
+  annotateModalEls = {
+    overlay,
+    img,
+    canvas,
+    rectToolBtn,
+    freehandToolBtn,
+    colorInput,
+    weightSelect,
+    undoBtn,
+    clearBtn,
+    cancelBtn,
+    applyBtn,
+  }
+  return annotateModalEls
+}
+
+function openAnnotator(src) {
+  const els = ensureAnnotateModal()
+
+  return new Promise((resolve) => {
+    let tool = 'rect'
+    let shapes = [] // {type: 'rect'|'freehand', points: [{x,y}, ...]} in on-screen (canvas CSS pixel) space
+    let drawing = null
+    const ctx = els.canvas.getContext('2d')
+
+    function setTool(next) {
+      tool = next
+      els.rectToolBtn.classList.toggle('annotate-modal__tool-btn--active', tool === 'rect')
+      els.freehandToolBtn.classList.toggle('annotate-modal__tool-btn--active', tool === 'freehand')
+    }
+
+    function drawShape(shape) {
+      // Each shape keeps the color/weight it was drawn with — switching the
+      // toolbar's color or weight only affects new shapes, not ones already
+      // on the canvas.
+      ctx.strokeStyle = shape.color
+      ctx.lineWidth = shape.weight
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+      if (shape.type === 'rect' && shape.points.length === 2) {
+        const [a, b] = shape.points
+        ctx.strokeRect(Math.min(a.x, b.x), Math.min(a.y, b.y), Math.abs(b.x - a.x), Math.abs(b.y - a.y))
+      } else if (shape.type === 'freehand' && shape.points.length > 1) {
+        ctx.beginPath()
+        ctx.moveTo(shape.points[0].x, shape.points[0].y)
+        shape.points.slice(1).forEach((p) => ctx.lineTo(p.x, p.y))
+        ctx.stroke()
+      }
+    }
+
+    function redraw() {
+      ctx.clearRect(0, 0, els.canvas.width, els.canvas.height)
+      shapes.forEach(drawShape)
+      if (drawing) drawShape(drawing)
+    }
+
+    function pointFromEvent(e) {
+      const rect = els.canvas.getBoundingClientRect()
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top }
+    }
+
+    function onCanvasMouseDown(e) {
+      const p = pointFromEvent(e)
+      const color = els.colorInput.value
+      const weight = parseFloat(els.weightSelect.value)
+      drawing =
+        tool === 'rect'
+          ? { type: 'rect', points: [p, p], color, weight }
+          : { type: 'freehand', points: [p], color, weight }
+      e.preventDefault()
+    }
+
+    function onMouseMove(e) {
+      if (!drawing) return
+      const p = pointFromEvent(e)
+      if (drawing.type === 'rect') drawing.points[1] = p
+      else drawing.points.push(p)
+      redraw()
+    }
+
+    function onMouseUp() {
+      if (!drawing) return
+      shapes.push(drawing)
+      drawing = null
+      redraw()
+    }
+
+    function undo() {
+      shapes.pop()
+      redraw()
+    }
+
+    function onKeyDown(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'z') {
+        e.preventDefault()
+        undo()
+      }
+    }
+
+    function sizeCanvasToImage() {
+      els.canvas.width = els.img.clientWidth
+      els.canvas.height = els.img.clientHeight
+      els.canvas.style.width = `${els.img.clientWidth}px`
+      els.canvas.style.height = `${els.img.clientHeight}px`
+      shapes = []
+      drawing = null
+      redraw()
+    }
+
+    function onImageLoad() {
+      // Reveal before measuring: a hidden (display:none) element reports 0
+      // for clientWidth/clientHeight, so measuring first sized the canvas to
+      // 0×0 — it was there, just with no area to draw into, which is why
+      // nothing ever appeared. Same bug class as the crop tool had.
+      els.overlay.hidden = false
+      sizeCanvasToImage()
+    }
+
+    function onOverlayClick(e) {
+      if (e.target === els.overlay) finish(null)
+    }
+
+    function finish(result) {
+      els.canvas.removeEventListener('mousedown', onCanvasMouseDown)
+      document.removeEventListener('mousemove', onMouseMove)
+      document.removeEventListener('mouseup', onMouseUp)
+      document.removeEventListener('keydown', onKeyDown)
+      els.img.removeEventListener('load', onImageLoad)
+      els.overlay.removeEventListener('click', onOverlayClick)
+      els.rectToolBtn.onclick = null
+      els.freehandToolBtn.onclick = null
+      els.undoBtn.onclick = null
+      els.clearBtn.onclick = null
+      els.cancelBtn.onclick = null
+      els.applyBtn.onclick = null
+      els.overlay.hidden = true
+      resolve(result)
+    }
+
+    els.rectToolBtn.onclick = () => setTool('rect')
+    els.freehandToolBtn.onclick = () => setTool('freehand')
+    els.undoBtn.onclick = () => undo()
+    els.clearBtn.onclick = () => {
+      shapes = []
+      drawing = null
+      redraw()
+    }
+    els.cancelBtn.onclick = () => finish(null)
+    els.applyBtn.onclick = () => {
+      const scaleX = els.img.naturalWidth / els.img.clientWidth
+      const scaleY = els.img.naturalHeight / els.img.clientHeight
+      const weightScale = Math.max(scaleX, scaleY)
+
+      const output = document.createElement('canvas')
+      output.width = els.img.naturalWidth
+      output.height = els.img.naturalHeight
+      const outCtx = output.getContext('2d')
+      outCtx.drawImage(els.img, 0, 0, output.width, output.height)
+      outCtx.lineCap = 'round'
+      outCtx.lineJoin = 'round'
+      shapes.forEach((shape) => {
+        const scaled = {
+          type: shape.type,
+          points: shape.points.map((p) => ({ x: p.x * scaleX, y: p.y * scaleY })),
+          color: shape.color,
+          weight: shape.weight * weightScale,
+        }
+        outCtx.strokeStyle = scaled.color
+        outCtx.lineWidth = scaled.weight
+        if (scaled.type === 'rect' && scaled.points.length === 2) {
+          const [a, b] = scaled.points
+          outCtx.strokeRect(Math.min(a.x, b.x), Math.min(a.y, b.y), Math.abs(b.x - a.x), Math.abs(b.y - a.y))
+        } else if (scaled.type === 'freehand' && scaled.points.length > 1) {
+          outCtx.beginPath()
+          outCtx.moveTo(scaled.points[0].x, scaled.points[0].y)
+          scaled.points.slice(1).forEach((p) => outCtx.lineTo(p.x, p.y))
+          outCtx.stroke()
+        }
+      })
+
+      output.toBlob((blob) => finish(blob || null), 'image/png')
+    }
+
+    setTool('rect')
+    els.canvas.addEventListener('mousedown', onCanvasMouseDown)
+    document.addEventListener('mousemove', onMouseMove)
+    document.addEventListener('mouseup', onMouseUp)
+    document.addEventListener('keydown', onKeyDown)
     els.overlay.addEventListener('click', onOverlayClick)
     els.img.addEventListener('load', onImageLoad)
 

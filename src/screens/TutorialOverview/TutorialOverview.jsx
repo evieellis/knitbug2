@@ -3,8 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import RepairBadge from '../../components/RepairBadge/RepairBadge'
-import MediaViewer from '../../components/MediaViewer/MediaViewer'
-import PlaybackControls from '../../components/PlaybackControls/PlaybackControls'
+import TutorialVideoPlayer from '../../components/TutorialVideoPlayer/TutorialVideoPlayer'
 import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
@@ -57,20 +56,12 @@ function TutorialOverview() {
 
         <div className="tutorial-overview__split">
           <div className="tutorial-overview__left-col">
-            <div className="tutorial-overview__media">
-              <MediaViewer media={tutorial.media} containerRef={containerRef} />
-            </div>
-            <PlaybackControls
+            <TutorialVideoPlayer
               heading="Step-by-Step Overview Video"
-              isPlaying={player.isPlaying}
-              currentTime={player.currentTime}
-              duration={player.duration}
-              playbackRate={player.playbackRate}
-              onTogglePlay={player.togglePlay}
-              onRewind={() => player.seekTo(0)}
-              onSeek={player.seekTo}
-              onSpeedChange={player.setPlaybackRate}
-              disabled={!hasVideo}
+              media={tutorial.media}
+              containerRef={containerRef}
+              player={player}
+              hasVideo={hasVideo}
             />
           </div>
 

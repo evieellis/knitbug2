@@ -96,6 +96,18 @@ function useYouTubePlayer(containerRef, { youtubeId, startSeconds = 0, endSecond
           onStateChange: (event) => {
             if (cancelled) return
             setIsPlaying(event.data === YT.PlayerState.PLAYING)
+            // Catch the real end-of-video the instant it happens, rather than
+            // waiting for the polling loop below (up to 250ms later) — that
+            // gap was enough time for YouTube's own "more videos" end-screen
+            // to flash up before our rewind-to-start logic ever ran. This
+            // only ever fires when a video has no endSeconds clip cutoff
+            // (e.g. the Tutorial Overview trailer): a step's clip always
+            // gets paused by the polling check well before its true end.
+            if (event.data === YT.PlayerState.ENDED) {
+              event.target.seekTo(startSeconds, true)
+              event.target.pauseVideo()
+              setCurrentTime(0)
+            }
           },
         },
       })

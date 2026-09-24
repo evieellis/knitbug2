@@ -1,0 +1,138 @@
+.tutorial-video {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.tutorial-video__row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.tutorial-video__stage {
+  width: 100%;
+  height: 380px;
+}
+
+.tutorial-video--fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background: rgba(20, 18, 17, 0.94);
+  box-sizing: border-box;
+}
+
+.tutorial-video--fullscreen .tutorial-video__row {
+  width: auto;
+  justify-content: center;
+}
+
+/* Fits the largest 16:9 box that respects BOTH the viewport's width and
+   height at once, leaving room on both sides for the 56px prev/next step
+   buttons (+ their gaps) that flank it in fullscreen — width is capped by
+   whichever of "the available width" or "the width implied by the available
+   height at 16:9" is smaller, then aspect-ratio derives the matching height. */
+.tutorial-video--fullscreen .tutorial-video__stage {
+  width: min(calc(100vw - 256px), calc((100vh - 200px) * 16 / 9));
+  height: auto;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
+
+.tutorial-video__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tutorial-video__nav-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.tutorial-video__nav-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.tutorial-video__nav-btn img {
+  width: 22px;
+  height: 22px;
+  /* Source icon is dark-stroked; force white to sit on the dark backdrop. */
+  filter: brightness(0) invert(1);
+}
+
+.tutorial-video--fullscreen .playback-controls {
+  width: 100%;
+  max-width: 900px;
+}
+
+.tutorial-video__close-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 301;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tutorial-video__close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tutorial-video__close-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.tutorial-video__close-btn img {
+  width: 16px;
+  height: 16px;
+  /* Source icon is dark-stroked; force white to sit on the dark backdrop. */
+  filter: brightness(0) invert(1);
+}
+
+@media (max-width: 640px) {
+  .tutorial-video--fullscreen {
+    padding: 24px 16px;
+  }
+
+  .tutorial-video--fullscreen .tutorial-video__row {
+    gap: 8px;
+  }
+
+  .tutorial-video__nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .tutorial-video__nav-btn img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .tutorial-video--fullscreen .tutorial-video__stage {
+    width: min(calc(100vw - 120px), calc((100vh - 160px) * 16 / 9));
+  }
+}

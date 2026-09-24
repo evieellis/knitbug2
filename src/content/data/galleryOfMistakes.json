@@ -16,54 +16,56 @@
         {
           "id": 1,
           "image": "/content-images/gallery-swatches/nn-droppedstitch-1.jpg",
+          "annotatedImage": "",
           "caption": "1 Dropped Stitch",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 2,
           "image": "/content-images/gallery-swatches/img-20260923-0001.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0001-annotated.png",
           "caption": "2 Dropped Stitches on the Wrong Side",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 3,
           "image": "/content-images/gallery-swatches/img-20260923-0004-1.png",
+          "annotatedImage": "",
           "caption": "Dropped Stitch, Kept Knitting",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 4,
           "image": "/content-images/gallery-swatches/img-20260923-0007.png",
+          "annotatedImage": "",
           "caption": "Dropped Stitch Going Really Far Down!",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": "5-repeat",
           "image": "/content-images/gallery-swatches/img-20260923-0002-2.png",
-          "caption": "2 Dropped Stitches on the Right Side",
-          "href": "/mistakes/dropped-stitches"
-        },
-        {
-          "id": "5-repeat-page2",
-          "image": "/content-images/gallery-swatches/img-20260923-0002-2.png",
+          "annotatedImage": "",
           "caption": "2 Dropped Stitches on the Right Side",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 6,
           "image": "/content-images/gallery-swatches/img-20260923-0005.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0005-annotated.png",
           "caption": "Stitch has just been dropped!",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 7,
           "image": "/content-images/gallery-swatches/img-20260923-0006.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0006-annotated.png",
           "caption": "End of Row Stitch Dropped",
           "href": "/mistakes/dropped-stitches"
         },
         {
           "id": 8,
           "image": "/content-images/gallery-swatches/img-20260923-0011.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0011-annotated.png",
           "caption": "Harder to See, but yes, a stitch was dropped here too",
           "href": "/mistakes/dropped-stitches"
         }
@@ -78,54 +80,56 @@
         {
           "id": 1,
           "image": "/content-images/gallery-swatches/img-20260923-0012.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0012-annotated.png",
           "caption": "Two of the stitches in the middle have JUST been twisted.",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 2,
-          "image": "/content-images/gallery-swatches/swatch-2.jpg",
-          "caption": "Dropped Stitches Var 2",
+          "image": "/content-images/gallery-swatches/img-20260923-0018.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0018-annotated.png",
+          "caption": "They just twisted the past 5 stitches",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 3,
           "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 3",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 4,
           "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 4",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 5,
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
-          "href": "/mistakes/twisted-stitches"
-        },
-        {
-          "id": "5-repeat",
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
+          "image": "/content-images/gallery-swatches/img-20260923-0019.png",
+          "annotatedImage": "",
+          "caption": "Twisted stitches a few rows down",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 6,
           "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 6",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 7,
           "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 7",
           "href": "/mistakes/twisted-stitches"
         },
         {
           "id": 8,
           "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 8",
           "href": "/mistakes/twisted-stitches"
         }
@@ -139,55 +143,57 @@
       "swatches": [
         {
           "id": 1,
-          "image": "/content-images/gallery-swatches/swatch-1.jpg",
-          "caption": "Dropped Stitches Var 1",
+          "image": "/content-images/gallery-swatches/img-20260923-0017.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0017-annotated.png",
+          "caption": "Split stitch just happened",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 2,
           "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 2",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 3,
           "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 3",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 4,
           "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 4",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 5,
           "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
-          "href": "/mistakes/split-stitches"
-        },
-        {
-          "id": "5-repeat",
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 5",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 6,
           "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 6",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 7,
           "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 7",
           "href": "/mistakes/split-stitches"
         },
         {
           "id": 8,
           "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 8",
           "href": "/mistakes/split-stitches"
         }
@@ -201,119 +207,59 @@
       "swatches": [
         {
           "id": 1,
-          "image": "/content-images/gallery-swatches/swatch-1.jpg",
-          "caption": "Dropped Stitches Var 1",
+          "image": "/content-images/gallery-swatches/img-20260923-0015.png",
+          "annotatedImage": "/content-images/gallery-swatches/img-20260923-0015-annotated.png",
+          "caption": "An accidental yarn over that's just happened",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 2,
           "image": "/content-images/gallery-swatches/swatch-2.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 2",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 3,
-          "image": "/content-images/gallery-swatches/swatch-3.jpg",
-          "caption": "Dropped Stitches Var 3",
+          "image": "/content-images/gallery-swatches/img-20260923-0016.png",
+          "annotatedImage": "",
+          "caption": "Accidental Yarn Over a Few Rows Back",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 4,
           "image": "/content-images/gallery-swatches/swatch-4.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 4",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 5,
           "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
-          "href": "/mistakes/accidental-yarn-over"
-        },
-        {
-          "id": "5-repeat",
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 5",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 6,
           "image": "/content-images/gallery-swatches/swatch-3.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 6",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 7,
           "image": "/content-images/gallery-swatches/swatch-5.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 7",
           "href": "/mistakes/accidental-yarn-over"
         },
         {
           "id": 8,
           "image": "/content-images/gallery-swatches/swatch-1.jpg",
+          "annotatedImage": "",
           "caption": "Dropped Stitches Var 8",
           "href": "/mistakes/accidental-yarn-over"
-        }
-      ]
-    },
-    {
-      "id": "accidental-decrease",
-      "label": "Accidental Decrease",
-      "description": "Loops that have slipped off the needle and are unraveling.",
-      "seeMoreHref": "/mistakes/accidental-decrease",
-      "swatches": [
-        {
-          "id": 1,
-          "image": "/content-images/gallery-swatches/swatch-1.jpg",
-          "caption": "Dropped Stitches Var 1",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 2,
-          "image": "/content-images/gallery-swatches/swatch-2.jpg",
-          "caption": "Dropped Stitches Var 2",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 3,
-          "image": "/content-images/gallery-swatches/swatch-3.jpg",
-          "caption": "Dropped Stitches Var 3",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 4,
-          "image": "/content-images/gallery-swatches/swatch-4.jpg",
-          "caption": "Dropped Stitches Var 4",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 5,
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": "5-repeat",
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 5",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 6,
-          "image": "/content-images/gallery-swatches/swatch-3.jpg",
-          "caption": "Dropped Stitches Var 6",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 7,
-          "image": "/content-images/gallery-swatches/swatch-5.jpg",
-          "caption": "Dropped Stitches Var 7",
-          "href": "/mistakes/accidental-decrease"
-        },
-        {
-          "id": 8,
-          "image": "/content-images/gallery-swatches/swatch-1.jpg",
-          "caption": "Dropped Stitches Var 8",
-          "href": "/mistakes/accidental-decrease"
         }
       ]
     }

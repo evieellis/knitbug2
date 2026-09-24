@@ -121,11 +121,6 @@
   max-width: 520px;
 }
 
-.tutorial-overview__media {
-  width: 100%;
-  height: 380px;
-}
-
 .tutorial-overview__right-col {
   display: flex;
   flex-direction: column;

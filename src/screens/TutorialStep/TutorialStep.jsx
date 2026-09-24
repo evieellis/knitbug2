@@ -2,8 +2,7 @@ import { useRef, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
-import MediaViewer from '../../components/MediaViewer/MediaViewer'
-import PlaybackControls from '../../components/PlaybackControls/PlaybackControls'
+import TutorialVideoPlayer from '../../components/TutorialVideoPlayer/TutorialVideoPlayer'
 import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
 import ExitTutorialModal from '../../components/ExitTutorialModal/ExitTutorialModal'
 import NotBuilt from '../NotBuilt/NotBuilt'
@@ -76,20 +75,14 @@ function TutorialStep() {
 
         <div className="tutorial-step__split">
           <div className="tutorial-step__left-col">
-            <div className="tutorial-step__media">
-              <MediaViewer media={media} containerRef={containerRef} />
-            </div>
-            <PlaybackControls
+            <TutorialVideoPlayer
               heading={`Step ${stepNumber}`}
-              isPlaying={player.isPlaying}
-              currentTime={player.currentTime}
-              duration={player.duration}
-              playbackRate={player.playbackRate}
-              onTogglePlay={player.togglePlay}
-              onRewind={() => player.seekTo(0)}
-              onSeek={player.seekTo}
-              onSpeedChange={player.setPlaybackRate}
-              disabled={!hasVideo}
+              media={media}
+              containerRef={containerRef}
+              player={player}
+              hasVideo={hasVideo}
+              onPrevStep={() => navigate(-1)}
+              onNextStep={() => navigate(nextHref)}
             />
           </div>
 
@@ -101,14 +94,22 @@ function TutorialStep() {
               <p className="tutorial-step__heading">{step.heading}</p>
             </div>
 
-            <div className="tutorial-step__checklist-section">
-              <p className="tutorial-step__checklist-heading">Make Sure…</p>
-              <div className="tutorial-step__checklist">
-                {step.checklist.map((item) => (
-                  <ChecklistItem key={item.id} status={item.status} text={item.text} detail={item.detail} />
-                ))}
+            {step.checklist.length > 0 && (
+              <div className="tutorial-step__checklist-section">
+                <p className="tutorial-step__checklist-heading">Make Sure…</p>
+                <div className="tutorial-step__checklist">
+                  {step.checklist.map((item) => (
+                    <ChecklistItem
+                      key={item.id}
+                      status={item.status}
+                      text={item.text}
+                      detail={item.detail}
+                      image={item.image}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="tutorial-step__nav">
               <button type="button" className="btn btn--ghost" onClick={() => navigate(-1)}>

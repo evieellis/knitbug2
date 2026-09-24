@@ -38,25 +38,11 @@
       "categories": [
         {
           "id": "dropped-stitches",
-          "label": "Dropped Stitches",
-          "thumbnails": [
-            "/content-images/find-out-thumbnails/swatch-a.jpg",
-            "/content-images/find-out-thumbnails/swatch-b.jpg",
-            "/content-images/find-out-thumbnails/swatch-b.jpg",
-            "/content-images/find-out-thumbnails/swatch-c.jpg",
-            "/content-images/find-out-thumbnails/swatch-d.jpg"
-          ]
+          "label": "Dropped Stitches"
         },
         {
           "id": "split-stitches",
-          "label": "Split Stitches",
-          "thumbnails": [
-            "/content-images/find-out-thumbnails/swatch-e.jpg",
-            "/content-images/find-out-thumbnails/swatch-b.jpg",
-            "/content-images/find-out-thumbnails/swatch-b.jpg",
-            "/content-images/find-out-thumbnails/swatch-b.jpg",
-            "/content-images/find-out-thumbnails/swatch-f.jpg"
-          ]
+          "label": "Split Stitches"
         }
       ],
       "ctaLabel": "Explore Gallery of Mistakes",

@@ -91,11 +91,6 @@
   max-width: 520px;
 }
 
-.tutorial-step__media {
-  width: 100%;
-  height: 380px;
-}
-
 /* Stretched to match .tutorial-step__left-col's height (see align-items: stretch
    above), so prev/next always land in the same place regardless of checklist
    length — the checklist area below absorbs the difference and scrolls

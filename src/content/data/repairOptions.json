@@ -85,8 +85,12 @@
       ],
       "title": "Pick Up Dropped Stitches with a Crochet Hook",
       "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
-      "goodWhen": [],
-      "badFor": [],
+      "goodWhen": [
+        "You've dropped a stitch"
+      ],
+      "badFor": [
+        "Dropped stitches on the end of a row"
+      ],
       "image": "/content-images/repair/step-1-insert-crochet-hook-into-stitch-from-front.jpg",
       "timeLabel": "Time: 5 - 10 minutes",
       "timeMinutes": 7.5,
@@ -97,6 +101,7 @@
       "circumstances": [],
       "badge": "recommended",
       "includeInEightBall": true,
+      "reviewed": true,
       "tutorial": {
         "overviewTitle": "Tutorial: Using a Crochet Hook to Pick Up Dropped Stitch",
         "media": {
@@ -104,94 +109,109 @@
           "youtubeId": "KFVapi4RqzY",
           "startSeconds": 0
         },
-        "overviewSteps": [
-          "Insert your crochet hook into the dropped stitch.",
-          "Find the strand that connects the stitches in the row above.",
-          "Grab the strand with your crochet hook and pull the yarn through.",
-          "Repeat these steps until you used up all strands and you are back to your current row.",
-          "Slip the stitch back to your left needle."
-        ],
         "steps": [
           {
-            "heading": "Insert your crochet hook into the dropped stitch.",
-            "startSeconds": 0,
-            "endSeconds": 4,
+            "heading": "Insert the crochet hook through the front of the loop",
+            "startSeconds": 65,
+            "endSeconds": 74,
             "checklist": [
               {
                 "id": "c1",
                 "status": "warning",
                 "text": "Your work should be facing you on the right side.",
-                "detail": ""
+                "detail": "The right side is the side with the V's rather than the bumps.",
+                "image": ""
               },
               {
                 "id": "c2",
-                "status": "good",
-                "text": "Make sure you didn't accidentally twist the stitch.",
-                "detail": ""
+                "status": "warning",
+                "text": "You need to insert through the front of the loop",
+                "detail": "",
+                "image": ""
               },
               {
                 "id": "c3",
                 "status": "good",
                 "text": "The loose strands should all be in the back of the dropped stitch.",
-                "detail": ""
+                "detail": "",
+                "image": ""
               }
             ]
           },
           {
-            "heading": "Find the strand that connects the stitches in the row above.",
-            "startSeconds": 12,
-            "endSeconds": null,
+            "heading": "Hook & pull up the ladder above",
+            "startSeconds": 74,
+            "endSeconds": 86,
             "checklist": [
               {
                 "id": "c1",
                 "status": "warning",
-                "text": "Sometimes the strands twist around a bit. You need to catch the lowest one.",
-                "detail": ""
+                "text": "Sometimes the ladders twist around a bit. You need to catch the lowest one.",
+                "detail": "The lowest one will be the ladder closest to the loop you've picked up.",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "It should look like there is a brand new stitch and one less ladder.",
+                "detail": "",
+                "image": ""
               }
             ]
           },
           {
-            "heading": "Grab the strand with your crochet hook and pull the yarn through.",
-            "startSeconds": 24,
-            "endSeconds": null,
+            "heading": "Remove the crochet hook to untwist the stitch before starting the next ladder and reinsert.",
+            "startSeconds": 100,
+            "endSeconds": 110,
             "checklist": [
               {
                 "id": "c1",
                 "status": "good",
-                "text": "The new stitch sits snugly, not too tight or loose",
-                "detail": ""
+                "text": "The crochet hook should now be oriented the same way it was during the first step.",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Look closely at the positioning of the loop before continuing.",
+                "detail": "",
+                "image": ""
               }
             ]
           },
           {
             "heading": "Repeat these steps until you used up all strands and you are back to your current row.",
-            "startSeconds": 36,
-            "endSeconds": null,
+            "startSeconds": 114,
+            "endSeconds": 120,
             "checklist": [
               {
                 "id": "c1",
                 "status": "warning",
                 "text": "You're not skipping any bars as you go",
-                "detail": ""
+                "detail": "",
+                "image": ""
               },
               {
                 "id": "c2",
                 "status": "good",
                 "text": "The column of stitches stays aligned",
-                "detail": ""
+                "detail": "",
+                "image": ""
               }
             ]
           },
           {
             "heading": "Slip the stitch back to your left needle.",
-            "startSeconds": 48,
-            "endSeconds": null,
+            "startSeconds": 129,
+            "endSeconds": 138,
             "checklist": [
               {
                 "id": "c1",
                 "status": "warning",
                 "text": "Make sure you don't accidentally twist it as you do.",
-                "detail": ""
+                "detail": "",
+                "image": ""
               }
             ]
           }
@@ -208,17 +228,18 @@
         "accidental-decrease"
       ],
       "title": "Tink Back to Where the Mistake Happened",
-      "description": "XXX",
+      "description": "Tink is knit backwards, which is a fitting name for the technique. In this technique, you will undo your stitches one-by-one until you encounter the mistake. Then, you'll undo that mistake, and continue knitting!",
       "goodWhen": [
-        "You aren't exactly sure what the mistake is",
+        "You aren't exactly sure what the mistake is, but you know where it is",
         "Mistake is only a few stitches back"
       ],
       "badFor": [
-        "Mistakes several rows down"
+        "Mistakes several rows down",
+        "Mistake is not on the same row"
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-00-39-pm.png",
       "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
+      "timeMinutes": -9.5,
       "tools": [],
       "circumstances": [
         "end-of-row",
@@ -226,29 +247,117 @@
       ],
       "badge": "good-choice",
       "includeInEightBall": true,
+      "reviewed": true,
       "tutorial": {
-        "overviewTitle": "Tink Back",
+        "overviewTitle": "Tink Back to Where the Mistake Happened",
         "media": {
           "type": "youtube",
           "youtubeId": "8754VfoAsrw",
           "startSeconds": 0
         },
-        "overviewSteps": [
-          "Knit Backwards",
-          "Get Money"
-        ],
         "steps": [
           {
-            "heading": "Knit Backwads",
-            "startSeconds": 0,
-            "endSeconds": null,
+            "heading": "Overview - what is tinking?",
+            "startSeconds": 18,
+            "endSeconds": 49,
             "checklist": []
           },
           {
-            "heading": "Knit Backwads",
-            "startSeconds": 0,
-            "endSeconds": null,
+            "heading": "Give tension to your working stitch",
+            "startSeconds": 53,
+            "endSeconds": 59.5,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "You are on the knit side",
+                "detail": "The knit side is the side with V's!",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "Tension just means to pull the yarn a bit tighter.",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Identify the stitch below",
+            "startSeconds": 59,
+            "endSeconds": 72,
             "checklist": []
+          },
+          {
+            "heading": "Insert your needle into the stitch below",
+            "startSeconds": 72,
+            "endSeconds": 78.4,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "You insert the needle into the inside of the stitch",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Watch closely where they put their needle in the tutorial",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Drop the current stitch, and tighten the yarn",
+            "startSeconds": 78,
+            "endSeconds": 87,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "The working yarn is no longer attached to the stitch you were working on.",
+                "detail": "The working yarn is the yarn that is attached to the ball!",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Repeat steps 2 - 5 until you have reached the mistake.",
+            "startSeconds": 88,
+            "endSeconds": 106,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "You are effectively going backwards stitch by stitch in your work.",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Do the same with the problematic stitch(es)! This will undo them.",
+            "startSeconds": 88,
+            "endSeconds": 106,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "All stitches look uniform, and the problem has gone away",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "You can keep knitting as normal now!",
+                "detail": "",
+                "image": ""
+              }
+            ]
           }
         ]
       }
@@ -265,12 +374,13 @@
       "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
       "goodWhen": [],
       "badFor": [],
-      "image": "/content-images/repair/darning-needle-catch.jpg",
+      "image": "/content-images/repair/img-20260923-0007.png",
       "tools": [],
       "circumstances": [],
       "timeMinutes": 0,
       "badge": "not-recommended",
       "includeInEightBall": false,
+      "reviewed": false,
       "ctaLabel": "See a temporary fix instead",
       "tutorial": null
     },
@@ -299,6 +409,7 @@
       ],
       "badge": "recommended",
       "includeInEightBall": true,
+      "reviewed": false,
       "tutorial": {
         "overviewTitle": "Twist the Yarn Over",
         "media": {
@@ -306,10 +417,6 @@
           "youtubeId": "d2GWkJKoljY",
           "startSeconds": 0
         },
-        "overviewSteps": [
-          "bro",
-          "bro"
-        ],
         "steps": [
           {
             "heading": "bro",
@@ -341,6 +448,7 @@
       "timeMinutes": 0,
       "badge": "good-choice",
       "includeInEightBall": true,
+      "reviewed": false,
       "ctaLabel": "Skip this repair",
       "tutorial": null
     },
@@ -359,6 +467,7 @@
       "timeMinutes": 0.5,
       "badge": "good-choice",
       "includeInEightBall": true,
+      "reviewed": false,
       "ctaLabel": "Skip this repair",
       "tutorial": {
         "overviewTitle": "Drop the Yarn Over",
@@ -367,7 +476,6 @@
           "youtubeId": "h72URlF6RLg",
           "startSeconds": 0
         },
-        "overviewSteps": [],
         "steps": [
           {
             "heading": "drop it",
@@ -396,7 +504,9 @@
       "title": "Frog your knitting",
       "warningText": "An easy fix!",
       "goodWhen": [
-        "You want to start fresh"
+        "You want to start fresh",
+        "The mistake is several rows back",
+        "You aren't exactly sure what the mistake is, but you know where it is."
       ],
       "badFor": [
         "Time crunches"
@@ -407,27 +517,91 @@
       "timeMinutes": 0.5,
       "badge": "time-consuming",
       "includeInEightBall": true,
-      "ctaLabel": "Skip this repair",
+      "reviewed": false,
+      "ctaLabel": "View tutorial",
       "tutorial": {
-        "overviewTitle": "Frogging",
+        "overviewTitle": "Frog your knitting",
         "media": {
           "type": "youtube",
-          "youtubeId": "h72URlF6RLg",
+          "youtubeId": "h2At6vKX4E0",
           "startSeconds": 0
         },
-        "overviewSteps": [],
         "steps": [
           {
-            "heading": "Frog Back",
-            "startSeconds": 0,
-            "endSeconds": null,
+            "heading": "Overview- What is Frogging?",
+            "startSeconds": 16,
+            "endSeconds": 41,
             "checklist": []
           },
           {
-            "heading": "ur done",
-            "startSeconds": 0,
+            "heading": "Take the needle out of the stitches",
+            "startSeconds": 41,
+            "endSeconds": 54,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "It might seem scary. It'll be ok!",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Take your time, and do it gently.",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Pull the working yarn",
+            "startSeconds": 59,
+            "endSeconds": 77,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "The previous row will become undone",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Repeat step 3 until you have unraveled past the area with the mistake.",
+            "startSeconds": 59,
+            "endSeconds": 77,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "When you reach the end of a row, turn your work to the other side and keep pulling!",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Once you complete this step, the mistake should no longer exist.",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Put the stitches back on your needles",
+            "startSeconds": 79,
             "endSeconds": null,
-            "checklist": []
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Make sure your stitches are not twisted!",
+                "detail": "If your stitches are twisted, you can remove them from the needle, and place them back on",
+                "image": "/content-images/repair/stitch-alignment-on-the-needle.jpg"
+              }
+            ]
           }
         ]
       }
@@ -454,6 +628,7 @@
       "timeMinutes": 0.5,
       "badge": "good-choice",
       "includeInEightBall": true,
+      "reviewed": false,
       "ctaLabel": "Skip this repair",
       "tutorial": {
         "overviewTitle": "Darning the Hole",
@@ -462,9 +637,6 @@
           "youtubeId": "rZl_YjTpLJQ",
           "startSeconds": 207
         },
-        "overviewSteps": [
-          "Darn hole"
-        ],
         "steps": [
           {
             "heading": "Darn hole",
@@ -496,6 +668,7 @@
       "timeMinutes": 0.5,
       "badge": "good-choice",
       "includeInEightBall": true,
+      "reviewed": false,
       "ctaLabel": "Skip this repair",
       "tutorial": {
         "overviewTitle": "Drop Down and Ladder Back Up",
@@ -504,11 +677,6 @@
           "youtubeId": "rZl_YjTpLJQ",
           "startSeconds": 152
         },
-        "overviewSteps": [
-          "Drop Down",
-          "Twist stitch",
-          "Ladder up"
-        ],
         "steps": [
           {
             "heading": "Darn hole",

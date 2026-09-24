@@ -2,17 +2,20 @@
   /* Sits above the card's whole-card stretched link (see Button.css .btn--stretched)
      so selecting a radio option never triggers card navigation. flex: 1 grows this
      to fill the option-card's available height, so it matches GalleryPreview's box
-     next to it instead of the two staying at their own different natural sizes. */
+     next to it instead of the two staying at their own different natural sizes.
+     Padding/gap match .gallery-preview's exactly — the title moving from a
+     straddling <legend> to a normal in-flow line made this box want more
+     height than before, which is what actually threw the two out of sync. */
   position: relative;
   z-index: 2;
   flex: 1;
   width: 100%;
   border: none;
   margin: 0;
-  padding: 24px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   background: var(--color-bg);
   border-radius: 16px;
   box-sizing: border-box;
