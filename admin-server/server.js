@@ -4,6 +4,7 @@
 // with the actual site.
 import express from 'express'
 import multer from 'multer'
+import crypto from 'node:crypto'
 import fsp from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -88,11 +89,20 @@ app.get('/api/sections', (req, res) => {
   res.json(SECTIONS)
 })
 
+// A fingerprint of a section file's exact contents. The editor sends back the
+// one it loaded with each save, so a save from a tab opened *before* the file
+// last changed (another tab, or an edit made outside the admin) is refused
+// instead of silently overwriting those newer changes with stale data.
+function contentVersion(raw) {
+  return crypto.createHash('sha1').update(raw).digest('hex')
+}
+
 app.get('/api/sections/:id', async (req, res) => {
   const { id } = req.params
   if (!SECTION_IDS.has(id)) return res.status(404).json({ error: 'Unknown section' })
   try {
     const raw = await fsp.readFile(sectionFile(id), 'utf8')
+    res.set('X-Content-Version', contentVersion(raw))
     res.json(JSON.parse(raw))
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -107,8 +117,16 @@ app.put('/api/sections/:id', async (req, res) => {
     return res.status(400).json({ error: 'Body must be a JSON object' })
   }
   try {
-    await fsp.writeFile(sectionFile(id), JSON.stringify(body, null, 2) + '\n', 'utf8')
-    res.json({ ok: true })
+    const baseVersion = req.get('X-Base-Version')
+    if (baseVersion) {
+      const current = contentVersion(await fsp.readFile(sectionFile(id), 'utf8'))
+      if (current !== baseVersion) {
+        return res.status(409).json({ error: 'This section changed since you opened it', conflict: true })
+      }
+    }
+    const raw = JSON.stringify(body, null, 2) + '\n'
+    await fsp.writeFile(sectionFile(id), raw, 'utf8')
+    res.json({ ok: true, version: contentVersion(raw) })
   } catch (err) {
     res.status(500).json({ error: err.message })
   }

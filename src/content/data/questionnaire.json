@@ -8,8 +8,9 @@
         {
           "id": "needles",
           "label": "On the needles",
-          "description": "It could be that one of the stitches isn't sitting the same as the rest of them. It could be a gap between your stitches!",
+          "description": "It could be that one of the stitches isn't sitting the same as the rest of them. It could be a gap between your stitches, or something else!",
           "image": "/content-images/questionnaire/img-20260923-0012-1.png",
+          "annotatedImage": "/content-images/questionnaire/img-20260923-0012-1-annotated.png",
           "howToTell": []
         },
         {
@@ -17,13 +18,15 @@
           "label": "In the work",
           "description": "There could be holes or gaps in your work, or the width has increased or decreaed when you haven't meant for it to. Alternatively, some of the stitches could look different from the rest.",
           "image": "/content-images/questionnaire/img-20260923-0013-1.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "unsure",
           "label": "Unsure",
           "description": "Look closely at your knitting and the needles, but if you're unsure, that's ok too. We'll try a different way!",
-          "image": "/content-images/questionnaire/360-f-317257737-mohzgivqcxbqoberir1lveqp6y5ecv0o.jpg",
+          "image": "/content-images/questionnaire/img-20260924-0008-1.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -64,6 +67,7 @@
           "label": "Extra or missing stitches",
           "description": "This can be hard to catch! There are either more or fewer stitches than what you started with.",
           "image": "/content-images/questionnaire/img-20260924-0003-1.png",
+          "annotatedImage": "",
           "howToTell": [
             "Count the number of stitches on your needles, and see if there are more or fewer than the number you cast on with. If the number of stitches has changed, you have either extra or missing stitches.",
             "Your work has gotten either wider or narrower without you intending it to."
@@ -74,6 +78,7 @@
           "label": "Gaps between stitches",
           "description": "Extra space between 2 stitches, where the rest are evenly spaced.",
           "image": "/content-images/questionnaire/img-20260923-0005-2.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
@@ -81,6 +86,7 @@
           "label": "One stitch looks different than the rest",
           "description": "Maybe you can't quite put your finger on it, but one of the stitches is sitting differently on the needle!",
           "image": "/content-images/questionnaire/img-20260923-0015.png",
+          "annotatedImage": "",
           "howToTell": [
             "Look at each stitch on the needle. Does one naturally slant slightly? If so, this could be your problem."
           ]
@@ -114,7 +120,7 @@
       ]
     },
     "q3": {
-      "title": "In the Fabric — What does it look like?",
+      "title": "In the work — What does it look like?",
       "subtitle": "Closely examine your work below the needles to locate the issue. We call this \"reading your knitting\"!",
       "options": [
         {
@@ -122,6 +128,7 @@
           "label": "1 or more holes",
           "description": "There is a hole or gap in the work.",
           "image": "/content-images/questionnaire/img-20260923-0016.png",
+          "annotatedImage": "",
           "howToTell": [
             "If you stretch and rub the hole, nothing will unravel further."
           ]
@@ -131,6 +138,7 @@
           "label": "A loose ladder",
           "description": "There is a ladder of looser strands of yarn. at the bottom of that ladder, there are one or more loops that are actively unraveling.",
           "image": "/content-images/questionnaire/img-20260923-0002.png",
+          "annotatedImage": "",
           "howToTell": [
             "1+ stitches actively unraveling.",
             "If you pull at the loose stitch, it will come undone further, creating another rung in the ladder."
@@ -140,7 +148,8 @@
           "id": "y-shape",
           "label": "Stitches look like Y's instead of V's",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/images-2-1-1.jpeg",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
@@ -148,6 +157,7 @@
           "label": "Work has changed size",
           "description": "The work is getting narrower or wider, in a way you weren't expecting.",
           "image": "/content-images/questionnaire/img-20260924-0005.png",
+          "annotatedImage": "",
           "howToTell": [
             "There are fewer or more stitches on the needles than the number you casted on."
           ]
@@ -200,29 +210,36 @@
         {
           "id": "extra-missing",
           "label": "Extra or missing stitches",
-          "description": "",
-          "image": null,
-          "howToTell": []
+          "description": "This can be hard to catch! There are either more or fewer stitches than what you started with.",
+          "image": "/content-images/questionnaire/img-20260924-0004-1.png",
+          "annotatedImage": "",
+          "howToTell": [
+            "Count the number of stitches on your needles, and see if there are more or fewer than the number you cast on with. If the number of stitches has changed, you have either extra or missing stitches.",
+            "Your work has gotten either wider or narrower without you intending it to."
+          ]
         },
         {
           "id": "holes",
           "label": "1 or more holes",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0016-1.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "ladder",
           "label": "A loose ladder",
-          "description": "",
-          "image": null,
+          "description": "There is a ladder of looser strands of yarn. at the bottom of that ladder, there are one or more loops that are actively unraveling.",
+          "image": "/content-images/questionnaire/img-20260923-0002-1.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
-          "id": "changed-size",
-          "label": "Work has changed size",
-          "description": "",
-          "image": null,
+          "id": "y-stitches",
+          "label": "Stitches that look like Y's instead of V's",
+          "description": "Some of the stitches do not look like the others. They are slightly slanted and less stretchy. You could say that they look more like lowercase y's than v's",
+          "image": "/content-images/questionnaire/images-2-1-2.jpeg",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -258,6 +275,14 @@
         },
         {
           "ids": [
+            "y-stitches"
+          ],
+          "next": {
+            "result": "twisted-stitches"
+          }
+        },
+        {
+          "ids": [
             "changed-size"
           ],
           "next": "q6"
@@ -270,23 +295,26 @@
       "options": [
         {
           "id": "picture-1",
-          "label": "Picture 1",
-          "description": "",
-          "image": null,
+          "label": "A secure hole",
+          "description": "If you stretch and pull the hole, it does not get worse.",
+          "image": "/content-images/questionnaire/img-20260923-0016-2.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "picture-2",
-          "label": "Picture 2",
-          "description": "",
-          "image": null,
+          "label": "A hole that might be getting bigger",
+          "description": "If you stretch and pull the hole, a loop drops and unravels further.",
+          "image": "/content-images/questionnaire/img-20260923-0002-2.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "neither",
-          "label": "Neither",
+          "label": "Neither/Unsure.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260924-0008.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -296,7 +324,7 @@
             "picture-1"
           ],
           "next": {
-            "result": "dropped-stitches"
+            "result": "accidental-yarn-over"
           }
         },
         {
@@ -304,7 +332,7 @@
             "picture-2"
           ],
           "next": {
-            "result": "accidental-yarn-over"
+            "result": "dropped-stitches"
           }
         },
         {
@@ -324,6 +352,7 @@
           "label": "Yes",
           "description": "This is called an increase, and sometimes we can do it without meaning to. Look at your work and see if there's anywhere where 1 V turns into 2 V's.",
           "image": "/content-images/questionnaire/img-20260924-0001.png",
+          "annotatedImage": "",
           "howToTell": [
             "One column of V stitches becomes two."
           ]
@@ -333,6 +362,7 @@
           "label": "No",
           "description": "You have checked each column of v's from the bottom to the top of the knitting, and there is no extra column added.",
           "image": "/content-images/questionnaire/img-20260923-0013-2.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -362,6 +392,7 @@
           "label": "Wider",
           "description": "This happens from increases. A good way to tell is to count your stitches, and see if there are more than there were when you cast on.",
           "image": "/content-images/questionnaire/img-20260924-0004.png",
+          "annotatedImage": "",
           "howToTell": [
             "There are more stitches than the number you started with.",
             "Your work has grown in size from the cast on edge to the stitches on your needles."
@@ -372,6 +403,7 @@
           "label": "Narrower",
           "description": "This happens from decreases. A good way to tell is to count your stitches, and see if there are fewer than there were when you cast on.",
           "image": "/content-images/questionnaire/img-20260924-0003.png",
+          "annotatedImage": "",
           "howToTell": [
             "Fewer stitches on the needles than when you cast on.",
             "2 or more columns of stitches have become 1 column."
@@ -409,14 +441,16 @@
           "id": "yes",
           "label": "Yes",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0016-3.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "no",
           "label": "No",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0017-1.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -447,28 +481,24 @@
           "id": "cross-base",
           "label": "The two legs of one stitch cross at its base instead of forming an open V.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/images-2.jpeg",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "partial-strand",
           "label": "The needle passes through only part of the yarn strand, leaving some fibres outside the loop.",
           "description": "",
-          "image": null,
-          "howToTell": []
-        },
-        {
-          "id": "overlap-no-match",
-          "label": "Two neighbouring stitches overlap, but neither picture matches.",
-          "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/atherley-fixes1-4splitst.jpg",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "not-sure",
-          "label": "I'm not sure.",
+          "label": "Unsure.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260924-0008-1-2.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -511,28 +541,24 @@
           "id": "loose-loop-ladder",
           "label": "A loose loop below the needle, with a horizontal strand or ladder of strands above it.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0002-1-1.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "extra-loop-opening",
           "label": "An extra loop over the needle, with an opening beneath it instead of a stitch directly below.",
           "description": "",
-          "image": null,
-          "howToTell": []
-        },
-        {
-          "id": "connected-loose",
-          "label": "The stitches are still connected, but the yarn between them looks loose.",
-          "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0015-1.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "none-not-sure",
           "label": "None of these / I'm not sure.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260924-0008-1-1.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -575,35 +601,32 @@
           "id": "fibres-caught",
           "label": "Some fibres of the yarn have been caught separately, leaving the rest outside the stitch.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/atherley-fixes1-4splitst-1.jpg",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "legs-cross",
           "label": "Its two legs cross at the base instead of forming an open V.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/images-2-1.jpeg",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "extra-loop",
           "label": "It looks like an extra loop over the needle, with no stitch directly beneath it.",
           "description": "",
-          "image": null,
-          "howToTell": []
-        },
-        {
-          "id": "two-join-one",
-          "label": "Two stitches from the row below join into one stitch above.",
-          "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0015-2.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "none-not-sure",
           "label": "None of these / I'm not sure.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260924-0008-1-3.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],
@@ -654,21 +677,16 @@
           "id": "loose-loop-ladder",
           "label": "There is a loose loop, possibly with a ladder of horizontal strands above it.",
           "description": "",
-          "image": null,
-          "howToTell": []
-        },
-        {
-          "id": "worked-together",
-          "label": "Two stitches from the row below have been worked together into one.",
-          "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260923-0002-1-2.png",
+          "annotatedImage": "",
           "howToTell": []
         },
         {
           "id": "neither-not-sure",
-          "label": "Neither / I'm not sure.",
+          "label": "Something else.",
           "description": "",
-          "image": null,
+          "image": "/content-images/questionnaire/img-20260924-0008-1-4.png",
+          "annotatedImage": "",
           "howToTell": []
         }
       ],

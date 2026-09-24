@@ -49,6 +49,31 @@
   color: var(--color-body);
 }
 
+/* Optional extra line under the description — red for a "Not Recommended"
+   method, reassuring green otherwise (same rule as the repair-options card). */
+.tutorial-overview__warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-warning-text);
+}
+
+.tutorial-overview__warning--positive {
+  color: var(--color-sage);
+}
+
+.tutorial-overview__warning-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
 .tutorial-overview__metadata {
   display: flex;
   align-items: center;

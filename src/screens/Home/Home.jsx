@@ -1,5 +1,4 @@
 import Navbar from '../../components/Navbar/Navbar'
-import NeedleDivider from '../../components/NeedleDivider/NeedleDivider'
 import PromptCard from '../../components/PromptCard/PromptCard'
 import { hero, promptHeading, promptCards } from '../../content/home'
 import './Home.css'
@@ -9,12 +8,16 @@ function Home() {
     <div className="home">
       <Navbar />
       <main className="home__content">
-        <div className="home__header-text">
-          <h1 className="home__title">{hero.title}</h1>
-          <p className="home__subtitle">{hero.subtitle}</p>
+        {/* The yarn art (tangle → needle with cast-on stitches → neat ball) is
+            one photo; the title/subtitle stay live text laid over its empty
+            middle. See Home.css for how the two scale together. */}
+        <div className="home__hero">
+          {hero.image && <img src={hero.image} className="home__hero-image" alt="" />}
+          <div className="home__header-text">
+            <h1 className="home__title">{hero.title}</h1>
+            <p className="home__subtitle">{hero.subtitle}</p>
+          </div>
         </div>
-
-        <NeedleDivider />
 
         <div className="home__prompt-group">
           <p className="home__prompt-heading">{promptHeading}</p>

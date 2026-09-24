@@ -1,7 +1,8 @@
 {
   "hero": {
-    "title": "Welcome to Knit Bug!",
-    "subtitle": "A comprehensive guidance tool to help knitters learn to repair their work."
+    "title": "Welcome to knitBug!",
+    "subtitle": "A comprehensive guidance tool to help knitters learn to repair their work.",
+    "image": "/content-images/home/hero-yarn.webp"
   },
   "promptHeading": "To get started… which of these sounds like you?",
   "promptCards": [

@@ -14,15 +14,43 @@
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 64px 24px 96px;
+  padding: 0 24px 96px;
+}
+
+/* Matches the Figma hero: at a 1200px-wide column the yarn photo is
+   1223 × 346, starting 23px left of the column and flush against the navbar
+   (its flat top edge is the photo's crop line, hidden against the navbar).
+   The hero keeps that aspect ratio at every width, and the text sizes below
+   are in cqi (% of the hero's width), so text and yarn scale together and the
+   title always sits in the gap between the tangle and the ball. */
+.home__hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 346;
+  container-type: inline-size;
+  /* The needle's trailing yarn tucks under the prompt heading, as designed:
+     52px of overlap at 1200px wide, kept proportional (% of the width). */
+  margin-bottom: -4.33%;
+}
+
+.home__hero-image {
+  position: absolute;
+  top: 0;
+  left: -1.92%;
+  width: 101.92%;
+  height: 100%;
+  pointer-events: none;
 }
 
 .home__header-text {
+  position: absolute;
+  top: 18.5%;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.33cqi;
   align-items: center;
-  width: 100%;
   text-align: center;
 }
 
@@ -30,7 +58,7 @@
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 400;
-  font-size: 56px;
+  font-size: clamp(32px, 4.67cqi, 56px);
   line-height: 1.1;
   color: var(--color-heading);
 }
@@ -39,8 +67,10 @@
   margin: 0;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: 20px;
+  font-size: clamp(14px, 1.67cqi, 20px);
   color: var(--color-body);
+  /* Once the font stops shrinking, wrap rather than run into the yarn. */
+  max-width: 58cqi;
 }
 
 .home__prompt-group {
@@ -68,11 +98,40 @@
   width: 100%;
 }
 
-@media (max-width: 640px) {
+/* Phones: there's no room for the title between the tangle and the ball, so
+   the photo becomes a full-bleed banner under the navbar with the text below. */
+@media (max-width: 760px) {
+  .home__hero {
+    aspect-ratio: auto;
+    container-type: normal;
+    margin-bottom: 0;
+  }
+
+  .home__hero-image {
+    position: static;
+    display: block;
+    width: calc(100% + 48px);
+    height: auto;
+    margin: 0 -24px;
+  }
+
+  .home__header-text {
+    position: static;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
   .home__title {
     font-size: 36px;
   }
 
+  .home__subtitle {
+    max-width: none;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
   .home__prompt-heading {
     font-size: 22px;
   }

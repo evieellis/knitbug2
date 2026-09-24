@@ -8,6 +8,7 @@
     "dropped-stitches": {
       "title": "Dropped Stitch",
       "image": "/content-images/mistakeoverview/nn-droppedstitch.jpg",
+      "youtubeId": "",
       "whatIsIt": {
         "heading": "What Is It?",
         "body": "A dropped stitch is a loop that has escaped off your knitting needle. If left unattended, it can actively unravel vertically down your work, forming a \"run\" or ladder of straight bars."
@@ -18,22 +19,26 @@
           {
             "id": "sign-1",
             "label": "Loose stitch loops",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-2",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-3",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-4",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           }
         ]
       },
@@ -44,33 +49,32 @@
     },
     "twisted-stitches": {
       "title": "Twisted Stitch",
-      "image": "",
+      "image": "/content-images/mistake-overview/2a6e85-c54f766d503b49d4a3a30f085378b181-mv2.png",
+      "youtubeId": "",
       "whatIsIt": {
         "heading": "What Is It?",
-        "body": ""
+        "body": "A twisted stitch in knitting is a single stitch where the two legs cross over each other at the base instead of sitting side-by-side. Sometimes, they will be hard to spot, and they can make your knitting denser and tighter!"
       },
       "signs": {
         "heading": "Signs You Have a Twisted Stitch",
         "items": [
           {
             "id": "sign-1",
-            "label": "",
-            "detail": ""
+            "label": "Twisted stitches will be tighter.",
+            "detail": "Stretch the portion you think is twisted. If it stretches less than other sections of your work, this section is likely twisted.",
+            "image": "/content-images/mistake-overview/images-1.jpeg"
           },
           {
             "id": "sign-2",
-            "label": "",
-            "detail": ""
+            "label": "Twisted stitches sit like Y's instead of V's",
+            "detail": "",
+            "image": "/content-images/mistake-overview/stitch-alignment-on-the-needle-2.jpg"
           },
           {
             "id": "sign-3",
-            "label": "",
-            "detail": ""
-          },
-          {
-            "id": "sign-4",
-            "label": "",
-            "detail": ""
+            "label": "The leading leg of a twisted stitch will sit behind your needle.",
+            "detail": "",
+            "image": "/content-images/mistake-overview/stitch-alignment-on-the-needle-3.jpg"
           }
         ]
       },
@@ -81,33 +85,32 @@
     },
     "split-stitches": {
       "title": "Split Stitch",
-      "image": "",
+      "image": "/content-images/mistake-overview/splitstitch.png",
+      "youtubeId": "",
       "whatIsIt": {
         "heading": "What Is It?",
-        "body": ""
+        "body": "A split stitch happens when you've only knit one ply of the yarn. This creates an accidental increase or creates the appearance of a dropped stitch."
       },
       "signs": {
         "heading": "Signs You Have a Split Stitch",
         "items": [
           {
             "id": "sign-1",
-            "label": "",
-            "detail": ""
+            "label": "1 column of stitches has become 2",
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-2",
-            "label": "",
-            "detail": ""
+            "label": "You can see thinner pieces of yarn forming stitches",
+            "detail": "",
+            "image": ""
           },
           {
-            "id": "sign-3",
-            "label": "",
-            "detail": ""
-          },
-          {
-            "id": "sign-4",
-            "label": "",
-            "detail": ""
+            "id": "sign-2-new",
+            "label": "Part of the work looks like a dropped stitch, but it isn't actively unraveling",
+            "detail": "",
+            "image": ""
           }
         ]
       },
@@ -118,33 +121,32 @@
     },
     "accidental-yarn-over": {
       "title": "Accidental Yarn Over",
-      "image": "",
+      "image": "/content-images/mistake-overview/img-20260923-0016.png",
+      "youtubeId": "",
       "whatIsIt": {
         "heading": "What Is It?",
-        "body": ""
+        "body": "An accidental yarn over happens when you've brought the yarn between your needles when you didn't need to. This creates an extra stitch and often leaves a hole."
       },
       "signs": {
         "heading": "Signs You Have an Accidental Yarn Over",
         "items": [
           {
             "id": "sign-1",
-            "label": "",
-            "detail": ""
+            "label": "There is a hole in your work",
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-2",
-            "label": "",
-            "detail": ""
+            "label": "Nothing is actively unraveling",
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-3",
-            "label": "",
-            "detail": ""
-          },
-          {
-            "id": "sign-4",
-            "label": "",
-            "detail": ""
+            "label": "An extra column of stitches has been created after the hole",
+            "detail": "",
+            "image": ""
           }
         ]
       },
@@ -156,6 +158,7 @@
     "accidental-decrease": {
       "title": "Accidental Decrease",
       "image": "",
+      "youtubeId": "",
       "whatIsIt": {
         "heading": "What Is It?",
         "body": ""
@@ -166,22 +169,26 @@
           {
             "id": "sign-1",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-2",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-3",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           },
           {
             "id": "sign-4",
             "label": "",
-            "detail": ""
+            "detail": "",
+            "image": ""
           }
         ]
       },

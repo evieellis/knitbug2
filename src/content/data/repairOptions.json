@@ -85,6 +85,7 @@
       ],
       "title": "Pick Up Dropped Stitches with a Crochet Hook",
       "description": "Secure the stray loop by stitching it to neighboring columns. Perfect if you've already completed the project and casted off.",
+      "warningText": "",
       "goodWhen": [
         "You've dropped a stitch"
       ],
@@ -229,6 +230,7 @@
       ],
       "title": "Tink Back to Where the Mistake Happened",
       "description": "Tink is knit backwards, which is a fitting name for the technique. In this technique, you will undo your stitches one-by-one until you encounter the mistake. Then, you'll undo that mistake, and continue knitting!",
+      "warningText": "",
       "goodWhen": [
         "You aren't exactly sure what the mistake is, but you know where it is",
         "Mistake is only a few stitches back"
@@ -239,6 +241,7 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-00-39-pm.png",
       "timeLabel": "Time: 5 - 10 minutes",
+      "neededLabel": "Needed: N/A",
       "timeMinutes": -9.5,
       "tools": [],
       "circumstances": [
@@ -366,18 +369,19 @@
       "id": "dropped-stitches-method-3",
       "categories": [
         "dropped-stitches",
-        "twisted-stitches",
-        "split-stitches",
-        "accidental-yarn-over"
+        "split-stitches"
       ],
       "title": "Just leave it?",
-      "warningText": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
+      "description": "WARNING: If you leave this issue, your knitting will unravel! Not to worry though. If you're short on time, try a temporary fix instead.",
+      "warningText": "",
       "goodWhen": [],
       "badFor": [],
       "image": "/content-images/repair/img-20260923-0007.png",
       "tools": [],
       "circumstances": [],
       "timeMinutes": 0,
+      "timeLabel": "Time: 0 Minutes",
+      "neededLabel": "Needed: N/A",
       "badge": "not-recommended",
       "includeInEightBall": false,
       "reviewed": false,
@@ -390,7 +394,8 @@
         "accidental-yarn-over"
       ],
       "title": "Twist the Yarn Over",
-      "description": "Twist the yarn over and knit the two together",
+      "description": "Twist the yarn over and knit the two together through the back loop. This method can be a bit tricky, but is a good way to get rid of the yarn over without going back or creating uneven tension.",
+      "warningText": "",
       "goodWhen": [
         "You do not want loose fabric"
       ],
@@ -398,18 +403,16 @@
         "Yarn overs several rows down"
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-09-24-pm.png",
-      "timeLabel": "Time: 5 - 10 minutes",
+      "timeLabel": "Time: 2 minutes",
       "timeMinutes": 7.5,
-      "neededLabel": "Needed: Crochet Hook",
-      "tools": [
-        "crochet-hook"
-      ],
+      "neededLabel": "Needed: N/A",
+      "tools": [],
       "circumstances": [
         "casted-off"
       ],
       "badge": "recommended",
       "includeInEightBall": true,
-      "reviewed": false,
+      "reviewed": true,
       "tutorial": {
         "overviewTitle": "Twist the Yarn Over",
         "media": {
@@ -419,13 +422,148 @@
         },
         "steps": [
           {
-            "heading": "bro",
+            "heading": "Overview - why use this method?",
             "startSeconds": 0,
-            "endSeconds": null,
+            "endSeconds": 43,
             "checklist": []
           },
           {
-            "heading": "bro",
+            "heading": "Work to one stitch before the unwanted Yarn Over",
+            "startSeconds": 43,
+            "endSeconds": 47.5,
+            "checklist": []
+          },
+          {
+            "heading": "Slip the stitch before from the left needle to the right needle",
+            "startSeconds": 47.5,
+            "endSeconds": 60,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Make sure you insert the needle knitwise into the stitch",
+                "detail": "Insert as if you were to knit, but do not work the stitch",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Twist the yarn over",
+            "startSeconds": 60,
+            "endSeconds": 90,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Check which leg of the yarn is in front",
+                "detail": "",
+                "image": "/content-images/repair/ktbl-1024x682-1-copy.jpeg"
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Check whether you should be inserting into the front or the back of the stitch",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Slip the yarn over to the right needle, and return it to the left needle purlwise",
+            "startSeconds": 90,
+            "endSeconds": 104,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Make sure you are returning the stitch purlwise",
+                "detail": "Insert the tip of the left needle from left to right ",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Slip the slipped stitch back to the left needle",
+            "startSeconds": 104,
+            "endSeconds": 109,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Make sure you slip it purlwise",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Knit the two stitches together through the back loop",
+            "startSeconds": 109,
+            "endSeconds": 120,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Knit through the back loop",
+                "detail": "Get your needles in this position!",
+                "image": "/content-images/repair/k2tog-tbl-knitting2-683x1024.webp"
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Knit both stitches together",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c3",
+                "status": "good",
+                "text": "You can now continue knitting!",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "accidental-decrease-leave-it",
+      "categories": [
+        "twisted-stitches",
+        "accidental-yarn-over",
+        "accidental-decrease"
+      ],
+      "title": "Just leave it?",
+      "description": "Good news: this mistake won't get worse over time or unravel. If a spot looking slightly different doesn't both you, then you are totally fine to leave it as-is.",
+      "warningText": "",
+      "goodWhen": [
+        "Nothing is actively unraveling"
+      ],
+      "badFor": [
+        "If it matters how many stitches there are for your project"
+      ],
+      "image": "/content-images/repair/img-20260924-0003.png",
+      "tools": [],
+      "circumstances": [
+        "casted-off"
+      ],
+      "timeMinutes": 0,
+      "timeLabel": "Time: 0 minutes",
+      "neededLabel": "Needed: N/A",
+      "badge": "good-choice",
+      "includeInEightBall": true,
+      "reviewed": true,
+      "ctaLabel": "Go to tutorial",
+      "tutorial": {
+        "overviewTitle": "Just leave it?",
+        "media": {
+          "type": "none",
+          "image": ""
+        },
+        "steps": [
+          {
+            "heading": "Just leave it! Continue knitting.",
             "startSeconds": 0,
             "endSeconds": null,
             "checklist": []
@@ -434,37 +572,27 @@
       }
     },
     {
-      "id": "accidental-decrease-leave-it",
-      "categories": [
-        "accidental-decrease"
-      ],
-      "title": "Just leave it?",
-      "warningText": "Good news: an accidental decrease won't get worse over time or unravel. If a slightly narrower spot doesn't bother you, it's totally fine to leave as-is.",
-      "goodWhen": [],
-      "badFor": [],
-      "image": "/content-images/repair/darning-needle-catch.jpg",
-      "tools": [],
-      "circumstances": [],
-      "timeMinutes": 0,
-      "badge": "good-choice",
-      "includeInEightBall": true,
-      "reviewed": false,
-      "ctaLabel": "Skip this repair",
-      "tutorial": null
-    },
-    {
       "id": "accidental-decrease-leave-it-new",
       "categories": [
         "accidental-yarn-over"
       ],
       "title": "Drop the Yarn Over",
-      "warningText": "An easy fix!",
-      "goodWhen": [],
-      "badFor": [],
+      "description": "An easy fix when the yarn over is on the needles. However, this fix can make the tension bewtween the stitches uneven.",
+      "warningText": "",
+      "goodWhen": [
+        "The yarn is on the needles"
+      ],
+      "badFor": [
+        "The yarn over is several rows down."
+      ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-26-39-pm.png",
-      "tools": [],
+      "tools": [
+        "extra-needles"
+      ],
       "circumstances": [],
       "timeMinutes": 0.5,
+      "timeLabel": "Time: 1 minute",
+      "neededLabel": "Needed: 1 extra needle or sewing needle",
       "badge": "good-choice",
       "includeInEightBall": true,
       "reviewed": false,
@@ -478,16 +606,42 @@
         },
         "steps": [
           {
-            "heading": "drop it",
+            "heading": "Overview- when to use this method",
             "startSeconds": 0,
-            "endSeconds": null,
+            "endSeconds": 7,
             "checklist": []
           },
           {
-            "heading": "ur done",
-            "startSeconds": 0,
-            "endSeconds": null,
+            "heading": "Knit until the stitch before the yarn over",
+            "startSeconds": 8,
+            "endSeconds": 12,
             "checklist": []
+          },
+          {
+            "heading": "Drop off the unwanted stitch",
+            "startSeconds": 12,
+            "endSeconds": 20,
+            "checklist": []
+          },
+          {
+            "heading": "Continue knitting",
+            "startSeconds": 20,
+            "endSeconds": 29,
+            "checklist": []
+          },
+          {
+            "heading": "Use an extra needle to redistribute the tension around the hole",
+            "startSeconds": 29,
+            "endSeconds": null,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "You can now continue knitting",
+                "detail": "",
+                "image": ""
+              }
+            ]
           }
         ]
       }
@@ -502,7 +656,8 @@
         "accidental-decrease"
       ],
       "title": "Frog your knitting",
-      "warningText": "An easy fix!",
+      "description": "A potentially time-consuming fix where you undo several rows of work. This method is great if you know where the problem is, but you aren't super confident on what it is.",
+      "warningText": "",
       "goodWhen": [
         "You want to start fresh",
         "The mistake is several rows back",
@@ -515,9 +670,11 @@
       "tools": [],
       "circumstances": [],
       "timeMinutes": 0.5,
+      "timeLabel": "Time: 5-10 minutes",
+      "neededLabel": "Needed: N/A",
       "badge": "time-consuming",
       "includeInEightBall": true,
-      "reviewed": false,
+      "reviewed": true,
       "ctaLabel": "View tutorial",
       "tutorial": {
         "overviewTitle": "Frog your knitting",
@@ -612,26 +769,30 @@
         "accidental-yarn-over"
       ],
       "title": "Darn the hole with a sewing needle",
+      "description": "Great if you've already casted off or if the yarn over hole is several rows down.",
       "warningText": "",
       "goodWhen": [
         "You've already casted off",
-        "You've kept going for several rows"
+        "The problem is several rows down"
       ],
       "badFor": [
         "An immediate mistake"
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-47-08-pm.png",
       "tools": [
+        "scrap-yarn",
         "sewing-needle"
       ],
       "circumstances": [],
       "timeMinutes": 0.5,
+      "timeLabel": "Time: 5 minutes",
+      "neededLabel": "Needed: Scrap yarn, sewing needle",
       "badge": "good-choice",
       "includeInEightBall": true,
-      "reviewed": false,
+      "reviewed": true,
       "ctaLabel": "Skip this repair",
       "tutorial": {
-        "overviewTitle": "Darning the Hole",
+        "overviewTitle": "Sew the Hole",
         "media": {
           "type": "youtube",
           "youtubeId": "rZl_YjTpLJQ",
@@ -639,50 +800,191 @@
         },
         "steps": [
           {
-            "heading": "Darn hole",
+            "heading": "Overview - when to use this technique",
             "startSeconds": 207,
-            "endSeconds": null,
+            "endSeconds": 223,
             "checklist": []
+          },
+          {
+            "heading": "Thread the sewing needle",
+            "startSeconds": 224,
+            "endSeconds": 227,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "If you want the stitches to all look the same, use the same yarn. However, this can work with other yarns as well!",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Identify the two sides of the yarn over",
+            "startSeconds": 228,
+            "endSeconds": 243,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "These will be the legs to the left and the right of the hole",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Sew behind the two sides of the yarn over",
+            "startSeconds": 243,
+            "endSeconds": 259,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "warning",
+                "text": "Don't split the plies of the yarn!",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "Test by pinching the two ends of the sewing thread together. If you've done this step correctly, it will make a V of similar size to the other stitches!",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c3",
+                "status": "warning",
+                "text": "Make sure there is still a long tail of yarn on the other side",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Sew the left leg of the new stitch into the lower right neighboring stitch. Pull the needle to the back.",
+            "startSeconds": 259,
+            "endSeconds": 297,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "You can insert your needle wherever creates the neatest results.",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "Thread the other side of the yarn, and insert it into the same spot you did before",
+            "startSeconds": 297,
+            "endSeconds": 326,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "The result should look similar to the rest of the V's",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "warning",
+                "text": "Make sure you put the yarn into the same place",
+                "detail": "",
+                "image": ""
+              }
+            ]
+          },
+          {
+            "heading": "On the opposite side, weave the yarn ends into opposite sides. Then, cut off the excess.",
+            "startSeconds": 372,
+            "endSeconds": 444,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "Split the yarn plies on the opposite side",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "Trim off the excess yarn",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c3",
+                "status": "good",
+                "text": "Check the front to make sure no excess yarn peaks through",
+                "detail": "",
+                "image": ""
+              }
+            ]
           }
         ]
       }
     },
     {
-      "id": "accidental-decrease-leave-it-new-new-new-new",
+      "id": "accidental-decrease-leave-it-new-new-new-new-new",
       "categories": [
-        "accidental-yarn-over"
+        "twisted-stitches"
       ],
-      "title": "Drop Down and Ladder Back Up",
+      "title": "Reorient the stitch",
+      "description": "An easy way to untwist stitches when they are still on the needles.",
       "warningText": "",
       "goodWhen": [
-        "You've kept going for several rows"
+        "Stitches still on the needles"
       ],
       "badFor": [
-        "An immediate mistake"
+        "stitches several rows back"
       ],
-      "image": "/content-images/repair/screenshot-2026-09-23-at-2-56-16-pm.png",
-      "tools": [
-        "crochet-hook"
-      ],
+      "image": "/content-images/repair/screenshot-2026-09-24-at-11-58-49-pm.png",
+      "tools": [],
       "circumstances": [],
       "timeMinutes": 0.5,
-      "badge": "good-choice",
+      "timeLabel": "Time: 1 minute",
+      "neededLabel": "Needed: N/A",
+      "badge": "recommended",
       "includeInEightBall": true,
       "reviewed": false,
       "ctaLabel": "Skip this repair",
       "tutorial": {
-        "overviewTitle": "Drop Down and Ladder Back Up",
+        "overviewTitle": "Reorient the stitch",
         "media": {
           "type": "youtube",
-          "youtubeId": "rZl_YjTpLJQ",
-          "startSeconds": 152
+          "youtubeId": "d6MIfcxTIv8",
+          "startSeconds": 66
         },
         "steps": [
           {
-            "heading": "Darn hole",
-            "startSeconds": 152,
-            "endSeconds": null,
+            "heading": "Understanding stitch mounting",
+            "startSeconds": 66,
+            "endSeconds": 132,
             "checklist": []
+          },
+          {
+            "heading": "Reorient the stitch on the needles",
+            "startSeconds": 204,
+            "endSeconds": 224.5,
+            "checklist": [
+              {
+                "id": "c1",
+                "status": "good",
+                "text": "Do this for as many twisted stitches as you have",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "You can then continue knitting",
+                "detail": "",
+                "image": ""
+              }
+            ]
           }
         ]
       }

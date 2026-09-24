@@ -1,7 +1,7 @@
 // Editable navbar text and links.
 import { startQuestionId } from './questionnaire'
 
-export const siteName = 'Knit Bug'
+export const siteName = 'knitBug'
 
 export const navLinks = [
   { id: 'home', label: 'Home', href: '/' },

@@ -22,7 +22,7 @@
   box-shadow: 3px 3px 0 rgba(58, 53, 52, 0.5);
 }
 
-.question-card:focus-visible {
+.question-card:has(.question-card__selector:focus-visible) {
   outline: 2px solid var(--color-rose);
   outline-offset: 2px;
 }
@@ -49,7 +49,14 @@
   color: var(--color-body);
 }
 
+.question-card__media {
+  position: relative;
+  width: 100%;
+}
+
 .question-card__image {
+  display: block;
+
   width: 100%;
   height: 140px;
   object-fit: cover;
@@ -85,10 +92,18 @@
   align-items: center;
   gap: 8px;
   margin-top: auto;
+  padding: 0;
+  background: none;
+  border: none;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 13px;
   color: var(--color-heading);
+  cursor: pointer;
+}
+
+.question-card__selector:focus-visible {
+  outline: none;
 }
 
 .question-card__selector-dot {

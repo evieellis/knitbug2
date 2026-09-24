@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import RepairBadge from '../../components/RepairBadge/RepairBadge'
 import TutorialVideoPlayer from '../../components/TutorialVideoPlayer/TutorialVideoPlayer'
+import TutorialPhoto from '../../components/TutorialPhoto/TutorialPhoto'
 import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
@@ -23,9 +24,14 @@ function TutorialOverview() {
   if (!tutorial || !method) return <NotBuilt />
 
   const hasVideo = tutorial.media.type === 'youtube' && Boolean(tutorial.media.youtubeId)
-  // Same field the repair-options card already shows — reused as-is rather
+  // type 'none' means the method deliberately has no video (e.g. "Just leave
+  // it?"), so a photo takes the player's place instead of "Video coming soon" —
+  // the tutorial's own photo, or else the method's card photo.
+  const noVideo = tutorial.media.type === 'none'
+  const photo = tutorial.media.image || method.image
+  // Same fields the repair-options card already shows — reused as-is rather
   // than asking for a second copy of the same text.
-  const bodyText = method.warningText || method.description
+  const isNegativeWarning = method.badge === 'not-recommended'
 
   return (
     <div className="tutorial-overview">
@@ -41,43 +47,55 @@ function TutorialOverview() {
             <RepairBadge badge={method.badge} />
             <h1 className="tutorial-overview__title">{tutorial.overviewTitle}</h1>
           </div>
-          {bodyText && <p className="tutorial-overview__description">{bodyText}</p>}
+          {method.description && <p className="tutorial-overview__description">{method.description}</p>}
+          {method.warningText && (
+            <p
+              className={`tutorial-overview__warning${isNegativeWarning ? '' : ' tutorial-overview__warning--positive'}`}
+            >
+              <img
+                src={isNegativeWarning ? icons.alertTriangle : icons.checkSage}
+                className="tutorial-overview__warning-icon"
+                alt=""
+              />
+              {method.warningText}
+            </p>
+          )}
           <div className="tutorial-overview__metadata">
-            <span className="tutorial-overview__meta-row">
-              <img src={icons.clock} className="tutorial-overview__meta-icon" alt="" />
-              {method.timeLabel}
-            </span>
-            <span className="tutorial-overview__meta-row">
-              <img src={icons.shoppingBag} className="tutorial-overview__meta-icon" alt="" />
-              {method.neededLabel}
-            </span>
+            {method.timeLabel && (
+              <span className="tutorial-overview__meta-row">
+                <img src={icons.clock} className="tutorial-overview__meta-icon" alt="" />
+                {method.timeLabel}
+              </span>
+            )}
+            {method.neededLabel && (
+              <span className="tutorial-overview__meta-row">
+                <img src={icons.shoppingBag} className="tutorial-overview__meta-icon" alt="" />
+                {method.neededLabel}
+              </span>
+            )}
           </div>
         </div>
 
         <div className="tutorial-overview__split">
-          <div className="tutorial-overview__left-col">
-            <TutorialVideoPlayer
-              heading="Step-by-Step Overview Video"
-              media={tutorial.media}
-              containerRef={containerRef}
-              player={player}
-              hasVideo={hasVideo}
-            />
-          </div>
+          {noVideo ? (
+            photo && (
+              <div className="tutorial-overview__left-col">
+                <TutorialPhoto src={photo} />
+              </div>
+            )
+          ) : (
+            <div className="tutorial-overview__left-col">
+              <TutorialVideoPlayer
+                heading="Step-by-Step Overview Video"
+                media={tutorial.media}
+                containerRef={containerRef}
+                player={player}
+                hasVideo={hasVideo}
+              />
+            </div>
+          )}
 
           <div className="tutorial-overview__right-col">
-            <section className="tutorial-overview__section">
-              <p className="tutorial-overview__section-heading">Overview</p>
-              <ol className="tutorial-overview__steps">
-                {tutorial.overviewSteps.map((step, index) => (
-                  <li key={index} className="tutorial-overview__step">
-                    <span className="tutorial-overview__step-number">{index + 1}</span>
-                    <p className="tutorial-overview__step-text">{step}</p>
-                  </li>
-                ))}
-              </ol>
-            </section>
-
             <section className="tutorial-overview__reasons">
               <div className="tutorial-overview__reasons-col">
                 <p className="tutorial-overview__section-heading tutorial-overview__section-heading--small">
@@ -108,9 +126,24 @@ function TutorialOverview() {
               )}
             </section>
 
-            <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="gold" icon={icons.arrowRightBlack}>
-              Start Tutorial
-            </Button>
+            <section className="tutorial-overview__section">
+              <p className="tutorial-overview__section-heading">Steps</p>
+              <ol className="tutorial-overview__steps">
+                {tutorial.overviewSteps.map((step, index) => (
+                  <li key={index} className="tutorial-overview__step">
+                    <span className="tutorial-overview__step-number">{index + 1}</span>
+                    <p className="tutorial-overview__step-text">{step}</p>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            {/* Nothing to walk through step by step without a video. */}
+            {!noVideo && (
+              <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="gold" icon={icons.arrowRightBlack}>
+                Start Tutorial
+              </Button>
+            )}
           </div>
         </div>
       </main>

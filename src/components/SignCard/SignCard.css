@@ -58,6 +58,14 @@
   color: var(--color-heading);
 }
 
+.sign-card__modal-image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 .sign-card__modal-detail {
   margin: 0;
   font-family: var(--font-body);

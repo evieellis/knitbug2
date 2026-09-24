@@ -1,19 +1,21 @@
 import ArrowLink from '../ArrowLink/ArrowLink'
 import RepairBadge from '../RepairBadge/RepairBadge'
 import { icons } from '../../content/icons'
+import useFillLineClamp from '../../hooks/useFillLineClamp'
 import './RepairMethodCard.css'
 
 function RepairMethodCard({ title, description, image, timeLabel, neededLabel, warningText, badge, href }) {
-  // A "leave it?" style card is any card with a message instead of a normal
-  // description — not tied to a specific badge, since a "you can actually
-  // leave this one" card uses the same message-only layout with a different,
-  // reassuring badge/color rather than the warning one.
-  const hasMessage = Boolean(warningText)
+  // Every card has a plain description; warningText is an optional extra line
+  // under it — red with a warning icon on a "Not Recommended" card, otherwise
+  // a reassuring green check (e.g. "Won't unravel!").
   const isNegativeMessage = badge === 'not-recommended'
   // The button's own wording is a fixed rule off the badge, not a per-method
   // field — every card says "View Tutorial" except a "Not Recommended" one,
   // which points at a temporary fix instead.
   const ctaLabel = isNegativeMessage ? 'View a Temporary Fix Instead' : 'View Tutorial'
+  // The description fills whatever space is left above time/needed,
+  // clamped to as many lines as fit there.
+  const textRef = useFillLineClamp()
 
   return (
     <div className={`repair-card${badge ? ` repair-card--${badge}` : ''}`}>
@@ -24,7 +26,11 @@ function RepairMethodCard({ title, description, image, timeLabel, neededLabel, w
         <p className="repair-card__title">{title}</p>
         <img src={image} className="repair-card__image" alt="" />
 
-        {hasMessage ? (
+        <div ref={textRef} className="repair-card__description-wrap">
+          <p className="repair-card__description">{description}</p>
+        </div>
+
+        {warningText && (
           <p className={`repair-card__warning${isNegativeMessage ? '' : ' repair-card__warning--positive'}`}>
             <img
               src={isNegativeMessage ? icons.alertTriangle : icons.checkSage}
@@ -33,8 +39,6 @@ function RepairMethodCard({ title, description, image, timeLabel, neededLabel, w
             />
             <span className="repair-card__warning-text">{warningText}</span>
           </p>
-        ) : (
-          <p className="repair-card__description">{description}</p>
         )}
       </div>
 

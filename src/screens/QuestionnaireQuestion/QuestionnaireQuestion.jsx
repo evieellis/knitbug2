@@ -33,14 +33,23 @@ function QuestionnaireQuestion() {
 
   if (!question) return <NotBuilt />
 
+  // "Unsure" options (e.g. "Unsure", "Neither/Unsure.") are exclusive: picking one
+  // clears everything else, and picking anything else clears them.
+  const unsureIds = question.options.filter((option) => /unsure/i.test(option.label)).map((option) => option.id)
+
   const toggleOption = (id) => {
-    setSelectedIds((current) => (current.includes(id) ? current.filter((v) => v !== id) : [...current, id]))
+    setSelectedIds((current) => {
+      if (current.includes(id)) return current.filter((v) => v !== id)
+      if (unsureIds.includes(id)) return [id]
+      return [...current.filter((v) => !unsureIds.includes(v)), id]
+    })
   }
 
   const next = resolveNext(question, selectedIds)
   const nextPath = resolvePath(next)
-  const isResult = typeof next === 'object'
-  const continueLabel = isResult ? 'Continue to Results' : next ? `Continue to Step ${depth + 1}` : 'Continue'
+  // `next` is null when nothing is selected, and typeof null is also 'object'.
+  const isResult = next !== null && typeof next === 'object'
+  const continueLabel = isResult ? 'Continue to Results' : `Continue to Step ${depth + 1}`
 
   const handleContinue = () => {
     if (!nextPath) return
@@ -71,6 +80,7 @@ function QuestionnaireQuestion() {
               label={option.label}
               description={option.description}
               image={option.image}
+              annotatedImage={option.annotatedImage}
               howToTell={option.howToTell}
               selected={selectedIds.includes(option.id)}
               onToggle={() => toggleOption(option.id)}
@@ -81,7 +91,7 @@ function QuestionnaireQuestion() {
         <div className="questionnaire-question__footer">
           <button
             type="button"
-            className="btn btn--gold questionnaire-question__continue"
+            className={`btn ${isResult ? 'btn--green' : 'btn--gold'} questionnaire-question__continue`}
             onClick={handleContinue}
             disabled={!nextPath}
           >

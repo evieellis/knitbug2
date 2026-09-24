@@ -36,6 +36,9 @@ const BADGE_OPTIONS = [
 let sections = []
 let currentSectionId = null
 let currentState = null
+// The server's fingerprint of the section file as loaded — sent back on save
+// so a stale tab can't overwrite newer changes (see server.js).
+let currentVersion = null
 let dirty = false
 // Internal-only metadata (where an image came from) — never part of a
 // content JSON file, never read by the live site. Keyed by public image path.
@@ -66,6 +69,47 @@ async function init() {
   })
 }
 
+// Fields the site knows about but that older content (or a save from a tab
+// opened before the field existed) may be missing. Adding them here on load,
+// rather than relying on the JSON already having them, means the form always
+// shows their editors — e.g. the photo upload for a sign's "?" popup. They're
+// written to the file on the next save.
+function insertAfter(obj, afterKey, key, value) {
+  if (key in obj) return
+  const entries = Object.entries(obj)
+  const at = entries.findIndex(([k]) => k === afterKey)
+  entries.splice(at === -1 ? entries.length : at + 1, 0, [key, value])
+  for (const k of Object.keys(obj)) delete obj[k]
+  for (const [k, v] of entries) obj[k] = v
+}
+
+function ensureSectionFields(id, state) {
+  if (id === 'mistakeOverview') {
+    for (const overview of Object.values(state.mistakeOverviews || {})) {
+      insertAfter(overview, 'image', 'youtubeId', '')
+      for (const sign of overview.signs?.items || []) {
+        if (isPlainObject(sign)) insertAfter(sign, 'detail', 'image', '')
+      }
+    }
+  }
+  if (id === 'questionnaire') {
+    for (const question of Object.values(state.questions || {})) {
+      for (const option of question.options || []) {
+        if (isPlainObject(option) && 'image' in option) insertAfter(option, 'image', 'annotatedImage', '')
+      }
+    }
+  }
+  if (id === 'repairOptions') {
+    for (const method of state.repairMethods || []) {
+      insertAfter(method, 'title', 'description', '')
+      insertAfter(method, 'description', 'warningText', '')
+      insertAfter(method, 'timeMinutes', 'timeLabel', '')
+      insertAfter(method, 'timeLabel', 'neededLabel', '')
+      if (method.tutorial?.media?.type === 'none') insertAfter(method.tutorial.media, 'type', 'image', '')
+    }
+  }
+}
+
 async function selectSection(id) {
   if (dirty && !confirm('Discard unsaved changes in this section?')) return
   currentSectionId = id
@@ -76,6 +120,8 @@ async function selectSection(id) {
   setStatus('Loading…')
   const res = await fetch(`/api/sections/${id}`)
   currentState = await res.json()
+  currentVersion = res.headers.get('X-Content-Version')
+  ensureSectionFields(id, currentState)
   setDirty(false)
   saveBtn.hidden = false
   reloadBtn.hidden = false
@@ -88,12 +134,23 @@ saveBtn.addEventListener('click', async () => {
   saveBtn.disabled = true
   setStatus('Saving…')
   try {
+    const headers = { 'Content-Type': 'application/json' }
+    if (currentVersion) headers['X-Base-Version'] = currentVersion
     const res = await fetch(`/api/sections/${currentSectionId}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(currentState),
     })
+    if (res.status === 409) {
+      setStatus('Not saved — this section changed since you opened it. Reload it first.', 'error')
+      alert(
+        'Not saved: this section was changed somewhere else (another tab, or an edit outside the admin) since you opened it.\n\n' +
+          'Saving would have undone those changes. Click "Reload" to get the latest version, then redo your edits.'
+      )
+      return
+    }
     if (!res.ok) throw new Error((await res.json()).error || 'Save failed')
+    currentVersion = (await res.json()).version || null
     setDirty(false)
     setStatus('Saved', 'saved')
   } catch (err) {
@@ -395,6 +452,15 @@ function buildValueEditor(container, key) {
   if (key === 'steps' && Array.isArray(value)) {
     return buildStepsEditor(container, key)
   }
+  if (key === 'media' && isPlainObject(value)) {
+    return buildMediaEditor(container, key)
+  }
+  if (key === 'warningText' && currentSectionId === 'repairOptions') {
+    return buildWithHint(
+      buildTextEditor(container, key),
+      'Optional: a short extra line under the description (2 lines max on the card). Red with a warning icon on a "Not Recommended" method, green with a check on any other.'
+    )
+  }
   if (key === 'checklist' && Array.isArray(value)) {
     return buildChecklistEditor(container, key)
   }
@@ -421,6 +487,12 @@ function buildValueEditor(container, key) {
   }
 
   if (key === 'youtubeId') {
+    if (currentSectionId === 'mistakeOverview') {
+      return buildWithHint(
+        buildYouTubeEditor(container, key),
+        'Optional: set a video to show it in place of the photo above. Leave empty to show the photo.'
+      )
+    }
     return buildYouTubeEditor(container, key)
   }
 
@@ -455,6 +527,16 @@ function buildValueEditor(container, key) {
 
   // string, null, or undefined leaf
   return buildTextEditor(container, key)
+}
+
+function buildWithHint(editor, hintText) {
+  const wrap = document.createElement('div')
+  wrap.appendChild(editor)
+  const hint = document.createElement('p')
+  hint.className = 'field__hint'
+  hint.textContent = hintText
+  wrap.appendChild(hint)
+  return wrap
 }
 
 function buildTextEditor(container, key) {
@@ -607,14 +689,56 @@ function normalizeStep(steps, index) {
   }
 }
 
+// A tutorial's video. The "No tutorial video" checkbox swaps it for
+// { type: 'none', image } — the site then shows that photo where the player
+// would be (e.g. "Just leave it?", where there's nothing to film), falling
+// back to the method's own card photo if none is uploaded here. Unchecking
+// starts a fresh, empty YouTube video.
+function buildMediaEditor(container, key) {
+  const wrap = document.createElement('div')
+
+  const row = document.createElement('label')
+  row.className = 'checkbox-row'
+  const checkbox = document.createElement('input')
+  checkbox.type = 'checkbox'
+  checkbox.checked = container[key].type === 'none'
+  checkbox.addEventListener('change', () => {
+    container[key] = checkbox.checked
+      ? { type: 'none', image: '' }
+      : { type: 'youtube', youtubeId: '', startSeconds: 0 }
+    setDirty(true)
+    rerenderForm()
+  })
+  row.appendChild(checkbox)
+  row.appendChild(document.createTextNode('No tutorial video'))
+  wrap.appendChild(row)
+
+  if (container[key].type === 'none') {
+    const photoLabel = document.createElement('span')
+    photoLabel.className = 'field__label'
+    photoLabel.textContent = "Photo shown instead (leave empty to use the method's image)"
+    wrap.appendChild(photoLabel)
+    wrap.appendChild(buildImageEditor(container[key], 'image'))
+  } else {
+    const nested = document.createElement('div')
+    nested.className = 'node node--object'
+    nested.appendChild(buildContainer(container[key]))
+    wrap.appendChild(nested)
+  }
+
+  return wrap
+}
+
 function buildStepsEditor(container, key) {
   const steps = container[key]
   const wrap = document.createElement('div')
   wrap.className = 'steps-field'
+  // Without a video there's no clip to time, so each step hides that section.
+  const noVideo = container.media?.type === 'none'
 
   steps.forEach((_, index) => {
     normalizeStep(steps, index)
-    wrap.appendChild(buildStepCard(steps, index))
+    wrap.appendChild(buildStepCard(steps, index, { noVideo }))
   })
 
   const addBtn = document.createElement('button')
@@ -635,7 +759,7 @@ function buildStepsEditor(container, key) {
   return wrap
 }
 
-function buildStepCard(steps, index) {
+function buildStepCard(steps, index, { noVideo = false } = {}) {
   const step = steps[index]
   const card = document.createElement('div')
   card.className = 'step-card'
@@ -707,7 +831,7 @@ function buildStepCard(steps, index) {
   timingRow.appendChild(endCol)
 
   timing.appendChild(timingRow)
-  card.appendChild(timing)
+  if (!noVideo) card.appendChild(timing)
 
   const checklistWrap = document.createElement('div')
   checklistWrap.className = 'step-card__checklist'

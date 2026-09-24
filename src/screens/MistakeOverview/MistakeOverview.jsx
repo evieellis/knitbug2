@@ -1,12 +1,15 @@
+import { useRef } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import SignCard from '../../components/SignCard/SignCard'
+import TutorialVideoPlayer from '../../components/TutorialVideoPlayer/TutorialVideoPlayer'
 import CategoryRow from '../../components/CategoryRow/CategoryRow'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { backLink, examplesLabel, mistakeOverviews } from '../../content/mistakeOverview'
 import { categories } from '../../content/galleryOfMistakes'
+import useYouTubePlayer from '../../hooks/useYouTubePlayer'
 import './MistakeOverview.css'
 
 function MistakeOverview() {
@@ -14,6 +17,12 @@ function MistakeOverview() {
   const navigate = useNavigate()
   const overview = mistakeOverviews[categoryId]
   const category = categories.find((item) => item.id === categoryId)
+
+  // "How It Happens" is a photo OR a video: a YouTube video, when one is set,
+  // takes the photo's place.
+  const media = overview?.youtubeId ? { type: 'youtube', youtubeId: overview.youtubeId } : undefined
+  const containerRef = useRef(null)
+  const player = useYouTubePlayer(containerRef, media)
 
   if (!overview || !category) return <NotBuilt />
 
@@ -30,16 +39,27 @@ function MistakeOverview() {
 
         <div className="mistake-overview__split">
           <div className="mistake-overview__left-col">
-            <p className="mistake-overview__media-caption">How It Happens</p>
-            <div className="mistake-overview__media">
-              {overview.image ? (
-                <img src={overview.image} alt="" className="mistake-overview__media-img" />
-              ) : (
-                <div className="mistake-overview__media-placeholder">
-                  <p>Photo coming soon</p>
-                </div>
-              )}
-            </div>
+            {/* Only a video shows how it happens — a photo just shows the mistake. */}
+            {media && <p className="mistake-overview__media-caption">How It Happens</p>}
+            {media ? (
+              <TutorialVideoPlayer
+                heading={overview.title}
+                media={media}
+                containerRef={containerRef}
+                player={player}
+                hasVideo
+              />
+            ) : (
+              <div className="mistake-overview__media">
+                {overview.image ? (
+                  <img src={overview.image} alt="" className="mistake-overview__media-img" />
+                ) : (
+                  <div className="mistake-overview__media-placeholder">
+                    <p>Photo coming soon</p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="mistake-overview__right-col">
@@ -55,7 +75,12 @@ function MistakeOverview() {
               </p>
               <div className="mistake-overview__signs">
                 {overview.signs.items.map((sign) => (
-                  <SignCard key={sign.id} label={sign.label || 'More signs coming soon'} detail={sign.detail} />
+                  <SignCard
+                    key={sign.id}
+                    label={sign.label || 'More signs coming soon'}
+                    detail={sign.detail}
+                    image={sign.image}
+                  />
                 ))}
               </div>
             </section>

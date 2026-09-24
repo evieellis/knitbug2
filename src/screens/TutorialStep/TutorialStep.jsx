@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import Button from '../../components/Button/Button'
 import TutorialVideoPlayer from '../../components/TutorialVideoPlayer/TutorialVideoPlayer'
+import TutorialPhoto from '../../components/TutorialPhoto/TutorialPhoto'
 import ChecklistItem from '../../components/ChecklistItem/ChecklistItem'
 import ExitTutorialModal from '../../components/ExitTutorialModal/ExitTutorialModal'
 import NotBuilt from '../NotBuilt/NotBuilt'
@@ -34,6 +35,9 @@ function TutorialStep() {
   if (!tutorial || !method || !step) return <NotBuilt />
 
   const hasVideo = media.type === 'youtube' && Boolean(media.youtubeId)
+  // No video → a photo in its place (see TutorialOverview).
+  const noVideo = media.type === 'none'
+  const photo = media.image || method.image
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === tutorial.steps.length - 1
   const exitHref = `/repair/${categoryId}`
@@ -62,29 +66,41 @@ function TutorialStep() {
         <div className="tutorial-step__header">
           <h1 className="tutorial-step__title">{method.title}</h1>
           <div className="tutorial-step__metadata">
-            <span className="tutorial-step__meta-row">
-              <img src={icons.clock} className="tutorial-step__meta-icon" alt="" />
-              {method.timeLabel}
-            </span>
-            <span className="tutorial-step__meta-row">
-              <img src={icons.shoppingBag} className="tutorial-step__meta-icon" alt="" />
-              {method.neededLabel}
-            </span>
+            {method.timeLabel && (
+              <span className="tutorial-step__meta-row">
+                <img src={icons.clock} className="tutorial-step__meta-icon" alt="" />
+                {method.timeLabel}
+              </span>
+            )}
+            {method.neededLabel && (
+              <span className="tutorial-step__meta-row">
+                <img src={icons.shoppingBag} className="tutorial-step__meta-icon" alt="" />
+                {method.neededLabel}
+              </span>
+            )}
           </div>
         </div>
 
         <div className="tutorial-step__split">
-          <div className="tutorial-step__left-col">
-            <TutorialVideoPlayer
-              heading={`Step ${stepNumber}`}
-              media={media}
-              containerRef={containerRef}
-              player={player}
-              hasVideo={hasVideo}
-              onPrevStep={() => navigate(-1)}
-              onNextStep={() => navigate(nextHref)}
-            />
-          </div>
+          {noVideo ? (
+            photo && (
+              <div className="tutorial-step__left-col">
+                <TutorialPhoto src={photo} />
+              </div>
+            )
+          ) : (
+            <div className="tutorial-step__left-col">
+              <TutorialVideoPlayer
+                heading={`Step ${stepNumber}`}
+                media={media}
+                containerRef={containerRef}
+                player={player}
+                hasVideo={hasVideo}
+                onPrevStep={() => navigate(-1)}
+                onNextStep={() => navigate(nextHref)}
+              />
+            </div>
+          )}
 
           <div className="tutorial-step__right-col">
             <div className="tutorial-step__heading-group">
