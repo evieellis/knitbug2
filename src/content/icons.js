@@ -24,7 +24,6 @@ import alertTriangle from '../assets/icons/alert-triangle.svg'
 import chevronRight from '../assets/icons/chevron-right.svg'
 import alertTriangleGold from '../assets/icons/alert-triangle-gold.svg'
 import checkSage from '../assets/icons/check-sage.svg'
-import celebrationGraphic from '../assets/icons/celebration-graphic.svg'
 
 export const icons = {
   bug,
@@ -52,5 +51,4 @@ export const icons = {
   chevronRight,
   alertTriangleGold,
   checkSage,
-  celebrationGraphic,
 }

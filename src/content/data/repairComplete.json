@@ -1,6 +1,7 @@
 {
   "heading": "Great Job!",
   "subtitleTemplate": "You've successfully repaired your {{mistakeTitle}}!",
+  "image": "/content-images/repair-complete/reward.png",
   "returnHomeLabel": "Return Home",
   "backToRepairOptionsLabel": "Back to Repair Options"
 }

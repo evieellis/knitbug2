@@ -4,7 +4,7 @@ import Button from '../../components/Button/Button'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { mistakeOverviews } from '../../content/mistakeOverview'
-import { heading, subtitle, returnHomeLabel, backToRepairOptionsLabel } from '../../content/repairComplete'
+import { heading, subtitle, image, returnHomeLabel, backToRepairOptionsLabel } from '../../content/repairComplete'
 import './RepairComplete.css'
 
 function RepairComplete() {
@@ -22,9 +22,11 @@ function RepairComplete() {
           <p className="repair-complete__subtitle">{subtitle(overview.title.toLowerCase())}</p>
         </div>
 
-        <div className="repair-complete__artwork">
-          <img src={icons.celebrationGraphic} className="repair-complete__artwork-image" alt="" />
-        </div>
+        {image && (
+          <div className="repair-complete__artwork">
+            <img src={image} className="repair-complete__artwork-image" alt="" />
+          </div>
+        )}
 
         <div className="repair-complete__cta-group">
           <Button href="/" variant="ghost" className="repair-complete__return-home">

@@ -3,6 +3,7 @@
 import data from './data/repairComplete.json'
 
 export const heading = data.heading
+export const image = data.image
 export const returnHomeLabel = data.returnHomeLabel
 export const backToRepairOptionsLabel = data.backToRepairOptionsLabel
 export const subtitle = (mistakeTitle) => data.subtitleTemplate.replace('{{mistakeTitle}}', mistakeTitle)

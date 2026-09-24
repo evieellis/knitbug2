@@ -8,6 +8,7 @@ const IMAGE_FOLDER_BY_SECTION = {
   galleryOfMistakes: 'gallery-swatches',
   repairOptions: 'repair',
   mistakeOverview: 'mistake-overview',
+  repairComplete: 'repair-complete',
 }
 
 // Matches the category ids in galleryOfMistakes.json — kept as a small fixed

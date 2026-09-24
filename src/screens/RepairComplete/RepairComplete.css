@@ -44,21 +44,22 @@
 }
 
 .repair-complete__artwork {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 320px;
-  height: 320px;
+  /* The reward art is a scan on white paper, so it sits in a card the shape
+     of the photo (same soft shadow as the old round badge) rather than being
+     cropped to a circle. */
+  width: 100%;
+  max-width: 480px;
   flex-shrink: 0;
   background: var(--color-white);
-  border-radius: 160px;
+  border-radius: 24px;
   box-shadow: 0 12px 32px rgba(200, 130, 130, 0.1);
   overflow: hidden;
 }
 
 .repair-complete__artwork-image {
-  width: 220px;
-  height: 220px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .repair-complete__cta-group {
@@ -82,13 +83,6 @@
   }
 
   .repair-complete__artwork {
-    width: 240px;
-    height: 240px;
-    border-radius: 120px;
-  }
-
-  .repair-complete__artwork-image {
-    width: 160px;
-    height: 160px;
+    border-radius: 16px;
   }
 }
