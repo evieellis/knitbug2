@@ -10,12 +10,19 @@ import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { repairMethods } from '../../content/repairOptions'
 import useYouTubePlayer from '../../hooks/useYouTubePlayer'
+import { useReturnToHistoryEntry } from '../../hooks/useHistoryReturn'
 import './TutorialStep.css'
 
 function TutorialStep() {
   const { categoryId, methodId, stepNumber } = useParams()
   const navigate = useNavigate()
   const [exitModalOpen, setExitModalOpen] = useState(false)
+  // Exit lands back on this method's Tutorial Overview, so Back from there
+  // goes on to Repair Options rather than into the tutorial steps again.
+  const exitTutorial = useReturnToHistoryEntry(
+    `tutorial-overview/${categoryId}/${methodId}`,
+    `/tutorials/${categoryId}/${methodId}`
+  )
   const method = repairMethods.find((item) => item.id === methodId && item.categories.includes(categoryId))
   const tutorial = method?.tutorial
 
@@ -40,7 +47,6 @@ function TutorialStep() {
   const photo = media.image || method.image
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === tutorial.steps.length - 1
-  const exitHref = `/repair/${categoryId}`
   const overviewHref = `/tutorials/${categoryId}/${methodId}`
   const nextHref = isLastStep ? `/repair-complete/${categoryId}` : `${overviewHref}/${stepIndex + 2}`
 
@@ -60,7 +66,7 @@ function TutorialStep() {
         <ExitTutorialModal
           open={exitModalOpen}
           onCancel={() => setExitModalOpen(false)}
-          exitHref={exitHref}
+          onExit={exitTutorial}
         />
 
         <div className="tutorial-step__header">

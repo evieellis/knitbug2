@@ -56,13 +56,13 @@ function FilterDropdown({ selected, onToggle, onReset }) {
         <div className="filter-dropdown__panel">
           <div className="filter-dropdown__columns">
             <div className="filter-dropdown__column">
-              <p className="filter-dropdown__heading">{filterGroups.circumstances.heading}</p>
-              {filterGroups.circumstances.items.map((item) => (
+              <p className="filter-dropdown__heading">{filterGroups.stage.heading}</p>
+              {filterGroups.stage.items.map((item) => (
                 <Checkbox
                   key={item.id}
                   label={item.label}
-                  checked={selected.circumstances.includes(item.id)}
-                  onChange={() => onToggle('circumstances', item.id)}
+                  checked={selected.stage.includes(item.id)}
+                  onChange={() => onToggle('stage', item.id)}
                 />
               ))}
             </div>

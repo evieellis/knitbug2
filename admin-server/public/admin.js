@@ -106,6 +106,7 @@ function ensureSectionFields(id, state) {
       insertAfter(method, 'description', 'warningText', '')
       insertAfter(method, 'timeMinutes', 'timeLabel', '')
       insertAfter(method, 'timeLabel', 'neededLabel', '')
+      insertAfter(method, 'badge', 'stages', [])
       if (method.tutorial?.media?.type === 'none') insertAfter(method.tutorial.media, 'type', 'image', '')
     }
   }
@@ -429,14 +430,18 @@ function buildValueEditor(container, key) {
     return buildReferenceChecklistEditor(container, key, MISTAKE_CATEGORIES)
   }
 
-  // "Tools"/"Circumstances" pick from this same section's own filterGroups
+  // "Tools"/"Stages" pick from this same section's own filterGroups
   // definitions (the filter panel on Repair Options), so ids always match
   // something real instead of being free-typed and easy to typo/mismatch.
   if (key === 'tools' && Array.isArray(value) && currentState?.filterGroups?.tools?.items) {
     return buildReferenceChecklistEditor(container, key, currentState.filterGroups.tools.items)
   }
-  if (key === 'circumstances' && Array.isArray(value) && currentState?.filterGroups?.circumstances?.items) {
-    return buildReferenceChecklistEditor(container, key, currentState.filterGroups.circumstances.items)
+
+  if (key === 'stages' && Array.isArray(value) && currentState?.filterGroups?.stage?.items) {
+    return buildWithHint(
+      buildReferenceChecklistEditor(container, key, currentState.filterGroups.stage.items),
+      'Which mistakes this repair is good for: ones still on the needles, ones already in the work, or both. Each ticked one shows as a badge on the card.'
+    )
   }
 
   // Tutorial content gets its own visually distinct callout (colored border +

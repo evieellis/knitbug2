@@ -12,20 +12,16 @@
     "shakeAgainLabel": "shake again"
   },
   "filterGroups": {
-    "circumstances": {
-      "heading": "Circumstances",
+    "stage": {
+      "heading": "Where's the mistake?",
       "items": [
         {
-          "id": "casted-off",
-          "label": "I've already casted off"
+          "id": "on-the-needles",
+          "label": "On the needles"
         },
         {
-          "id": "end-of-row",
-          "label": "The dropped stitch is on the end of the row"
-        },
-        {
-          "id": "multiple",
-          "label": "I dropped 2+ stitches"
+          "id": "in-the-work",
+          "label": "In the work"
         }
       ]
     },
@@ -99,8 +95,11 @@
       "tools": [
         "crochet-hook"
       ],
-      "circumstances": [],
       "badge": "recommended",
+      "stages": [
+        "on-the-needles",
+        "in-the-work"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "tutorial": {
@@ -244,11 +243,11 @@
       "neededLabel": "Needed: N/A",
       "timeMinutes": -9.5,
       "tools": [],
-      "circumstances": [
-        "end-of-row",
-        "multiple"
-      ],
       "badge": "good-choice",
+      "stages": [
+        "on-the-needles",
+        "in-the-work"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "tutorial": {
@@ -378,11 +377,14 @@
       "badFor": [],
       "image": "/content-images/repair/img-20260923-0007.png",
       "tools": [],
-      "circumstances": [],
       "timeMinutes": 0,
       "timeLabel": "Time: 0 Minutes",
       "neededLabel": "Needed: N/A",
       "badge": "not-recommended",
+      "stages": [
+        "on-the-needles",
+        "in-the-work"
+      ],
       "includeInEightBall": false,
       "reviewed": false,
       "ctaLabel": "See a temporary fix instead",
@@ -407,10 +409,10 @@
       "timeMinutes": 7.5,
       "neededLabel": "Needed: N/A",
       "tools": [],
-      "circumstances": [
-        "casted-off"
-      ],
       "badge": "recommended",
+      "stages": [
+        "on-the-needles"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "tutorial": {
@@ -545,13 +547,14 @@
       ],
       "image": "/content-images/repair/img-20260924-0003.png",
       "tools": [],
-      "circumstances": [
-        "casted-off"
-      ],
       "timeMinutes": 0,
       "timeLabel": "Time: 0 minutes",
       "neededLabel": "Needed: N/A",
       "badge": "good-choice",
+      "stages": [
+        "on-the-needles",
+        "in-the-work"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "ctaLabel": "Go to tutorial",
@@ -589,11 +592,13 @@
       "tools": [
         "extra-needles"
       ],
-      "circumstances": [],
       "timeMinutes": 0.5,
       "timeLabel": "Time: 1 minute",
       "neededLabel": "Needed: 1 extra needle or sewing needle",
       "badge": "good-choice",
+      "stages": [
+        "on-the-needles"
+      ],
       "includeInEightBall": true,
       "reviewed": false,
       "ctaLabel": "Skip this repair",
@@ -668,11 +673,13 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-30-23-pm.png",
       "tools": [],
-      "circumstances": [],
       "timeMinutes": 0.5,
       "timeLabel": "Time: 5-10 minutes",
       "neededLabel": "Needed: N/A",
       "badge": "time-consuming",
+      "stages": [
+        "in-the-work"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "ctaLabel": "View tutorial",
@@ -714,7 +721,7 @@
           {
             "heading": "Pull the working yarn",
             "startSeconds": 59,
-            "endSeconds": 77,
+            "endSeconds": 78,
             "checklist": [
               {
                 "id": "c1",
@@ -728,7 +735,7 @@
           {
             "heading": "Repeat step 3 until you have unraveled past the area with the mistake.",
             "startSeconds": 59,
-            "endSeconds": 77,
+            "endSeconds": 78,
             "checklist": [
               {
                 "id": "c1",
@@ -757,6 +764,13 @@
                 "text": "Make sure your stitches are not twisted!",
                 "detail": "If your stitches are twisted, you can remove them from the needle, and place them back on",
                 "image": "/content-images/repair/stitch-alignment-on-the-needle.jpg"
+              },
+              {
+                "id": "c2",
+                "status": "good",
+                "text": "After you've picked up all the stitches, you can continue knitting",
+                "detail": "",
+                "image": ""
               }
             ]
           }
@@ -783,11 +797,13 @@
         "scrap-yarn",
         "sewing-needle"
       ],
-      "circumstances": [],
       "timeMinutes": 0.5,
       "timeLabel": "Time: 5 minutes",
       "neededLabel": "Needed: Scrap yarn, sewing needle",
       "badge": "good-choice",
+      "stages": [
+        "in-the-work"
+      ],
       "includeInEightBall": true,
       "reviewed": true,
       "ctaLabel": "Skip this repair",
@@ -943,11 +959,13 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-24-at-11-58-49-pm.png",
       "tools": [],
-      "circumstances": [],
       "timeMinutes": 0.5,
       "timeLabel": "Time: 1 minute",
       "neededLabel": "Needed: N/A",
       "badge": "recommended",
+      "stages": [
+        "on-the-needles"
+      ],
       "includeInEightBall": true,
       "reviewed": false,
       "ctaLabel": "Skip this repair",

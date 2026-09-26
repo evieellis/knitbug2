@@ -10,6 +10,7 @@ import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { repairMethods } from '../../content/repairOptions'
 import useYouTubePlayer from '../../hooks/useYouTubePlayer'
+import { useRememberHistoryEntry } from '../../hooks/useHistoryReturn'
 import './TutorialOverview.css'
 
 function TutorialOverview() {
@@ -20,6 +21,8 @@ function TutorialOverview() {
 
   const containerRef = useRef(null)
   const player = useYouTubePlayer(containerRef, tutorial?.media)
+  // So Exit Tutorial can return here (see TutorialStep).
+  useRememberHistoryEntry(`tutorial-overview/${categoryId}/${methodId}`)
 
   if (!tutorial || !method) return <NotBuilt />
 

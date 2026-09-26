@@ -150,7 +150,9 @@
           "description": "",
           "image": "/content-images/questionnaire/images-2-1-1.jpeg",
           "annotatedImage": "",
-          "howToTell": []
+          "howToTell": [
+            "Stretch your work. If the part you suspect is the problem is also significantly less stretchy, there's a good chance you're correct."
+          ]
         },
         {
           "id": "changed-size",
@@ -232,7 +234,10 @@
           "description": "There is a ladder of looser strands of yarn. at the bottom of that ladder, there are one or more loops that are actively unraveling.",
           "image": "/content-images/questionnaire/img-20260923-0002-1.png",
           "annotatedImage": "",
-          "howToTell": []
+          "howToTell": [
+            "1+ stitches actively unraveling",
+            "If you pull at the loose stitch, it will come undone further, creating another rung in the ladder."
+          ]
         },
         {
           "id": "y-stitches",
@@ -240,7 +245,9 @@
           "description": "Some of the stitches do not look like the others. They are slightly slanted and less stretchy. You could say that they look more like lowercase y's than v's",
           "image": "/content-images/questionnaire/images-2-1-2.jpeg",
           "annotatedImage": "",
-          "howToTell": []
+          "howToTell": [
+            "Stretch your work. If the part you suspect is the problem is also significantly less stretchy, there's a good chance you're correct."
+          ]
         }
       ],
       "rules": [
@@ -679,7 +686,10 @@
           "description": "",
           "image": "/content-images/questionnaire/img-20260923-0002-1-2.png",
           "annotatedImage": "",
-          "howToTell": []
+          "howToTell": [
+            "If you pull at the loose stitch, it will come undone further, creating another rung in the ladder.",
+            "1+ stitches actively unraveling."
+          ]
         },
         {
           "id": "neither-not-sure",

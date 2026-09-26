@@ -1,5 +1,6 @@
 import { useId, useState } from 'react'
 import Modal from '../Modal/Modal'
+import useShrinkToFit from '../../hooks/useShrinkToFit'
 import './SignCard.css'
 
 function SignCard({ label, detail, image }) {
@@ -8,10 +9,12 @@ function SignCard({ label, detail, image }) {
   // Same rule as ChecklistItem: only offer the "?" when there's something to
   // show — a picture alone is enough, it doesn't need detail text with it.
   const hasPopup = Boolean(detail || image)
+  // The card is a fixed height, so long labels shrink to fit instead of spilling out.
+  const labelRef = useShrinkToFit(label)
 
   return (
     <div className="sign-card">
-      <p className="sign-card__label">{label}</p>
+      <p ref={labelRef} className="sign-card__label">{label}</p>
       {hasPopup && (
         <>
           <button

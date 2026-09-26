@@ -1,10 +1,9 @@
 import { useId } from 'react'
-import { Link } from 'react-router-dom'
 import Modal from '../Modal/Modal'
 import { icons } from '../../content/icons'
 import './ExitTutorialModal.css'
 
-function ExitTutorialModal({ open, onCancel, exitHref }) {
+function ExitTutorialModal({ open, onCancel, onExit }) {
   const titleId = useId()
 
   return (
@@ -25,10 +24,10 @@ function ExitTutorialModal({ open, onCancel, exitHref }) {
           <img src={icons.chevronLeft} className="exit-tutorial-modal__go-back-icon" alt="" />
           <span>Go Back</span>
         </button>
-        <Link to={exitHref} className="exit-tutorial-modal__confirm">
+        <button type="button" className="exit-tutorial-modal__confirm" onClick={onExit}>
           <img src={icons.xClose} alt="" />
           <span>Exit Tutorial</span>
-        </Link>
+        </button>
       </div>
     </Modal>
   )

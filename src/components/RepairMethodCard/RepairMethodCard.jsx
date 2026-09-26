@@ -1,10 +1,11 @@
 import ArrowLink from '../ArrowLink/ArrowLink'
 import RepairBadge from '../RepairBadge/RepairBadge'
+import RepairStageBadges from '../RepairStageBadge/RepairStageBadge'
 import { icons } from '../../content/icons'
 import useFillLineClamp from '../../hooks/useFillLineClamp'
 import './RepairMethodCard.css'
 
-function RepairMethodCard({ title, description, image, timeLabel, neededLabel, warningText, badge, href }) {
+function RepairMethodCard({ title, description, image, timeLabel, neededLabel, warningText, badge, stages, href }) {
   // Every card has a plain description; warningText is an optional extra line
   // under it — red with a warning icon on a "Not Recommended" card, otherwise
   // a reassuring green check (e.g. "Won't unravel!").
@@ -22,6 +23,7 @@ function RepairMethodCard({ title, description, image, timeLabel, neededLabel, w
       <div className="repair-card__body">
         <div className="repair-card__header">
           <RepairBadge badge={badge} />
+          <RepairStageBadges stages={stages} />
         </div>
         <p className="repair-card__title">{title}</p>
         <img src={image} className="repair-card__image" alt="" />

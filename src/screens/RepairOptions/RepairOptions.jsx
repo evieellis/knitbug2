@@ -7,6 +7,7 @@ import Pagination from '../../components/Pagination/Pagination'
 import EightBallPopup from '../../components/EightBallPopup/EightBallPopup'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
+import { useRememberHistoryEntry } from '../../hooks/useHistoryReturn'
 import { mistakeOverviews } from '../../content/mistakeOverview'
 import { subheading, eightBallLabel, filterGroups, repairMethods } from '../../content/repairOptions'
 import './RepairOptions.css'
@@ -26,18 +27,19 @@ const BADGE_ORDER = {
 const DEFAULT_BADGE_RANK = 2
 
 const defaultFilters = {
-  circumstances: [],
+  stage: [],
   tools: filterGroups.tools.items.map((item) => item.id),
   time: [],
 }
 
 function matchesFilters(method, filters) {
-  // A method with no circumstances of its own (e.g. the "Just leave it?" card)
-  // applies universally rather than being gated by this filter.
-  const circumstancesOk =
-    filters.circumstances.length === 0 ||
-    method.circumstances.length === 0 ||
-    filters.circumstances.some((id) => method.circumstances.includes(id))
+  // A method that hasn't been marked as on-the-needles or in-the-work yet
+  // isn't hidden by the stage filter.
+  const methodStages = method.stages || []
+  const stageOk =
+    filters.stage.length === 0 ||
+    methodStages.length === 0 ||
+    filters.stage.some((id) => methodStages.includes(id))
 
   const toolsOk = method.tools.every((toolId) => filters.tools.includes(toolId))
 
@@ -48,13 +50,14 @@ function matchesFilters(method, filters) {
       return bucket && method.timeMinutes <= bucket.maxMinutes
     })
 
-  return circumstancesOk && toolsOk && timeOk
+  return stageOk && toolsOk && timeOk
 }
 
 function RepairOptions() {
   const { categoryId } = useParams()
   const navigate = useNavigate()
   const overview = mistakeOverviews[categoryId]
+  useRememberHistoryEntry(`repair-options/${categoryId}`)
 
   // A method can list more than one mistake category (see its `categories`
   // field) and show up under all of them — the tutorial link is built here,

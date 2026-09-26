@@ -24,19 +24,19 @@
           },
           {
             "id": "sign-2",
-            "label": "",
+            "label": "A ladder of looser string",
             "detail": "",
             "image": ""
           },
           {
             "id": "sign-3",
-            "label": "",
+            "label": "1 or more fewer stitches than originally on the needles",
             "detail": "",
             "image": ""
           },
           {
             "id": "sign-4",
-            "label": "",
+            "label": "A possible gap between stitches on the needles",
             "detail": "",
             "image": ""
           }
@@ -147,6 +147,12 @@
             "label": "An extra column of stitches has been created after the hole",
             "detail": "",
             "image": ""
+          },
+          {
+            "id": "sign-3-new",
+            "label": "On the needles, one stitch sits on a slant with a small gap underneath.",
+            "detail": "",
+            "image": "/content-images/mistake-overview/img-20260923-0014.png"
           }
         ]
       },

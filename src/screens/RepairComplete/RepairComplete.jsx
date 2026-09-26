@@ -5,11 +5,13 @@ import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
 import { mistakeOverviews } from '../../content/mistakeOverview'
 import { heading, subtitle, image, returnHomeLabel, backToRepairOptionsLabel } from '../../content/repairComplete'
+import { useReturnToHistoryEntry } from '../../hooks/useHistoryReturn'
 import './RepairComplete.css'
 
 function RepairComplete() {
   const { categoryId } = useParams()
   const overview = mistakeOverviews[categoryId]
+  const returnToRepairOptions = useReturnToHistoryEntry(`repair-options/${categoryId}`, `/repair/${categoryId}`)
 
   if (!overview) return <NotBuilt />
 
@@ -34,6 +36,10 @@ function RepairComplete() {
           </Button>
           <Button
             href={`/repair/${categoryId}`}
+            onClick={(event) => {
+              event.preventDefault()
+              returnToRepairOptions()
+            }}
             variant="rose"
             icon={icons.arrowRightWhite}
             className="repair-complete__repair-options-btn"
