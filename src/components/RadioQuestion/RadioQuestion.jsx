@@ -1,8 +1,10 @@
-import { useId, useState } from 'react'
+import { useId } from 'react'
 import './RadioQuestion.css'
 
-function RadioQuestion({ question, choices, defaultChoiceId }) {
-  const [selectedId, setSelectedId] = useState(defaultChoiceId)
+// Controlled: the parent owns the selection (null = nothing picked). Clicking the
+// already-checked choice clears it — native radios can't be unchecked, and never
+// fire change for that click, so onClick handles it.
+function RadioQuestion({ question, choices, selectedId, onSelect }) {
   const name = useId()
   const titleId = useId()
 
@@ -21,7 +23,10 @@ function RadioQuestion({ question, choices, defaultChoiceId }) {
               name={name}
               value={choice.id}
               checked={selectedId === choice.id}
-              onChange={() => setSelectedId(choice.id)}
+              onChange={() => onSelect(choice.id)}
+              onClick={() => {
+                if (selectedId === choice.id) onSelect(null)
+              }}
               className="radio-question__input"
             />
             <span className="radio-question__label">{choice.label}</span>

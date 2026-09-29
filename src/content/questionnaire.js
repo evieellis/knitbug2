@@ -14,3 +14,18 @@ export const resultsPage = {
   ...data.resultsPage,
   heading: (mistakeTitle) => data.resultsPage.headingTemplate.replace('{{mistakeTitle}}', mistakeTitle),
 }
+
+// Checks rules in array order — combo rules are listed before their single-option
+// fallbacks in questionnaire.js, so the first rule whose ids are all selected wins.
+export function resolveNext(question, selectedIds) {
+  const rule = question.rules.find((candidate) => candidate.ids.every((id) => selectedIds.includes(id)))
+  return rule ? rule.next : null
+}
+
+export function resolvePath(next) {
+  if (!next) return null
+  if (typeof next === 'object') return `/questionnaire/results/${next.result}`
+  if (next === 'uncertain') return '/questionnaire/uncertain'
+  if (next === 'sidequest-1') return '/questionnaire/sidequest-1'
+  return `/questionnaire/${next}`
+}

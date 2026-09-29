@@ -34,7 +34,7 @@ function QuestionOptionCard({ label, description, image, annotatedImage, howToTe
               }}
               aria-label={`Enlarge ${label}`}
             >
-              <img src={icons.magnifyingGlass} className="image-zoom-btn__icon" alt="" />
+              <img src={icons.zoomInWhite} className="image-zoom-btn__icon" alt="" />
             </button>
           </div>
         ) : (

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import RadioQuestion from '../RadioQuestion/RadioQuestion'
 import GalleryPreview from '../GalleryPreview/GalleryPreview'
 import Button from '../Button/Button'
@@ -7,6 +8,10 @@ import './OptionCard.css'
 function OptionCard(option) {
   const { type, heading, subheading, ctaLabel, href } = option
   const isQuestionnaire = type === 'questionnaire'
+  const [selectedChoiceId, setSelectedChoiceId] = useState(null)
+
+  // A picked choice answers question 1, so the CTA skips past it to step 2.
+  const choiceHref = isQuestionnaire && selectedChoiceId ? option.hrefForChoice(selectedChoiceId) : null
 
   return (
     <div className="option-card">
@@ -19,7 +24,8 @@ function OptionCard(option) {
         <RadioQuestion
           question={option.question}
           choices={option.choices}
-          defaultChoiceId={option.defaultChoiceId}
+          selectedId={selectedChoiceId}
+          onSelect={setSelectedChoiceId}
         />
       ) : (
         <GalleryPreview
@@ -29,7 +35,8 @@ function OptionCard(option) {
       )}
 
       <Button
-        href={href}
+        href={choiceHref ?? href}
+        state={choiceHref ? { depth: 2 } : undefined}
         variant={isQuestionnaire ? 'solid' : 'outline'}
         icon={isQuestionnaire ? icons.arrowRightWhite : icons.arrowRightDark}
         stretch

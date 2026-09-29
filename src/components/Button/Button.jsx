@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import './Button.css'
 
-function Button({ href, variant = 'solid', icon, iconPosition = 'trailing', stretch, className = '', onClick, children }) {
+function Button({ href, state, variant = 'solid', icon, iconPosition = 'trailing', stretch, className = '', onClick, children }) {
   return (
     <Link
       to={href}
+      state={state}
       onClick={onClick}
       className={`btn btn--${variant}${stretch ? ' btn--stretched' : ''}${className ? ` ${className}` : ''}`}
     >

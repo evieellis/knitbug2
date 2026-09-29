@@ -1,4 +1,5 @@
 .category-row {
+  position: relative;
   width: 100%;
   padding: 20px;
   background: var(--color-white);
@@ -51,6 +52,19 @@
   text-decoration: underline;
 }
 
+/* Stretches the "Learn More" link over the whole box, so clicking anywhere
+   that isn't a swatch or pager arrow opens the mistake's overview. */
+.category-row__see-more::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.category-row:has(.category-row__see-more) {
+  cursor: pointer;
+}
+
 .category-row__see-more-icon {
   width: 16px;
   height: 16px;
@@ -60,9 +74,16 @@
   position: relative;
 }
 
+/* Lifted above the stretched "Learn More" link as a whole (its fade mask makes
+   it one stacking context anyway); pointer-events: none lets clicks in
+   the gaps between swatches fall through to that link, while the swatches
+   themselves re-enable pointer events (see SwatchCard.css). */
 .category-row__viewport {
+  position: relative;
+  z-index: 2;
   overflow: hidden;
   width: 100%;
+  pointer-events: none;
 }
 
 /* Fade width sized to the overlaid arrow button itself (32px) plus a little

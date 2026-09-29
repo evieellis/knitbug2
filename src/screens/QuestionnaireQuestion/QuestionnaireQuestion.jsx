@@ -4,23 +4,8 @@ import Navbar from '../../components/Navbar/Navbar'
 import QuestionOptionCard from '../../components/QuestionOptionCard/QuestionOptionCard'
 import NotBuilt from '../NotBuilt/NotBuilt'
 import { icons } from '../../content/icons'
-import { questions } from '../../content/questionnaire'
+import { questions, resolveNext, resolvePath } from '../../content/questionnaire'
 import './QuestionnaireQuestion.css'
-
-// Checks rules in array order — combo rules are listed before their single-option
-// fallbacks in questionnaire.js, so the first rule whose ids are all selected wins.
-function resolveNext(question, selectedIds) {
-  const rule = question.rules.find((candidate) => candidate.ids.every((id) => selectedIds.includes(id)))
-  return rule ? rule.next : null
-}
-
-function resolvePath(next) {
-  if (!next) return null
-  if (typeof next === 'object') return `/questionnaire/results/${next.result}`
-  if (next === 'uncertain') return '/questionnaire/uncertain'
-  if (next === 'sidequest-1') return '/questionnaire/sidequest-1'
-  return `/questionnaire/${next}`
-}
 
 function QuestionnaireQuestion() {
   const { questionId } = useParams()

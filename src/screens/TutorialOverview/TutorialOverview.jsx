@@ -40,7 +40,7 @@ function TutorialOverview() {
     <div className="tutorial-overview">
       <Navbar />
       <main className="tutorial-overview__content">
-        <button type="button" className="btn btn--chip" onClick={() => navigate(-1)}>
+        <button type="button" className="btn btn--chip tutorial-overview__back" onClick={() => navigate(-1)}>
           <img src={icons.chevronLeft} className="btn__icon" alt="" />
           <span>Back</span>
         </button>
@@ -129,8 +129,13 @@ function TutorialOverview() {
               )}
             </section>
 
-            <section className="tutorial-overview__section">
-              <p className="tutorial-overview__section-heading">Steps</p>
+            {/* Folded by default — the full list is a lot to take in before
+                starting, and the tutorial walks through each step anyway. */}
+            <details className="tutorial-overview__steps-fold">
+              <summary className="tutorial-overview__steps-summary">
+                <span className="tutorial-overview__section-heading">Steps</span>
+                <img src={icons.chevronDown} className="tutorial-overview__steps-chevron" alt="" />
+              </summary>
               <ol className="tutorial-overview__steps">
                 {tutorial.overviewSteps.map((step, index) => (
                   <li key={index} className="tutorial-overview__step">
@@ -139,11 +144,11 @@ function TutorialOverview() {
                   </li>
                 ))}
               </ol>
-            </section>
+            </details>
 
             {/* Nothing to walk through step by step without a video. */}
             {!noVideo && (
-              <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="gold" icon={icons.arrowRightBlack}>
+              <Button href={`/tutorials/${categoryId}/${methodId}/1`} variant="green" icon={icons.arrowRightBlack}>
                 Start Tutorial
               </Button>
             )}

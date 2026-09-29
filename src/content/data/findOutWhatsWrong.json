@@ -11,22 +11,6 @@
       "type": "questionnaire",
       "heading": "Guide Me with Questions",
       "subheading": "Answer questions about what you can see.",
-      "question": "Where does it look different?",
-      "choices": [
-        {
-          "id": "on-needles",
-          "label": "On my needles"
-        },
-        {
-          "id": "in-fabric",
-          "label": "In the fabric"
-        },
-        {
-          "id": "unsure",
-          "label": "Unsure"
-        }
-      ],
-      "defaultChoiceId": "on-needles",
       "ctaLabel": "Start Questionnaire"
     },
     {

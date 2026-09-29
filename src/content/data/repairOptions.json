@@ -949,7 +949,7 @@
         "twisted-stitches"
       ],
       "title": "Reorient the stitch",
-      "description": "An easy way to untwist stitches when they are still on the needles.",
+      "description": "An easy way to untwist stitches when they are still on the needles. You will need to knit up to the twisted stitch and untwist it.",
       "warningText": "",
       "goodWhen": [
         "Stitches still on the needles"
@@ -999,6 +999,13 @@
                 "id": "c2",
                 "status": "good",
                 "text": "You can then continue knitting",
+                "detail": "",
+                "image": ""
+              },
+              {
+                "id": "c3",
+                "status": "good",
+                "text": "Knit to the stitch before the twisted one in order to do this.",
                 "detail": "",
                 "image": ""
               }
