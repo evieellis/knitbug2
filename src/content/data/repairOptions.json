@@ -63,7 +63,8 @@
         {
           "id": "under-5m",
           "label": "Under 5 minutes",
-          "maxMinutes": 5
+          "maxMinutes": 5,
+          "exclusive": true
         },
         {
           "id": "over-5m",
@@ -90,7 +91,7 @@
       ],
       "image": "/content-images/repair/step-1-insert-crochet-hook-into-stitch-from-front.jpg",
       "timeLabel": "Time: 5 - 10 minutes",
-      "timeMinutes": 7.5,
+      "timeMinutes": 5,
       "neededLabel": "Needed: Crochet Hook",
       "tools": [
         "crochet-hook"
@@ -241,7 +242,7 @@
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-00-39-pm.png",
       "timeLabel": "Time: 5 - 10 minutes",
       "neededLabel": "Needed: N/A",
-      "timeMinutes": -9.5,
+      "timeMinutes": 5,
       "tools": [],
       "badge": "good-choice",
       "stages": [
@@ -406,7 +407,7 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-09-24-pm.png",
       "timeLabel": "Time: 2 minutes",
-      "timeMinutes": 7.5,
+      "timeMinutes": 2,
       "neededLabel": "Needed: N/A",
       "tools": [],
       "badge": "recommended",
@@ -592,7 +593,7 @@
       "tools": [
         "extra-needles"
       ],
-      "timeMinutes": 0.5,
+      "timeMinutes": 1,
       "timeLabel": "Time: 1 minute",
       "neededLabel": "Needed: 1 extra needle or sewing needle",
       "badge": "good-choice",
@@ -673,7 +674,7 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-23-at-2-30-23-pm.png",
       "tools": [],
-      "timeMinutes": 0.5,
+      "timeMinutes": 5,
       "timeLabel": "Time: 5-10 minutes",
       "neededLabel": "Needed: N/A",
       "badge": "time-consuming",
@@ -797,7 +798,7 @@
         "scrap-yarn",
         "sewing-needle"
       ],
-      "timeMinutes": 0.5,
+      "timeMinutes": 5,
       "timeLabel": "Time: 5 minutes",
       "neededLabel": "Needed: Scrap yarn, sewing needle",
       "badge": "good-choice",
@@ -959,7 +960,7 @@
       ],
       "image": "/content-images/repair/screenshot-2026-09-24-at-11-58-49-pm.png",
       "tools": [],
-      "timeMinutes": 0.5,
+      "timeMinutes": 1,
       "timeLabel": "Time: 1 minute",
       "neededLabel": "Needed: N/A",
       "badge": "recommended",

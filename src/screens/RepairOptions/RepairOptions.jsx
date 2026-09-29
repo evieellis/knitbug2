@@ -47,7 +47,10 @@ function matchesFilters(method, filters) {
     filters.time.length === 0 ||
     filters.time.some((id) => {
       const bucket = filterGroups.time.items.find((item) => item.id === id)
-      return bucket && method.timeMinutes <= bucket.maxMinutes
+      if (!bucket) return false
+      // `exclusive` buckets ("Under 5 minutes") leave out methods that take
+      // exactly maxMinutes; the rest ("30 seconds or less") include them.
+      return bucket.exclusive ? method.timeMinutes < bucket.maxMinutes : method.timeMinutes <= bucket.maxMinutes
     })
 
   return stageOk && toolsOk && timeOk
